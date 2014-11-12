@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'Chat' do
+pod 'PubNub', '3.7.2'
+end
+
+target 'ChatTests' do
+
+end
+
