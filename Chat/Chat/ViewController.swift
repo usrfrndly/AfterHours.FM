@@ -24,9 +24,21 @@ class ViewController: UIViewController, PNDelegate {
         
         var channel: PNChannel = PNChannel.channelWithName("chat", shouldObservePresence: true) as PNChannel
         pubNub.subscribeOn([channel])
-
         pubNub.connect()
-
+        
+        pubNub.observationCenter.addClientConnectionStateObserver(self, withCallbackBlock: { (origin, connected, error) -> Void in
+            println(connected)
+        })
+        
+        if (pubNub.isConnected()) {
+            println("[PubNub] Connected.")
+            
+        }
+        else {
+            println("[PubNub] Not Connected.")
+        }
+        
+        /*
         pubNub.sendMessage("hey there", toChannel: channel)
         
         if (pubNub.isConnected()) {
@@ -42,7 +54,7 @@ class ViewController: UIViewController, PNDelegate {
         })
         
         //PNObservationCenter.addMessageReceiveObserver(PNObservationCenter.defaultCenter())
-        
+        */
     }
 
     override func didReceiveMemoryWarning() {
