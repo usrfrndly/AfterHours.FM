@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F563AF01A18923C00041E28 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F563AEF1A18923C00041E28 /* Player.swift */; };
 		1F8CB7BC1A1586C200B02957 /* Music.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CB7BA1A1586C200B02957 /* Music.xcdatamodeld */; };
 		1F8CB7C31A1586C200B02957 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8CB7C21A1586C200B02957 /* Images.xcassets */; };
 		1F8CB7C61A1586C200B02957 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8CB7C41A1586C200B02957 /* LaunchScreen.xib */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F563AEF1A18923C00041E28 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F8CB7B31A1586C200B02957 /* Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Music.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8CB7B71A1586C200B02957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F8CB7BB1A1586C200B02957 /* Music.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music.xcdatamodel; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				1F8CB7C41A1586C200B02957 /* LaunchScreen.xib */,
 				1F8CB7BA1A1586C200B02957 /* Music.xcdatamodeld */,
 				1F8CB7B61A1586C200B02957 /* Supporting Files */,
+				1F563AEF1A18923C00041E28 /* Player.swift */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -164,6 +167,11 @@
 				TargetAttributes = {
 					1F8CB7B21A1586C200B02957 = {
 						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					1F8CB7CA1A1586C200B02957 = {
 						CreatedOnToolsVersion = 6.1;
@@ -215,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F563AF01A18923C00041E28 /* Player.swift in Sources */,
 				1F8CB7E01A15876800B02957 /* AppDelegate.swift in Sources */,
 				1F8CB7DC1A15870D00B02957 /* ViewController.swift in Sources */,
 				1F8CB7BC1A1586C200B02957 /* Music.xcdatamodeld in Sources */,
@@ -403,6 +412,7 @@
 				1F8CB7D71A1586C200B02957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F8CB7D81A1586C200B02957 /* Build configuration list for PBXNativeTarget "MusicTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +421,7 @@
 				1F8CB7DA1A1586C200B02957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

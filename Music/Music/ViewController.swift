@@ -6,13 +6,10 @@
 import UIKit
 import AVFoundation
 import MediaPlayer
-
 class ViewController: UIViewController {
     @IBOutlet weak var playerControlButton: UIButton!
-    var player : AVPlayer? = nil
-    var playerLayer : AVPlayerLayer? = nil
-    var asset : AVAsset? = nil
-    var playerItem: AVPlayerItem? = nil
+    var player:Player! = Player()
+    
     var engine:AVAudioEngine!
     var playerNode:AVAudioPlayerNode!
     var playerTapNode:AVAudioPlayerNode!
@@ -20,80 +17,83 @@ class ViewController: UIViewController {
     var sampler:AVAudioUnitSampler!
     var buffer:AVAudioPCMBuffer!
     var audioFile:AVAudioFile!
-    var mpNowPlayingCenter:MPNowPlayingInfoCenter!
+    //var mpNowPlayingCenter:MPNowPlayingInfoCenter!
     
-    var isPlaying = false
+    
     
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
     
-    override  func viewWillDisappear(animated: Bool) {
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         //Turn off remote control event delivery
         UIApplication.sharedApplication().endReceivingRemoteControlEvents()
         //resign as first responder to events
         self.resignFirstResponder()
-        super.viewWillDisappear(animated)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Turn on remote control event delivery
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        // Set itself as first responder
         self.becomeFirstResponder()
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        /*
-        var object = PFObject(className: "Messages")
-        /*
-        object.addObject("Hello World!", forKey: "message")
-        object.saveEventually()
-        */
-        
-        var query = PFQuery(className: "Message")
-        println(query.findObjects())
-        */
-        
-        /* Initialize radio streaming */
-        
-        let audioURLWithPath = "http://relay.ah.fm/;"
-        let audioURL = NSURL(string: audioURLWithPath)
-        asset = AVAsset.assetWithURL(audioURL) as? AVAsset
-        playerItem = AVPlayerItem(asset: asset)
-        player = AVPlayer(playerItem: self.playerItem)
-        playerLayer = AVPlayerLayer(player: self.player)
-        mpNowPlayingCenter = MPNowPlayingInfoCenter.defaultCenter()
-        // Sets Now Playing information for iPhone slide up menu
-        mpNowPlayingCenter.nowPlayingInfo = [MPMediaItemPropertyArtist : "Artist!",  MPMediaItemPropertyTitle : "Title!"]
-        //mpNowPlayingCenter.
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
     }
     
+
+    
     override func remoteControlReceivedWithEvent(receivedEvent: UIEvent) {
-        if receivedEvent.type == UIEventType.RemoteControl{
-            switch receivedEvent.subtype{
-            case UIEventSubtype.RemoteControlTogglePlayPause:
-                self.playControl(nil)
-                break
+        let rc = receivedEvent.subtype
+        println("bp received remote control \(rc.rawValue)")
+            // 101 = pause, 100 = play (remote control interface on control center)
+            // 103 = playpause (remote control button on earbuds)
+        if let p = self.player{
+            switch rc{
+            case .RemoteControlTogglePlayPause:
+                if p.isPlaying {
+                    p.player.pause()
+                    p.isPlaying=false
+                    playerControlButton.setTitle("Play", forState: UIControlState.Normal)
+                } else {
+                    p.player.play()
+                    p.isPlaying=true
+                    playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
+                }
+                case .RemoteControlPlay:
+                    p.player.play()
+                    p.isPlaying=true
+                    playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
+
+                case .RemoteControlPause:
+                    p.player.pause()
+                    p.isPlaying=false
+                    playerControlButton.setTitle("Play", forState: UIControlState.Normal)
+
             default:
                 break
             }
         }
     }
     
+    
+    
     /* Play or Pause stream */
     @IBAction func playControl(sender: AnyObject?) {
-        if (!isPlaying) {
-            player!.play()
-            isPlaying = true
+        if !self.player!.isPlaying {
+            //let audioURLWithPath:NSString = "http://relay.ah.fm/;"
+            self.player.playFileAtPath()
+            let mpNowPlayingCenter = MPNowPlayingInfoCenter.defaultCenter()
+            // Sets Now Playing information for iPhone slide up menu
+            mpNowPlayingCenter.nowPlayingInfo = [MPMediaItemPropertyArtist : "Artist!",  MPMediaItemPropertyTitle : "Title!"]
+        
+            self.player.player!.play()
+            player.isPlaying = true
             playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
         }
         else {
-            player!.pause()
-            isPlaying = false
+            self.player.player!.pause()
+            player.isPlaying = false
             playerControlButton.setTitle("Play", forState: UIControlState.Normal)
         }
     }
@@ -263,6 +263,8 @@ class ViewController: UIViewController {
         playerNode.scheduleFile(audioFile, atTime:nil, completionHandler:nil)
         playerNodePlay()
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
