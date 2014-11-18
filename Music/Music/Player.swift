@@ -23,12 +23,15 @@ class Player{
     weak var delegate : PlayerDelegate?
     var observer : NSObjectProtocol!
     var isPlaying:Bool = false
+    let path = "http://relay.ah.fm/;"
+    let fileURL:NSURL!
     
     init() {
         
         // interruption notification
         // note (irrelevant for bk 2, but useful for bk 1) how to prevent retain cycle
-        
+        fileURL = NSURL(string:path)!
+
         self.observer = NSNotificationCenter.defaultCenter().addObserverForName(
             AVAudioSessionInterruptionNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {
                 [weak self](n:NSNotification!) in
@@ -63,11 +66,8 @@ class Player{
         self.isPlaying = false
     }
     
-    func playFileAtPath() {
+    func setupStream() {
         //self.player?.delegate = nil
-        
-        self.player?.pause()
-        self.isPlaying = false
         let path = "http://relay.ah.fm/;"
         let fileURL:NSURL = NSURL(string:path)!
         println("bp making a new Player")

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F563AF01A18923C00041E28 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F563AEF1A18923C00041E28 /* Player.swift */; };
+		1F7C52CB1A1ABE07001C832C /* EQController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C52CA1A1ABE07001C832C /* EQController.swift */; };
 		1F8CB7BC1A1586C200B02957 /* Music.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CB7BA1A1586C200B02957 /* Music.xcdatamodeld */; };
 		1F8CB7C31A1586C200B02957 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8CB7C21A1586C200B02957 /* Images.xcassets */; };
 		1F8CB7C61A1586C200B02957 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8CB7C41A1586C200B02957 /* LaunchScreen.xib */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1F563AEF1A18923C00041E28 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1F7C52CA1A1ABE07001C832C /* EQController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EQController.swift; sourceTree = "<group>"; };
 		1F8CB7B31A1586C200B02957 /* Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Music.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8CB7B71A1586C200B02957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F8CB7BB1A1586C200B02957 /* Music.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music.xcdatamodel; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		1F8CB7B51A1586C200B02957 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				1F7C52CA1A1ABE07001C832C /* EQController.swift */,
 				1F8CB7DF1A15876800B02957 /* AppDelegate.swift */,
 				1F8CB7DD1A15874100B02957 /* Main.storyboard */,
 				1F8CB7DB1A15870D00B02957 /* ViewController.swift */,
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F563AF01A18923C00041E28 /* Player.swift in Sources */,
+				1F7C52CB1A1ABE07001C832C /* EQController.swift in Sources */,
 				1F8CB7E01A15876800B02957 /* AppDelegate.swift in Sources */,
 				1F8CB7DC1A15870D00B02957 /* ViewController.swift in Sources */,
 				1F8CB7BC1A1586C200B02957 /* Music.xcdatamodeld in Sources */,

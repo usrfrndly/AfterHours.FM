@@ -8,16 +8,11 @@ import AVFoundation
 import MediaPlayer
 class ViewController: UIViewController {
     @IBOutlet weak var playerControlButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet weak var EQButton: UIButton!
     var player:Player! = Player()
     
-    var engine:AVAudioEngine!
-    var playerNode:AVAudioPlayerNode!
-    var playerTapNode:AVAudioPlayerNode!
-    var mixer:AVAudioMixerNode!
-    var sampler:AVAudioUnitSampler!
-    var buffer:AVAudioPCMBuffer!
-    var audioFile:AVAudioFile!
-    //var mpNowPlayingCenter:MPNowPlayingInfoCenter!
     
     
     
@@ -39,6 +34,7 @@ class ViewController: UIViewController {
         self.becomeFirstResponder()
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
+        
     }
     
 
@@ -52,24 +48,15 @@ class ViewController: UIViewController {
             switch rc{
             case .RemoteControlTogglePlayPause:
                 if p.isPlaying {
-                    p.player.pause()
-                    p.isPlaying=false
-                    playerControlButton.setTitle("Play", forState: UIControlState.Normal)
+                    self.pauseActions()
                 } else {
-                    p.player.play()
-                    p.isPlaying=true
-                    playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
+                    self.playActions()
                 }
-                case .RemoteControlPlay:
-                    p.player.play()
-                    p.isPlaying=true
-                    playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
+            case .RemoteControlPlay:
+                    self.playActions()
 
-                case .RemoteControlPause:
-                    p.player.pause()
-                    p.isPlaying=false
-                    playerControlButton.setTitle("Play", forState: UIControlState.Normal)
-
+            case .RemoteControlPause:
+                    self.pauseActions()
             default:
                 break
             }
@@ -82,186 +69,70 @@ class ViewController: UIViewController {
     @IBAction func playControl(sender: AnyObject?) {
         if !self.player!.isPlaying {
             //let audioURLWithPath:NSString = "http://relay.ah.fm/;"
-            self.player.playFileAtPath()
+            pauseActions()
+            self.player.setupStream()
             let mpNowPlayingCenter = MPNowPlayingInfoCenter.defaultCenter()
             // Sets Now Playing information for iPhone slide up menu
+            
+            //TODO: Should this be in player class?
             mpNowPlayingCenter.nowPlayingInfo = [MPMediaItemPropertyArtist : "Artist!",  MPMediaItemPropertyTitle : "Title!"]
-        
-            self.player.player!.play()
-            player.isPlaying = true
-            playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
+            playActions()
         }
         else {
-            self.player.player!.pause()
-            player.isPlaying = false
-            playerControlButton.setTitle("Play", forState: UIControlState.Normal)
+            pauseActions()
         }
     }
     
-    /* EQ Controls */
-    func initAudioEngine () {
+    
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+        if identifier == "RadioToEQSegue" {
         
-        engine = AVAudioEngine()
-        playerNode = AVAudioPlayerNode()
-        playerTapNode = AVAudioPlayerNode()
-        engine.attachNode(playerNode)
-        engine.attachNode(playerTapNode)
-        mixer = engine.mainMixerNode
-        // engine.connect(playerNode, to: mixer, format: mixer.outputFormatForBus(0))
-        //        engine.connect(playerNode, to: engine.mainMixerNode, format: mixer.outputFormatForBus(0))
-        
-        mixer.outputVolume = 1.0
-        mixer.pan = 0.0 // -1 to +1
-        var iformat = engine.inputNode.inputFormatForBus(0)
-        println("input format \(iformat)")
-        
-        var error: NSError?
-        if !engine.startAndReturnError(&error) {
-            println("error couldn't start engine")
-            if let e = error {
-                println("error \(e.localizedDescription)")
+        // by default, transition
+            return true
+        }
+        else if identifier == "ShowEQSegue"{
+            self.containerView.hidden = false
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
+        if (segue.identifier == "RadioToEQSegue" || segue.identifier == "ShowEQSegue"){
+            
+            var svc = segue!.destinationViewController as EQController;
+            svc.player = self.player
+        }
+    }
+    
+    /* The set of changes made every time player is set to play */
+    func playActions(){
+        if let p = self.player{
+            self.player.isPlaying=true
+            if let po = self.player.player{
+                self.player.player.play()
             }
         }
-        
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector:"configChange:",
-            name:AVAudioEngineConfigurationChangeNotification,
-            object:engine)
-        
-        reverb()
-        distortion()
-        delay()
-        //        addEQ(audioFile)
-        //        timePitch()
-        //        varispeed()
-        
-        var format = mixer.outputFormatForBus(0)
-        //engine.connect(playerNode, to: mixer, format: format)
-        
-        engine.connect(playerNode, to: reverbNode, format: format)
-        engine.connect(reverbNode, to: distortionNode, format: format)
-        engine.connect(distortionNode, to: delayNode, format: format)
-        engine.connect(delayNode, to: mixer, format: format)
-        
-        // tapMixer()
-        
+    self.playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
+        self.EQButton.hidden = false
         
     }
     
-    
-    
-    @IBAction func reverbWetDryMix(sender: UISlider) {
-        reverbNode.wetDryMix = sender.value
-    }
-    
-    var reverbNode:AVAudioUnitReverb!
-    func reverb() {
-        reverbNode = AVAudioUnitReverb()
-        reverbNode.loadFactoryPreset(.Cathedral)
-        engine.attachNode(reverbNode)
-        //The blend is specified as a percentage. The range is 0% (all dry) through 100% (all wet).
-        reverbNode.wetDryMix = 0.0
-        // engine.connect(playerNode, to: reverbNode, format: mixer.outputFormatForBus(0))
-        // engine.connect(reverbNode, to: mixer, format: mixer.outputFormatForBus(0))
-    }
-    
-    @IBAction func distortionWetDryMix(sender: UISlider) {
-        distortionNode.wetDryMix = sender.value
-    }
-    
-    var distortionNode:AVAudioUnitDistortion!
-    func distortion() {
-        distortionNode = AVAudioUnitDistortion()
-        distortionNode.loadFactoryPreset(.SpeechAlienChatter)
-        // The blend is specified as a percentage. The default value is 50%. The range is 0% (all dry) through 100% (all wet).
-        distortionNode.wetDryMix = 0
-        //The default value is -6 db. The valid range of values is -80 db to 20 db
-        distortionNode.preGain = 0
-        engine.attachNode(distortionNode)
-        //engine.connect(playerNode, to: auDistortion, format: mixer.outputFormatForBus(0))
-        //engine.connect(auDistortion, to: mixer, format: mixer.outputFormatForBus(0))
-    }
-    
-    @IBAction func delayWetDryMix(sender: UISlider) {
-        delayNode.wetDryMix = sender.value
-    }
-    
-    @IBAction func delayTime(sender: UISlider) {
-        var t = NSTimeInterval(sender.value)
-        delayNode.delayTime = t
-    }
-    
-    @IBAction func delayFeedback(sender: UISlider) {
-        delayNode.feedback = sender.value
-    }
-    
-    @IBAction func delayLowpass(sender: UISlider) {
-        delayNode.lowPassCutoff = sender.value
-    }
-    
-    var delayNode:AVAudioUnitDelay!
-    func delay() {
-        delayNode = AVAudioUnitDelay()
-        //The delay is specified in seconds. The default value is 1. The valid range of values is 0 to 2 seconds.
-        delayNode.delayTime = 1
-        
-        //The feedback is specified as a percentage. The default value is 50%. The valid range of values is -100% to 100%.
-        delayNode.feedback = 50
-        
-        // The default value is 15000 Hz. The valid range of values is 10 Hz through (sampleRate/2).
-        delayNode.lowPassCutoff = 5000
-        
-        
-        //The blend is specified as a percentage. The default value is 100%. The valid range of values is 0% (all dry) through 100% (all wet).
-        delayNode.wetDryMix = 0
-        
-        engine.attachNode(delayNode)
-        // engine.connect(playerNode, to: auDelay, format: mixer.outputFormatForBus(0))
-        // engine.connect(auDelay, to: mixer, format: mixer.outputFormatForBus(0))
-    }
-    
-    var EQNode:AVAudioUnitEQ!
-    func addEQ() {
-        EQNode = AVAudioUnitEQ(numberOfBands: 2)
-        engine.attachNode(EQNode)
-        
-        var filterParams = EQNode.bands[0] as AVAudioUnitEQFilterParameters
-        filterParams.filterType = .HighPass
-        filterParams.frequency = 80.0
-        
-        filterParams = EQNode.bands[1] as AVAudioUnitEQFilterParameters
-        filterParams.filterType = .Parametric
-        filterParams.frequency = 500.0
-        filterParams.bandwidth = 2.0
-        filterParams.gain = 4.0
-        
-        var format = mixer.outputFormatForBus(0)
-        engine.connect(playerNode, to: EQNode, format: format )
-        engine.connect(EQNode, to: engine.mainMixerNode, format: format)
-    }
-    
-    var auVarispeed:AVAudioUnitVarispeed!
-    func varispeed() {
-        auVarispeed = AVAudioUnitVarispeed()
-        auVarispeed.rate = 3 //The default value is 1.0. The range of values is 0.25 to 4.0.
-        engine.attachNode(auVarispeed)
-        engine.connect(playerNode, to: auVarispeed, format: mixer.outputFormatForBus(0))
-        engine.connect(auVarispeed, to: mixer, format: mixer.outputFormatForBus(0))
-    }
-    
-    var auTimePitch:AVAudioUnitTimePitch!
-    func timePitch() {
-        auTimePitch = AVAudioUnitTimePitch()
-        auTimePitch.pitch = 1200 // In cents. The default value is 1.0. The range of values is -2400 to 2400
-        auTimePitch.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
-        engine.attachNode(auTimePitch)
-        engine.connect(playerNode, to: auTimePitch, format: mixer.outputFormatForBus(0))
-        engine.connect(auTimePitch, to: mixer, format: mixer.outputFormatForBus(0))
-    }
-    
-    @IBAction func playerNodeAction(sender: AnyObject) {
-        playerNode.scheduleFile(audioFile, atTime:nil, completionHandler:nil)
-        playerNodePlay()
+    /* The set of changes made every time   
+    player is paused */
+    func pauseActions(){
+        if let p = self.player{
+            self.player.isPlaying=false
+            if let po = self.player.player{
+                self.player.player.pause()
+            }
+            
+        }
+        self.playerControlButton.setTitle("Play", forState: UIControlState.Normal)
+        self.EQButton.hidden = true
     }
     
     
@@ -277,29 +148,8 @@ class ViewController: UIViewController {
     
     func degreesToRadians(degrees:Double) -> Double {
         return degrees / (180.0 * M_PI)
-    }
     
-    /**
-    Uses an AVAudioPlayerNode to play an audio file.
-    */
-    func playerNodePlay() {
-        if engine.running {
-            println("engine is running")
-            engine.disconnectNodeOutput(engine.inputNode)
-            engine.connect(playerNode, to: reverbNode, format: mixer.outputFormatForBus(0))
-            playerNode.play()
-        } else {
-            var error: NSError?
-            if !engine.startAndReturnError(&error) {
-                println("error couldn't start engine")
-                if let e = error {
-                    println("error \(e.localizedDescription)")
-                }
-            } else {
-                playerNode.play()
-            }
-        }
     }
-    
+        
     
 }
