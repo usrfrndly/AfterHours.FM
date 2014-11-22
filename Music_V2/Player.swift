@@ -84,10 +84,15 @@ class Player{
         self.isPlaying = false
     }
     
-    func setTitleAndArtist(artist: String,title:String){
-        println("Player.setTitleAndArtist(artist: \(artist), title:\(title))")
+    func setTitleAndArtistAndImage(artist: String,title:String, url:String ){
+        println("Player.setTitleAndArtist(artist: \(artist), title:\(title)), url:\(url)")
         let mpNowPlayingCenter = MPNowPlayingInfoCenter.defaultCenter()
-        mpNowPlayingCenter.nowPlayingInfo = [MPMediaItemPropertyArtist :artist, MPMediaItemPropertyTitle : title]
+        let urlPath = NSURL(string:url)
+        var err: NSError?
+        var imageData :NSData = NSData(contentsOfURL:urlPath!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
+        var img:UIImage = UIImage(data:imageData)!
+        var artwork = MPMediaItemArtwork(image:img)
+        mpNowPlayingCenter.nowPlayingInfo = [MPMediaItemPropertyArtist :artist, MPMediaItemPropertyTitle : title,MPMediaItemPropertyArtwork: artwork]
     }
     
     func audioPlayerDidFinishPlaying(AVPlayer!, successfully: Bool) {

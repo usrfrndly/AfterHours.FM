@@ -105,8 +105,8 @@ class ViewController: UIViewController {
                 self.player.player.playURL(player.fileURL)
             }
         }
-        
-    self.player.setTitleAndArtist("artist", title: "title")
+    
+        self.player.setTitleAndArtistAndImage("artist", title: "title", url: "http://www.ah.fm/files/djs/goodgreef.jpg")
     self.playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
         self.EQButton.hidden = false
         
