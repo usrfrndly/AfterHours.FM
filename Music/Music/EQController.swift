@@ -149,12 +149,14 @@ class EQController:UIViewController{
                 println("error \(e.localizedDescription)")
             }
         }
+        // Cannot initialize AVAudioFile from a stream, so I am at a roadblock with the EQ. AVAudioEngine is so new, and there is very little documentation.
+        // Going to try something else, if not I will try to work on implementing a buffer
         var er: NSError?
         self.audioFile = AVAudioFile(forReading:self.player.fileURL!, error:nil)
         if let err = er {
             println(err.localizedDescription)
         }
-        
+        //
         self.engine.connect(self.playerNode, to:self.mixer,format: self.audioFile.processingFormat)
         self.playerNode.scheduleFile(self.audioFile, atTime:nil, completionHandler:nil)
         if self.engine.running {
