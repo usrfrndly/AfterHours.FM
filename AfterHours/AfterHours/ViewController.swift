@@ -8,35 +8,56 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+struct Message {
+    let author : String
+    let text : String
+}
+
+class ViewController: UIViewController {
     
-    @IBOutlet var messagesTableView: UITableView!
+    @IBOutlet weak var messagesTableView: UITableView!
     
-    var arrItems = ["IOS" , "Developer","Cloud"]
+    var messages = [Message] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        /*
         var firebase = Firebase(url: "https://ahfm.firebaseio.com/")
-
+        
         firebase.observeEventType(.Value, withBlock: { snapshot in
             println(snapshot.value.objectForKey("playlist"))
             //println("\(snapshot.key) -> \(snapshot.value)")
         })
+        */
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://dev.ah.fm/omgapi/show")!)
+        var session = NSURLSession.sharedSession()
+        request.HTTPMethod = "POST"
         
-        self.messagesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    }
-    
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int{
-        return 10
-    }
-    
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell{
-        let tableCell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        tableCell.text = "Title of Row: #\(indexPath.row)"
-        tableCell.detailTextLabel.text = "Detail of Row: #\(indexPath.row)"
-        return tableCell
+        var params = ["show":"derp"] as Dictionary
+        var err: NSError?
+        
+        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            println("Response: \(response)")
+            
+            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            
+            println("Body: \(strData)\n\n")
+            
+            var err: NSError?
+            
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as NSDictionary
+            
+            println(json["show"])
+        })
+        
+        task.resume()
+
     }
     
     override func didReceiveMemoryWarning() {

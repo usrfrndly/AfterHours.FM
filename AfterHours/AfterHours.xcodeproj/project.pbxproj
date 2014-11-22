@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F189D291A1EADCA0012ACAD /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F189D281A1EADCA0012ACAD /* Firebase.framework */; };
+		1F189D2B1A1EAE7A0012ACAD /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F189D2A1A1EAE7A0012ACAD /* ChatController.swift */; };
 		1F3F27DD1A1D88F20078A185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F27DC1A1D88F20078A185 /* AppDelegate.swift */; };
 		1F3F27DF1A1D88F20078A185 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F27DE1A1D88F20078A185 /* ViewController.swift */; };
 		1F3F27E21A1D88F20078A185 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F27E01A1D88F20078A185 /* Main.storyboard */; };
 		1F3F27E41A1D88F20078A185 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F27E31A1D88F20078A185 /* Images.xcassets */; };
 		1F3F27E71A1D88F20078A185 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F27E51A1D88F20078A185 /* LaunchScreen.xib */; };
 		1F3F27F31A1D88F20078A185 /* AfterHoursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F27F21A1D88F20078A185 /* AfterHoursTests.swift */; };
-		1F3F27FE1A1D89A70078A185 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F27FD1A1D89A70078A185 /* Firebase.framework */; };
 		1F3F28001A1D8AAC0078A185 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F27FF1A1D8AAC0078A185 /* libicucore.dylib */; };
 		1F3F28021A1D8AB30078A185 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F28011A1D8AB30078A185 /* libc++.dylib */; };
 		1F3F28041A1D8ABA0078A185 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F28031A1D8ABA0078A185 /* CFNetwork.framework */; };
 		1F3F28061A1D8AC20078A185 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F28051A1D8AC20078A185 /* Security.framework */; };
 		1F3F28081A1D8AC80078A185 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F28071A1D8AC80078A185 /* SystemConfiguration.framework */; };
+		1F5C02B71A2157EB001D24E2 /* ShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C02B61A2157EB001D24E2 /* ShowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F189D281A1EADCA0012ACAD /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		1F189D2A1A1EAE7A0012ACAD /* ChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		1F3F27D71A1D88F20078A185 /* AfterHours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AfterHours.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3F27DB1A1D88F20078A185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F3F27DC1A1D88F20078A185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,12 +47,12 @@
 		1F3F27F11A1D88F20078A185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F3F27F21A1D88F20078A185 /* AfterHoursTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterHoursTests.swift; sourceTree = "<group>"; };
 		1F3F27FC1A1D895A0078A185 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		1F3F27FD1A1D89A70078A185 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../Downloads/Firebase.framework; sourceTree = "<group>"; };
 		1F3F27FF1A1D8AAC0078A185 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		1F3F28011A1D8AB30078A185 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		1F3F28031A1D8ABA0078A185 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		1F3F28051A1D8AC20078A185 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1F3F28071A1D8AC80078A185 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1F5C02B61A2157EB001D24E2 /* ShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +61,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F3F28081A1D8AC80078A185 /* SystemConfiguration.framework in Frameworks */,
+				1F189D291A1EADCA0012ACAD /* Firebase.framework in Frameworks */,
 				1F3F28061A1D8AC20078A185 /* Security.framework in Frameworks */,
 				1F3F28041A1D8ABA0078A185 /* CFNetwork.framework in Frameworks */,
 				1F3F28021A1D8AB30078A185 /* libc++.dylib in Frameworks */,
 				1F3F28001A1D8AAC0078A185 /* libicucore.dylib in Frameworks */,
-				1F3F27FE1A1D89A70078A185 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +87,7 @@
 				1F3F28031A1D8ABA0078A185 /* CFNetwork.framework */,
 				1F3F28011A1D8AB30078A185 /* libc++.dylib */,
 				1F3F27FF1A1D8AAC0078A185 /* libicucore.dylib */,
-				1F3F27FD1A1D89A70078A185 /* Firebase.framework */,
+				1F189D281A1EADCA0012ACAD /* Firebase.framework */,
 				1F3F27D91A1D88F20078A185 /* AfterHours */,
 				1F3F27EF1A1D88F20078A185 /* AfterHoursTests */,
 				1F3F27D81A1D88F20078A185 /* Products */,
@@ -109,6 +113,8 @@
 				1F3F27E51A1D88F20078A185 /* LaunchScreen.xib */,
 				1F3F27DA1A1D88F20078A185 /* Supporting Files */,
 				1F3F27FC1A1D895A0078A185 /* BridgingHeader.h */,
+				1F189D2A1A1EAE7A0012ACAD /* ChatController.swift */,
+				1F5C02B61A2157EB001D24E2 /* ShowController.swift */,
 			);
 			path = AfterHours;
 			sourceTree = "<group>";
@@ -239,8 +245,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F5C02B71A2157EB001D24E2 /* ShowController.swift in Sources */,
 				1F3F27DF1A1D88F20078A185 /* ViewController.swift in Sources */,
 				1F3F27DD1A1D88F20078A185 /* AppDelegate.swift in Sources */,
+				1F189D2B1A1EAE7A0012ACAD /* ChatController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +377,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/aleksandr/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AfterHours/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -386,6 +395,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/aleksandr/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AfterHours/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -448,6 +458,7 @@
 				1F3F27F81A1D88F20078A185 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F3F27F91A1D88F20078A185 /* Build configuration list for PBXNativeTarget "AfterHoursTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +467,7 @@
 				1F3F27FB1A1D88F20078A185 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
