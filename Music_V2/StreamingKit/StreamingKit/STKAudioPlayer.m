@@ -287,8 +287,11 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
 {
     convertUnitDescription = (AudioComponentDescription)
     {
+        // identifies AudioUnits provided by Apple
         .componentManufacturer = kAudioUnitManufacturer_Apple,
+        //A format converter unit can transform audio formats, such as performing sample rate conversion. A format converter is also appropriate for deferred rendering and for effects such as varispeed. A format converter unit can ask for as much or as little audio input as it needs to produce a given output, while still completing its rendering within the time represented by the output buffer.
         .componentType = kAudioUnitType_FormatConverter,
+       // An audio unit that uses an audio converter to do linear PCM conversions, such as changes to sample rate, bit depth, or interleaving.
         .componentSubType = kAudioUnitSubType_AUConverter,
         .componentFlags = 0,
         .componentFlagsMask = 0
@@ -299,6 +302,7 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
     canonicalAudioStreamBasicDescription = (AudioStreamBasicDescription)
     {
         .mSampleRate = 44100.00,
+        //A key that specifies linear PCM, a noncompressed audio data format with one frame per packet.
         .mFormatID = kAudioFormatLinearPCM,
         .mFormatFlags = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked,
         .mFramesPerPacket = 1,
@@ -310,8 +314,10 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
 	
 	outputUnitDescription = (AudioComponentDescription)
 	{
+        //An output unit provides input, output, or both input and output simultaneously. It can be used as the head of an audio unit processing graph
 		.componentType = kAudioUnitType_Output,
 #if TARGET_OS_IPHONE
+        //An audio unit that interfaces to the audio inputs and outputs of iPhone OS devices. Bus 0 provides output to hardware and bus 1 accepts input from hardware. Called an I/O audio unit or sometimes a Remote I/O audio unit.
 		.componentSubType = kAudioUnitSubType_RemoteIO,
 #else
 		.componentSubType = kAudioUnitSubType_DefaultOutput,
@@ -321,9 +327,12 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
 		.componentManufacturer = kAudioUnitManufacturer_Apple
 	};
 	
+    //
 	mixerDescription = (AudioComponentDescription)
 	{
+        //A mixer unit takes a number of input channels and mixes them to provide one or more output channels. For example, the kAudioUnitSubType_StereoMixer audio unit in OS X takes multiple mono or stereo inputs and produce a single stereo output.
 		.componentType = kAudioUnitType_Mixer,
+        //An audio unit that can have any number of input buses, with any number of channels on each input bus, and one output bus. In OS X, the output bus can have any number of channels. In iPhone OS, the output bus always has two channels.
 		.componentSubType = kAudioUnitSubType_MultiChannelMixer,
 		.componentFlags = 0,
 		.componentFlagsMask = 0,
@@ -332,7 +341,9 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
     
 	nbandUnitDescription = (AudioComponentDescription)
 	{
+        //An effect unit repeatedly processes a number of audio input samples to produce the same number of audio output samples. Most commonly, an effect unit has a single input and a single output. Some effects take side-chain inputs as well. Effect units can be run offline, such as to process a file without playing it, but are expected to run in realtime.
 		.componentType = kAudioUnitType_Effect,
+        //A multi-band equalizer with specifiable filter type for each band.S
 		.componentSubType = kAudioUnitSubType_NBandEQ,
 		.componentManufacturer=kAudioUnitManufacturer_Apple
 	};
@@ -457,6 +468,7 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
     }
 }
 
+/* Initializers */
 -(id) init
 {
     return [self initWithOptions:(STKAudioPlayerOptions){}];
@@ -508,7 +520,7 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
         upcomingQueue = [[NSMutableArray alloc] init];
         bufferingQueue = [[NSMutableArray alloc] init];
 
-		[self resetPcmBuffers];
+        [self resetPcmBuffers];
         [self createAudioGraph];
         [self createPlaybackThread];
     }
@@ -1984,24 +1996,33 @@ static BOOL GetHardwareCodecClassDesc(UInt32 formatId, AudioClassDescription* cl
 		return;
 	}
 	
+    //eqNode represents the node that was just added to the audioprocessing graph
 	CHECK_STATUS_AND_RETURN(AUGraphAddNode(audioGraph, &nbandUnitDescription, &eqNode));
+    
+    //Returns information about the node object
+    // eqUnit is the audioUnit of the node
 	CHECK_STATUS_AND_RETURN(AUGraphNodeInfo(audioGraph, eqNode, NULL, &eqUnit));
+    
+    // Sets the value of an AudioUnit property.
+    //kAudioUnitProperty_MaximumFramesPerSlice specifies the maximum number of sample frames an audio unit is prepared to supply on one invocation of its AudioUnitRender function. and serves as the audio unit property identifier. &maxFramesPerSlice represents that data and, the last parameter represents the size of that data
 	CHECK_STATUS_AND_RETURN(AudioUnitSetProperty(eqUnit, kAudioUnitProperty_MaximumFramesPerSlice, kAudioUnitScope_Global, 0, &maxFramesPerSlice, sizeof(maxFramesPerSlice)));
 	
 	while (self->options.equalizerBandFrequencies[eqBandCount] != 0)
 	{
 		eqBandCount++;
 	}
-	
+	//Sets the property for the number of bands on the equlizer
 	CHECK_STATUS_AND_RETURN(AudioUnitSetProperty(eqUnit, kAUNBandEQProperty_NumberOfBands, kAudioUnitScope_Global, 0, &eqBandCount, sizeof(eqBandCount)));
 	
 	for (int i = 0; i < eqBandCount; i++)
 	{
+        // Sets the frequency value for the bands
 		CHECK_STATUS_AND_RETURN(AudioUnitSetParameter(eqUnit, kAUNBandEQParam_Frequency + i, kAudioUnitScope_Global, 0, (AudioUnitParameterValue)self->options.equalizerBandFrequencies[i], 0));
 	}
 	
 	for (int i = 0; i < eqBandCount; i++)
 	{
+        // Bypass the band
 		CHECK_STATUS_AND_RETURN(AudioUnitSetParameter(eqUnit, kAUNBandEQParam_BypassBand + i, kAudioUnitScope_Global, 0, (AudioUnitParameterValue)0, 0));
 	}
 #endif
@@ -2015,6 +2036,8 @@ static BOOL GetHardwareCodecClassDesc(UInt32 formatId, AudioClassDescription* cl
 	}
     
     OSStatus status;
+    
+    
 	
 	CHECK_STATUS_AND_RETURN(AudioUnitSetParameter(eqUnit, kAUNBandEQParam_Gain + bandIndex, kAudioUnitScope_Global, 0, gain, 0));
 }

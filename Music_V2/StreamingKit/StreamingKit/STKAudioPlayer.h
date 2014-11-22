@@ -84,7 +84,7 @@ typedef struct
 {
     /// If YES then seeking a track will cause all pending items to be flushed from the queue
     BOOL flushQueueOnSeek;
-    /// If YES then volume control will be enabled on iOS
+    /// If YES then volu3me control will be enabled on iOS
     BOOL enableVolumeMixer;
     /// A pointer to a 0 terminated array of band frequencies (iOS 5.0 and later, OSX 10.9 and later)
     Float32 equalizerBandFrequencies[24];
@@ -149,7 +149,7 @@ typedef void(^STKFrameFilter)(UInt32 channelsPerFrame, UInt32 bytesPerFrame, UIn
 /// Returns an array of STKFrameFilterEntry objects representing the filters currently in use
 @property (readonly) NSArray* frameFilters;
 /// Returns the items pending to be played (includes buffering and upcoming items but does not include the current item)
-@property (readonly) NSArray* pendingQueue;
+@property (readonly) NSArray* pendmingQueue;
 /// The number of items pending to be played (includes buffering and upcoming items but does not include the current item)
 @property (readonly) NSUInteger pendingQueueCount;
 /// Gets the most recently queued item that is still pending to play
@@ -194,7 +194,7 @@ typedef void(^STKFrameFilter)(UInt32 channelsPerFrame, UInt32 bytesPerFrame, UIn
 -(void) playDataSource:(STKDataSource*)dataSource;
 
 /// Plays the given item (all pending queued items are removed)
--(void) playDataSource:(STKDataSource*)dataSource withQueueItemID:(NSObject*)queueItemId;
+-(void) playDataSource:(STKDataSource*)dataSource  withQueueItemID:(NSObject*)queueItemId;
 
 /// Queues the URL string for playback and uses the NSString as the queueItemID
 -(void) queue:(NSString*)urlString;
