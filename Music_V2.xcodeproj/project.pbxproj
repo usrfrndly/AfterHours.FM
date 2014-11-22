@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F530B971A2002BB0057C99F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F530B961A2002BB0057C99F /* Images.xcassets */; };
+		1F530B9A1A2002BB0057C99F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F530B981A2002BB0057C99F /* LaunchScreen.xib */; };
+		1F530BC31A2002D90057C99F /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BB21A2002D90057C99F /* NSMutableArray+STKAudioPlayer.m */; };
+		1F530BC41A2002D90057C99F /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BB41A2002D90057C99F /* STKAudioPlayer.m */; };
+		1F530BC51A2002D90057C99F /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BB61A2002D90057C99F /* STKAutoRecoveringHTTPDataSource.m */; };
+		1F530BC61A2002D90057C99F /* STKCoreFoundationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BB81A2002D90057C99F /* STKCoreFoundationDataSource.m */; };
+		1F530BC71A2002D90057C99F /* STKDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BBA1A2002D90057C99F /* STKDataSource.m */; };
+		1F530BC81A2002D90057C99F /* STKDataSourceWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BBC1A2002D90057C99F /* STKDataSourceWrapper.m */; };
+		1F530BC91A2002D90057C99F /* STKHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BBE1A2002D90057C99F /* STKHTTPDataSource.m */; };
+		1F530BCA1A2002D90057C99F /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BC01A2002D90057C99F /* STKLocalFileDataSource.m */; };
+		1F530BCB1A2002D90057C99F /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BC21A2002D90057C99F /* STKQueueEntry.m */; };
+		1F530BCD1A2002F70057C99F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F530BCC1A2002F70057C99F /* Main.storyboard */; };
+		1F530BCF1A2003110057C99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BCE1A2003110057C99F /* AppDelegate.swift */; };
+		1F530BD11A20031D0057C99F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BD01A20031D0057C99F /* ViewController.swift */; };
+		1F530BD31A2003220057C99F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BD21A2003220057C99F /* Player.swift */; };
+		1F530BD51A20032A0057C99F /* EQController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BD41A20032A0057C99F /* EQController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F530B8A1A2002BB0057C99F /* Music_V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Music_V2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F530B8E1A2002BB0057C99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F530B961A2002BB0057C99F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1F530B991A2002BB0057C99F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1F530BA41A2002BB0057C99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F530BA51A2002BB0057C99F /* Music_V2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music_V2Tests.swift; sourceTree = "<group>"; };
+		1F530BB11A2002D90057C99F /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+STKAudioPlayer.h"; path = "Music_V2/StreamingKit/StreamingKit/NSMutableArray+STKAudioPlayer.h"; sourceTree = SOURCE_ROOT; };
+		1F530BB21A2002D90057C99F /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+STKAudioPlayer.m"; path = "Music_V2/StreamingKit/StreamingKit/NSMutableArray+STKAudioPlayer.m"; sourceTree = SOURCE_ROOT; };
+		1F530BB31A2002D90057C99F /* STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STKAudioPlayer.h; path = Music_V2/StreamingKit/StreamingKit/STKAudioPlayer.h; sourceTree = SOURCE_ROOT; };
+		1F530BB41A2002D90057C99F /* STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STKAudioPlayer.m; path = Music_V2/StreamingKit/StreamingKit/STKAudioPlayer.m; sourceTree = SOURCE_ROOT; };
+		1F530BB51A2002D90057C99F /* STKAutoRecoveringHTTPDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STKAutoRecoveringHTTPDataSource.h; path = Music_V2/StreamingKit/StreamingKit/STKAutoRecoveringHTTPDataSource.h; sourceTree = SOURCE_ROOT; };
+		1F530BB61A2002D90057C99F /* STKAutoRecoveringHTTPDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STKAutoRecoveringHTTPDataSource.m; path = Music_V2/StreamingKit/StreamingKit/STKAutoRecoveringHTTPDataSource.m; sourceTree = SOURCE_ROOT; };
+		1F530BB71A2002D90057C99F /* STKCoreFoundationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STKCoreFoundationDataSource.h; path = Music_V2/StreamingKit/StreamingKit/STKCoreFoundationDataSource.h; sourceTree = SOURCE_ROOT; };
+		1F530BB81A2002D90057C99F /* STKCoreFoundationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STKCoreFoundationDataSource.m; path = Music_V2/StreamingKit/StreamingKit/STKCoreFoundationDataSource.m; sourceTree = SOURCE_ROOT; };
+		1F530BB91A2002D90057C99F /* STKDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STKDataSource.h; path = Music_V2/StreamingKit/StreamingKit/STKDataSource.h; sourceTree = SOURCE_ROOT; };
+		1F530BBA1A2002D90057C99F /* STKDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STKDataSource.m; path = Music_V2/StreamingKit/StreamingKit/STKDataSource.m; sourceTree = SOURCE_ROOT; };
+		1F530BBB1A2002D90057C99F /* STKDataSourceWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STKDataSourceWrapper.h; path = Music_V2/StreamingKit/StreamingKit/STKDataSourceWrapper.h; sourceTree = SOURCE_ROOT; };
+		1F530BBC1A2002D90057C99F /* STKDataSourceWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STKDataSourceWrapper.m; path = Music_V2/StreamingKit/StreamingKit/STKDataSourceWrapper.m; sourceTree = SOURCE_ROOT; };
+		1F530BBD1A2002D90057C99F /* STKHTTPDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STKHTTPDataSource.h; path = Music_V2/StreamingKit/StreamingKit/STKHTTPDataSource.h; sourceTree = SOURCE_ROOT; };
+		1F530BBE1A2002D90057C99F /* STKHTTPDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STKHTTPDataSource.m; path = Music_V2/StreamingKit/StreamingKit/STKHTTPDataSource.m; sourceTree = SOURCE_ROOT; };
+		1F530BBF1A2002D90057C99F /* STKLocalFileDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STKLocalFileDataSource.h; path = Music_V2/StreamingKit/StreamingKit/STKLocalFileDataSource.h; sourceTree = SOURCE_ROOT; };
+		1F530BC01A2002D90057C99F /* STKLocalFileDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STKLocalFileDataSource.m; path = Music_V2/StreamingKit/StreamingKit/STKLocalFileDataSource.m; sourceTree = SOURCE_ROOT; };
+		1F530BC11A2002D90057C99F /* STKQueueEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STKQueueEntry.h; path = Music_V2/StreamingKit/StreamingKit/STKQueueEntry.h; sourceTree = SOURCE_ROOT; };
+		1F530BC21A2002D90057C99F /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STKQueueEntry.m; path = Music_V2/StreamingKit/StreamingKit/STKQueueEntry.m; sourceTree = SOURCE_ROOT; };
+		1F530BCC1A2002F70057C99F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1F530BCE1A2003110057C99F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F530BD01A20031D0057C99F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F530BD21A2003220057C99F /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1F530BD41A20032A0057C99F /* EQController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EQController.swift; sourceTree = "<group>"; };
+		1F530BD61A2003370057C99F /* Bridging-Header-Music_V2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-Music_V2.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F530B871A2002BB0057C99F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F530B811A2002BA0057C99F = {
+			isa = PBXGroup;
+			children = (
+				1F530BAF1A2002D90057C99F /* StreamingKit */,
+				1F530B8C1A2002BB0057C99F /* Music_V2 */,
+				1F530BA21A2002BB0057C99F /* Music_V2Tests */,
+				1F530B8B1A2002BB0057C99F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F530B8B1A2002BB0057C99F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F530B8A1A2002BB0057C99F /* Music_V2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F530B8C1A2002BB0057C99F /* Music_V2 */ = {
+			isa = PBXGroup;
+			children = (
+				1F530BD61A2003370057C99F /* Bridging-Header-Music_V2.h */,
+				1F530BD41A20032A0057C99F /* EQController.swift */,
+				1F530BD21A2003220057C99F /* Player.swift */,
+				1F530BD01A20031D0057C99F /* ViewController.swift */,
+				1F530BCE1A2003110057C99F /* AppDelegate.swift */,
+				1F530BCC1A2002F70057C99F /* Main.storyboard */,
+				1F530B961A2002BB0057C99F /* Images.xcassets */,
+				1F530B981A2002BB0057C99F /* LaunchScreen.xib */,
+				1F530B8D1A2002BB0057C99F /* Supporting Files */,
+			);
+			path = Music_V2;
+			sourceTree = SOURCE_ROOT;
+		};
+		1F530B8D1A2002BB0057C99F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F530B8E1A2002BB0057C99F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F530BA21A2002BB0057C99F /* Music_V2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1F530BA51A2002BB0057C99F /* Music_V2Tests.swift */,
+				1F530BA31A2002BB0057C99F /* Supporting Files */,
+			);
+			path = Music_V2Tests;
+			sourceTree = "<group>";
+		};
+		1F530BA31A2002BB0057C99F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F530BA41A2002BB0057C99F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F530BAF1A2002D90057C99F /* StreamingKit */ = {
+			isa = PBXGroup;
+			children = (
+				1F530BB01A2002D90057C99F /* StreamingKit */,
+			);
+			name = StreamingKit;
+			path = Music_V2/StreamingKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		1F530BB01A2002D90057C99F /* StreamingKit */ = {
+			isa = PBXGroup;
+			children = (
+				1F530BB11A2002D90057C99F /* NSMutableArray+STKAudioPlayer.h */,
+				1F530BB21A2002D90057C99F /* NSMutableArray+STKAudioPlayer.m */,
+				1F530BB31A2002D90057C99F /* STKAudioPlayer.h */,
+				1F530BB41A2002D90057C99F /* STKAudioPlayer.m */,
+				1F530BB51A2002D90057C99F /* STKAutoRecoveringHTTPDataSource.h */,
+				1F530BB61A2002D90057C99F /* STKAutoRecoveringHTTPDataSource.m */,
+				1F530BB71A2002D90057C99F /* STKCoreFoundationDataSource.h */,
+				1F530BB81A2002D90057C99F /* STKCoreFoundationDataSource.m */,
+				1F530BB91A2002D90057C99F /* STKDataSource.h */,
+				1F530BBA1A2002D90057C99F /* STKDataSource.m */,
+				1F530BBB1A2002D90057C99F /* STKDataSourceWrapper.h */,
+				1F530BBC1A2002D90057C99F /* STKDataSourceWrapper.m */,
+				1F530BBD1A2002D90057C99F /* STKHTTPDataSource.h */,
+				1F530BBE1A2002D90057C99F /* STKHTTPDataSource.m */,
+				1F530BBF1A2002D90057C99F /* STKLocalFileDataSource.h */,
+				1F530BC01A2002D90057C99F /* STKLocalFileDataSource.m */,
+				1F530BC11A2002D90057C99F /* STKQueueEntry.h */,
+				1F530BC21A2002D90057C99F /* STKQueueEntry.m */,
+			);
+			name = StreamingKit;
+			path = ../../Music_V2/StreamingKit/StreamingKit;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F530B891A2002BB0057C99F /* Music_V2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F530BA91A2002BB0057C99F /* Build configuration list for PBXNativeTarget "Music_V2" */;
+			buildPhases = (
+				1F530B861A2002BB0057C99F /* Sources */,
+				1F530B871A2002BB0057C99F /* Frameworks */,
+				1F530B881A2002BB0057C99F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Music_V2;
+			productName = Music_V2;
+			productReference = 1F530B8A1A2002BB0057C99F /* Music_V2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F530B821A2002BA0057C99F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = NYU;
+				TargetAttributes = {
+					1F530B891A2002BB0057C99F = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = CEC7FXACUA;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 1F530B851A2002BA0057C99F /* Build configuration list for PBXProject "Music_V2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F530B811A2002BA0057C99F;
+			productRefGroup = 1F530B8B1A2002BB0057C99F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F530B891A2002BB0057C99F /* Music_V2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F530B881A2002BB0057C99F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F530BCD1A2002F70057C99F /* Main.storyboard in Resources */,
+				1F530B9A1A2002BB0057C99F /* LaunchScreen.xib in Resources */,
+				1F530B971A2002BB0057C99F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F530B861A2002BB0057C99F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F530BCF1A2003110057C99F /* AppDelegate.swift in Sources */,
+				1F530BC41A2002D90057C99F /* STKAudioPlayer.m in Sources */,
+				1F530BC71A2002D90057C99F /* STKDataSource.m in Sources */,
+				1F530BC51A2002D90057C99F /* STKAutoRecoveringHTTPDataSource.m in Sources */,
+				1F530BD31A2003220057C99F /* Player.swift in Sources */,
+				1F530BD11A20031D0057C99F /* ViewController.swift in Sources */,
+				1F530BC91A2002D90057C99F /* STKHTTPDataSource.m in Sources */,
+				1F530BD51A20032A0057C99F /* EQController.swift in Sources */,
+				1F530BC31A2002D90057C99F /* NSMutableArray+STKAudioPlayer.m in Sources */,
+				1F530BCB1A2002D90057C99F /* STKQueueEntry.m in Sources */,
+				1F530BC61A2002D90057C99F /* STKCoreFoundationDataSource.m in Sources */,
+				1F530BC81A2002D90057C99F /* STKDataSourceWrapper.m in Sources */,
+				1F530BCA1A2002D90057C99F /* STKLocalFileDataSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1F530B981A2002BB0057C99F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F530B991A2002BB0057C99F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F530BA71A2002BB0057C99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Music_V2/Bridging-Header-Music_V2.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1F530BA81A2002BB0057C99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Music_V2/Bridging-Header-Music_V2.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F530BAA1A2002BB0057C99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Music_V2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = Music_V2;
+				SWIFT_OBJC_BRIDGING_HEADER = "Music_V2/Bridging-Header-Music_V2.h";
+			};
+			name = Debug;
+		};
+		1F530BAB1A2002BB0057C99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Music_V2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = Music_V2;
+				SWIFT_OBJC_BRIDGING_HEADER = "Music_V2/Bridging-Header-Music_V2.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F530B851A2002BA0057C99F /* Build configuration list for PBXProject "Music_V2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F530BA71A2002BB0057C99F /* Debug */,
+				1F530BA81A2002BB0057C99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F530BA91A2002BB0057C99F /* Build configuration list for PBXNativeTarget "Music_V2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F530BAA1A2002BB0057C99F /* Debug */,
+				1F530BAB1A2002BB0057C99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F530B821A2002BA0057C99F /* Project object */;
+}
