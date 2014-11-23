@@ -30,34 +30,13 @@ class ViewController: UIViewController {
             //println("\(snapshot.key) -> \(snapshot.value)")
         })
         */
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://dev.ah.fm/omgapi/show")!)
-        var session = NSURLSession.sharedSession()
-        request.HTTPMethod = "POST"
-        
-        var params = ["show":"derp"] as Dictionary
-        var err: NSError?
-        
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            
-            println("Response: \(response)")
-            
-            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
-            
-            println("Body: \(strData)\n\n")
-            
-            var err: NSError?
-            
-            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as NSDictionary
-            
-            println(json["show"])
-        })
-        
-        task.resume()
-
+        Agent.post("http://dev.ah.fm/omgapi/show")
+            .send([ "showTitle": "Jordan Suckley - Goodgreef Radio 059 on AH.FM 13-10-2013" ])
+            .end({ (response: NSHTTPURLResponse!, data: Agent.Data!, error: NSError!) -> Void in
+                // react to the result of your request
+                println(data)
+            }
+        )
     }
     
     override func didReceiveMemoryWarning() {

@@ -21,6 +21,7 @@
 		1F3F28061A1D8AC20078A185 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F28051A1D8AC20078A185 /* Security.framework */; };
 		1F3F28081A1D8AC80078A185 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F28071A1D8AC80078A185 /* SystemConfiguration.framework */; };
 		1F5C02B71A2157EB001D24E2 /* ShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C02B61A2157EB001D24E2 /* ShowController.swift */; };
+		1F5C02B91A215EBA001D24E2 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C02B81A215EBA001D24E2 /* Agent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1F3F28051A1D8AC20078A185 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1F3F28071A1D8AC80078A185 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1F5C02B61A2157EB001D24E2 /* ShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowController.swift; sourceTree = "<group>"; };
+		1F5C02B81A215EBA001D24E2 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		1F3F27D91A1D88F20078A185 /* AfterHours */ = {
 			isa = PBXGroup;
 			children = (
+				1F5C02B81A215EBA001D24E2 /* Agent.swift */,
 				1F3F27DC1A1D88F20078A185 /* AppDelegate.swift */,
 				1F3F27DE1A1D88F20078A185 /* ViewController.swift */,
 				1F3F27E01A1D88F20078A185 /* Main.storyboard */,
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F5C02B71A2157EB001D24E2 /* ShowController.swift in Sources */,
+				1F5C02B91A215EBA001D24E2 /* Agent.swift in Sources */,
 				1F3F27DF1A1D88F20078A185 /* ViewController.swift in Sources */,
 				1F3F27DD1A1D88F20078A185 /* AppDelegate.swift in Sources */,
 				1F189D2B1A1EAE7A0012ACAD /* ChatController.swift in Sources */,
