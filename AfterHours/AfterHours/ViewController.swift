@@ -16,6 +16,7 @@ struct Message {
 class ViewController: UIViewController {
     
     @IBOutlet var radioShowLabel: UILabel!
+    @IBOutlet var djLabel: UILabel!
     
     var player = Player()
     
@@ -33,7 +34,10 @@ class ViewController: UIViewController {
             self.player.banner = snapshot.value.objectForKey("banner") as String
             
             self.radioShowLabel.text = self.player.show
+            self.djLabel.text = self.player.dj
         })
+        
+        /*
         Agent.post("http://dev.ah.fm/omgapi/show")
             .send([ "title": "Jordan Suckley - Goodgreef Radio 059 on AH.FM 13-10-2013" ])
             .end({ (response: NSHTTPURLResponse!, data: Agent.Data!, error: NSError!) -> Void in
@@ -41,6 +45,7 @@ class ViewController: UIViewController {
                 println(data)
             }
         )
+        */
     }
     
     override func didReceiveMemoryWarning() {
