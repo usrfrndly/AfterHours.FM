@@ -23,12 +23,22 @@ class EQController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         if player.isPlaying{
-            initAudioEngine()
+            //initAudioEngine()
 
         }
         
         
     }
+    
+    /* New EQ Filters */
+    
+    @IBAction func bassBoostChanged(sender: UISlider) {
+        println(sender.value)
+        player.player.setGain(sender.value,forEqualizerBand: 0)
+        player.player.setGain(sender.value,forEqualizerBand: 1)
+        player.player.setGain(sender.value,forEqualizerBand: 2)
+    }
+    
     
     /* EQ FILTERS */
     @IBAction func reverbWetDryMix(sender: UISlider) {
@@ -203,4 +213,6 @@ class EQController:UIViewController{
         // tapMixer()
         
     }
+    
+
 }

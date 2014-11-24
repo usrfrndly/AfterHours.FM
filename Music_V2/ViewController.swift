@@ -6,20 +6,29 @@
 import UIKit
 import AVFoundation
 import MediaPlayer
+
 class ViewController: UIViewController {
+    /// Play button
     @IBOutlet weak var playerControlButton: UIButton!
+    /// View Container that contains whatever is beneath the radio, such as the EQ
     @IBOutlet weak var containerView: UIView!
-    
+    /// EQ button to show EQ. Only shown when player is playing.
     @IBOutlet weak var EQButton: UIButton!
+    
+    /// Instance of the Player class
     var player:Player! = Player()
     
-    
+    /**
+    Enables running the app in the background
+    */
     override func canBecomeFirstResponder() -> Bool {
+        println("ViewController.canBecomeFirstResponder()")
         return true
     }
     
     
     override func viewWillDisappear(animated: Bool) {
+        println("ViewController.viewWillDisappear()")
         super.viewWillDisappear(animated)
         //Turn off remote control event delivery
         UIApplication.sharedApplication().endReceivingRemoteControlEvents()
@@ -27,23 +36,27 @@ class ViewController: UIViewController {
         self.resignFirstResponder()
     }
     
+    /* Enables the app to be controlled from the notification center */
     override func viewDidLoad() {
+        println("ViewController.viewDidLoad()")
         super.viewDidLoad()
         self.becomeFirstResponder()
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        
-        
     }
     
-
+    /**
+    Responds to events to control player
     
+    :param: receivedEvent The type of event used to control the player
+    */
     override func remoteControlReceivedWithEvent(receivedEvent: UIEvent) {
-        let rc = receivedEvent.subtype
-        println("bp received remote control \(rc.rawValue)")
+    println("ViewController.remoteControlReceivedWithEvent(event)")
+        let eventType = receivedEvent.subtype
+        println("View Controller received remote control  type \(eventType.rawValue)")
             // 101 = pause, 100 = play (remote control interface on control center)
             // 103 = playpause (remote control button on earbuds)
         if let p = self.player{
-            switch rc{
+            switch eventType{
             case .RemoteControlTogglePlayPause:
                 if p.isPlaying {
                     self.pauseActions()
@@ -65,7 +78,8 @@ class ViewController: UIViewController {
     
     
     /* Play or Pause stream */
-    @IBAction func playControl(sender: AnyObject?) {
+    @IBAction func playControl(sender: AnyObject?){
+        // If player is not playing, play. Else pause.
         if !self.player!.isPlaying {
             self.playActions()
         }
@@ -73,10 +87,17 @@ class ViewController: UIViewController {
             self.pauseActions()
         }
     }
- 
+    
+    /**
+    Determines whether the Main View should Segue to EQ
+    
+    :param: identifier The segue identifier
+    :param: sender     What called the segue
+    
+    :returns: Whether the main view should segue to EQControllerView
+    */
     override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
         if identifier == "RadioToEQSegue" {
-        
         // by default, transition
             return true
         }
@@ -89,6 +110,13 @@ class ViewController: UIViewController {
         }
     }
     
+    /**
+    Prepares for segue to show EQ  view and passes the player instance to this
+    new view
+    
+    :param: segue  The segue to te EQ
+    :param: sender sender
+    */
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
         if (segue.identifier == "RadioToEQSegue" || segue.identifier == "ShowEQSegue"){
             
@@ -97,7 +125,7 @@ class ViewController: UIViewController {
         }
     }
     
-    /* The set of changes made every time player is set to play */
+    /* The set of changes made every time player is made to play */
     func playActions(){
         if let p = self.player{
             self.player.isPlaying = true
@@ -105,11 +133,11 @@ class ViewController: UIViewController {
                 self.player.player.playURL(player.fileURL)
             }
         }
-    
-        self.player.setTitleAndArtistAndImage("artist", title: "title", url: "http://www.ah.fm/files/djs/goodgreef.jpg")
+        
+        //TODO: artist, title and imageUrl should be dynamically populated
+        self.player.setTitleAndArtistAndImage("artist", title: "title", imageUrl: "http://www.ah.fm/files/djs/goodgreef.jpg")
     self.playerControlButton.setTitle("Stop", forState: UIControlState.Normal)
         self.EQButton.hidden = false
-        
     }
     
     /* The set of changes made every time   

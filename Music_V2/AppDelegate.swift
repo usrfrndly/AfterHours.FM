@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+
+//TODO: We may not need this. Need to test.
 func delay(delay:Double, closure:()->()) {
     dispatch_after(
         dispatch_time(
@@ -20,27 +22,20 @@ func delay(delay:Double, closure:()->()) {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     var timer : NSTimer?
 
+    //TODO: This or Player.makePlayerActive()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         // Turn on remote control event delivery
-//       UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-////        // Set itself as first responder
-//         self.becomeFirstResponder()
-//        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: nil, error: nil)
-//        return true
-        
-        println("Called AppDelegate:application(application: UIApplication, didFinishLaunchingWithOptions)")
-            
+            println("Called AppDelegate:application(application: UIApplication, didFinishLaunchingWithOptions)")
         var err: NSErrorPointer = nil
-        
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: nil, error:err)
         return true
     }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -64,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          println("AppDelegate.\(__FUNCTION__)")
         println("bp state while entering background: \(application.applicationState.rawValue)")
         return; // comme nt out to experiment with background app performing immediate local notification
-        
         delay(2) {
             println("AppDelegate.delay(), and attempting to fire local notification")
             let ln = UILocalNotification()
@@ -76,13 +70,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         println("AppDelegate received local notification reading \(notification.alertBody)")
     }
+    
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
         println("AppDelegate.\(__FUNCTION__)")
     }
-    
-    // we are a player app, we activate playback category only when we actually start playing
-    // the rest of the time we use ambient just so we have an active category
+
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         println("AppDelegate.\(__FUNCTION__)")
@@ -90,12 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let types : UIUserNotificationType = .Alert
         let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
-        
-//        AVAudioSession.sharedInstance().setActive(true, withOptions: nil, error: nil)
-//        // new iOS 8 feature
-//        let mute = AVAudioSession.sharedInstance().secondaryAudioShouldBeSilencedHint
-//        let s = mute ? "to" : "not"
-//        println("I need \(s) mute my secondary audio at this point")
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -103,13 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         println("AppDelegate.\(__FUNCTION__)")
     }
-
-
-    
-    
-    
-    
-    
 
 }
 
