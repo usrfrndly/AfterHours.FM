@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 struct Message {
     let author : String
@@ -18,10 +20,73 @@ class ViewController: UIViewController {
     @IBOutlet var radioShowLabel: UILabel!
     @IBOutlet var djLabel: UILabel!
     
-    var player = Player()
+    var player:Player! = Player()
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        //Turn off remote control event delivery
+        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+        //resign as first responder to events
+        self.resignFirstResponder()
+    }
+    
+    override func remoteControlReceivedWithEvent(receivedEvent: UIEvent) {
+        let rc = receivedEvent.subtype
+        println("bp received remote control \(rc.rawValue)")
+        // 101 = pause, 100 = play (remote control interface on control center)
+        // 103 = playpause (remote control button on earbuds)
+        if let p = self.player{
+            switch rc{
+            case .RemoteControlTogglePlayPause:
+                if p.isPlaying {
+                    self.pauseActions()
+                } else {
+                    self.playActions()
+                }
+            case .RemoteControlPlay:
+                self.playActions()
+                
+            case .RemoteControlPause:
+                self.pauseActions()
+                
+            default:
+                break
+            }
+        }
+    }
+
+    /* The set of changes made every time player is set to play */
+    func playActions(){
+        if let p = self.player {
+            self.player.isPlaying = true
+            if let po = self.player.player{
+                self.player.player.playURL(player.fileURL)
+            }
+        }
+        
+        self.player.setTitleAndArtistAndImage(self.player.dj, title: self.player.show, url: self.player.banner)
+        
+    }
+    
+    /* The set of changes made every time
+    player is paused */
+    func pauseActions(){
+        if let p = self.player{
+            self.player.isPlaying=false
+            if let po = self.player.player{
+                self.player.player.pause()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.becomeFirstResponder()
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         // Do any additional setup after loading the view, typically from a nib.
         var firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
         
