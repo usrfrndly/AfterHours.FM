@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Now Playing Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Now Playing Controller" customClass="ViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -273,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="1434" y="388"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Controller-->
         <scene sceneID="0FS-3J-y0g">
             <objects>
-                <viewController id="Td9-tQ-pZZ" sceneMemberID="viewController">
+                <viewController id="Td9-tQ-pZZ" userLabel="Show Controller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zdy-HO-Tgi"/>
                         <viewControllerLayoutGuide type="bottom" id="7lv-jH-pO9"/>
@@ -326,7 +326,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceP-az-N9Q">
-                                                    <rect key="frame" x="50" y="47" width="500" height="19.5"/>
+                                                    <rect key="frame" x="50" y="47" width="500" height="20"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Radio Show Placeholder">
                                                             <attributes>
@@ -500,10 +500,10 @@
             </objects>
             <point key="canvasLocation" x="400" y="1656"/>
         </scene>
-        <!--View Controller-->
+        <!--DJ Page Controller-->
         <scene sceneID="Rb9-Tl-L0J">
             <objects>
-                <viewController id="Fru-hO-Pio" sceneMemberID="viewController">
+                <viewController id="Fru-hO-Pio" userLabel="DJ Page Controller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dsb-a9-avg"/>
                         <viewControllerLayoutGuide type="bottom" id="xnG-eq-gra"/>
@@ -553,7 +553,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZO-P4-C1k">
-                                                    <rect key="frame" x="50" y="47" width="500" height="19.5"/>
+                                                    <rect key="frame" x="50" y="47" width="500" height="20"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="DJ Name Placeholder">
                                                             <attributes>
@@ -694,7 +694,7 @@
         <image name="default.png" width="2048" height="1365"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K91-Sw-iou"/>
-        <segue reference="l4x-aV-VU2"/>
+        <segue reference="42I-f0-QMY"/>
+        <segue reference="gre-3G-0rT"/>
     </inferredMetricsTieBreakers>
 </document>
