@@ -13,7 +13,6 @@
 		1FEEAB271A22A4D000FC394F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FEEAB251A22A4D000FC394F /* Main.storyboard */; };
 		1FEEAB291A22A4D000FC394F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FEEAB281A22A4D000FC394F /* Images.xcassets */; };
 		1FEEAB2C1A22A4D000FC394F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEEAB2A1A22A4D000FC394F /* LaunchScreen.xib */; };
-		1FEEAB381A22A4D000FC394F /* AfterHoursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEEAB371A22A4D000FC394F /* AfterHoursTests.swift */; };
 		1FEEAB421A22A4E400FC394F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEEAB411A22A4E400FC394F /* libicucore.dylib */; };
 		1FEEAB441A22A4EA00FC394F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEEAB431A22A4EA00FC394F /* libc++.dylib */; };
 		1FEEAB461A22A4F000FC394F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEEAB451A22A4F000FC394F /* CFNetwork.framework */; };
@@ -22,16 +21,6 @@
 		1FEEAB4D1A22A55600FC394F /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEEAB4C1A22A55600FC394F /* Firebase.framework */; };
 		1FEEAB4F1A22A9D900FC394F /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEEAB4E1A22A9D900FC394F /* ChatController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1FEEAB321A22A4D000FC394F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1FEEAB141A22A4D000FC394F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1FEEAB1B1A22A4D000FC394F;
-			remoteInfo = AfterHours;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F3DF0AE1A22B7EE0092ADB2 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
@@ -42,7 +31,6 @@
 		1FEEAB261A22A4D000FC394F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FEEAB281A22A4D000FC394F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1FEEAB2B1A22A4D000FC394F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1FEEAB311A22A4D000FC394F /* AfterHoursTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AfterHoursTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEEAB361A22A4D000FC394F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FEEAB371A22A4D000FC394F /* AfterHoursTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterHoursTests.swift; sourceTree = "<group>"; };
 		1FEEAB411A22A4E400FC394F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -69,13 +57,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1FEEAB2E1A22A4D000FC394F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -98,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				1FEEAB1C1A22A4D000FC394F /* AfterHours.app */,
-				1FEEAB311A22A4D000FC394F /* AfterHoursTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,24 +144,6 @@
 			productReference = 1FEEAB1C1A22A4D000FC394F /* AfterHours.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1FEEAB301A22A4D000FC394F /* AfterHoursTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1FEEAB3E1A22A4D000FC394F /* Build configuration list for PBXNativeTarget "AfterHoursTests" */;
-			buildPhases = (
-				1FEEAB2D1A22A4D000FC394F /* Sources */,
-				1FEEAB2E1A22A4D000FC394F /* Frameworks */,
-				1FEEAB2F1A22A4D000FC394F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1FEEAB331A22A4D000FC394F /* PBXTargetDependency */,
-			);
-			name = AfterHoursTests;
-			productName = AfterHoursTests;
-			productReference = 1FEEAB311A22A4D000FC394F /* AfterHoursTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -194,10 +156,6 @@
 					1FEEAB1B1A22A4D000FC394F = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = CEC7FXACUA;
-					};
-					1FEEAB301A22A4D000FC394F = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 1FEEAB1B1A22A4D000FC394F;
 					};
 				};
 			};
@@ -215,7 +173,6 @@
 			projectRoot = "";
 			targets = (
 				1FEEAB1B1A22A4D000FC394F /* AfterHours */,
-				1FEEAB301A22A4D000FC394F /* AfterHoursTests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,13 +189,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1FEEAB2F1A22A4D000FC394F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -252,23 +202,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1FEEAB2D1A22A4D000FC394F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FEEAB381A22A4D000FC394F /* AfterHoursTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1FEEAB331A22A4D000FC394F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1FEEAB1B1A22A4D000FC394F /* AfterHours */;
-			targetProxy = 1FEEAB321A22A4D000FC394F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1FEEAB251A22A4D000FC394F /* Main.storyboard */ = {
@@ -403,40 +337,6 @@
 			};
 			name = Release;
 		};
-		1FEEAB3F1A22A4D000FC394F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AfterHoursTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AfterHours.app/AfterHours";
-			};
-			name = Debug;
-		};
-		1FEEAB401A22A4D000FC394F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AfterHoursTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AfterHours.app/AfterHours";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -454,15 +354,6 @@
 			buildConfigurations = (
 				1FEEAB3C1A22A4D000FC394F /* Debug */,
 				1FEEAB3D1A22A4D000FC394F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1FEEAB3E1A22A4D000FC394F /* Build configuration list for PBXNativeTarget "AfterHoursTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1FEEAB3F1A22A4D000FC394F /* Debug */,
-				1FEEAB401A22A4D000FC394F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

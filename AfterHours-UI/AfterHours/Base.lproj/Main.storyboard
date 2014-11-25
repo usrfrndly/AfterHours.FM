@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Now Playing Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Now Playing Controller" customClass="ViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -89,8 +89,8 @@
                                     <constraint firstItem="Iku-OU-alM" firstAttribute="leading" secondItem="qjL-rF-3ae" secondAttribute="trailing" constant="15" id="sMe-vk-4Uv"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRE-Ya-xUK">
-                                <rect key="frame" x="0.0" y="64" width="600" height="471"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uRE-Ya-xUK">
+                                <rect key="frame" x="0.0" y="64" width="600" height="406"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default.png" translatesAutoresizingMaskIntoConstraints="NO" id="vJ3-em-srr">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="471"/>
@@ -133,18 +133,80 @@
                                     <constraint firstAttribute="trailing" secondItem="pUe-pt-fM8" secondAttribute="trailing" id="mRU-rF-652"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-o3-D1U">
+                                <rect key="frame" x="0.0" y="470" width="600" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYx-HH-gw5" userLabel="EQ Image Button">
+                                        <rect key="frame" x="20" y="8" width="45" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="gyM-Kc-2un"/>
+                                            <constraint firstAttribute="width" constant="45" id="hCq-jO-Hdr"/>
+                                        </constraints>
+                                        <state key="normal" image="EQ-White">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9A-t4-4BT">
+                                        <rect key="frame" x="73" y="8" width="30" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="EQ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1H-bv-uQl">
+                                        <rect key="frame" x="515" y="8" width="69" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Discuss">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbc-J0-KMp" userLabel="Discuss Image Button">
+                                        <rect key="frame" x="446" y="8" width="61" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="foL-xX-Sv4"/>
+                                            <constraint firstAttribute="width" constant="61" id="wCs-Gb-rY9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" image="Discuss-white">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Nbc-J0-KMp" secondAttribute="trailing" constant="93" id="BH5-J0-erY"/>
+                                    <constraint firstItem="p1H-bv-uQl" firstAttribute="leading" secondItem="Nbc-J0-KMp" secondAttribute="trailing" constant="8" id="N28-vj-EaM"/>
+                                    <constraint firstAttribute="bottom" secondItem="vYx-HH-gw5" secondAttribute="bottom" constant="8" id="N4M-lO-5KV"/>
+                                    <constraint firstItem="t9A-t4-4BT" firstAttribute="top" secondItem="CGQ-o3-D1U" secondAttribute="top" constant="8" id="TRc-IF-JUh"/>
+                                    <constraint firstAttribute="trailing" secondItem="p1H-bv-uQl" secondAttribute="trailing" constant="16" id="c2A-bY-Nlh"/>
+                                    <constraint firstItem="Nbc-J0-KMp" firstAttribute="top" secondItem="CGQ-o3-D1U" secondAttribute="top" constant="8" id="hNm-v5-oGD"/>
+                                    <constraint firstAttribute="bottom" secondItem="p1H-bv-uQl" secondAttribute="bottom" constant="8" id="jty-az-8PL"/>
+                                    <constraint firstItem="p1H-bv-uQl" firstAttribute="top" secondItem="CGQ-o3-D1U" secondAttribute="top" constant="8" id="kKf-SQ-U25"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nbc-J0-KMp" secondAttribute="bottom" constant="8" id="lwe-AW-27Z"/>
+                                    <constraint firstItem="Nbc-J0-KMp" firstAttribute="height" secondItem="p1H-bv-uQl" secondAttribute="height" id="p6z-Dm-hRn"/>
+                                    <constraint firstItem="vYx-HH-gw5" firstAttribute="height" secondItem="t9A-t4-4BT" secondAttribute="height" id="sru-Eg-CeA"/>
+                                    <constraint firstItem="vYx-HH-gw5" firstAttribute="top" secondItem="CGQ-o3-D1U" secondAttribute="top" constant="8" id="tib-1l-Xg0"/>
+                                    <constraint firstItem="vYx-HH-gw5" firstAttribute="leading" secondItem="CGQ-o3-D1U" secondAttribute="leading" constant="20" id="xFe-Y2-nd7"/>
+                                    <constraint firstItem="t9A-t4-4BT" firstAttribute="leading" secondItem="vYx-HH-gw5" secondAttribute="trailing" constant="8" id="zla-Ki-L5o"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qNY-ih-ILy" secondAttribute="bottom" id="35F-r1-0Xi"/>
                             <constraint firstItem="b7t-tY-oBw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6Lw-fp-GR5"/>
                             <constraint firstAttribute="trailing" secondItem="uRE-Ya-xUK" secondAttribute="trailing" id="CW7-8Q-TRH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CGQ-o3-D1U" secondAttribute="bottom" constant="64" id="CeZ-RA-BRq"/>
+                            <constraint firstItem="CGQ-o3-D1U" firstAttribute="leading" secondItem="qNY-ih-ILy" secondAttribute="leading" id="OLC-fi-Qfk"/>
                             <constraint firstItem="b7t-tY-oBw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VZ4-im-UrD"/>
                             <constraint firstAttribute="trailing" secondItem="b7t-tY-oBw" secondAttribute="trailing" id="WCU-J8-ftD"/>
                             <constraint firstItem="qNY-ih-ILy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aMk-dG-MAn"/>
                             <constraint firstItem="qNY-ih-ILy" firstAttribute="top" secondItem="uRE-Ya-xUK" secondAttribute="bottom" id="ae2-YM-hxu"/>
                             <constraint firstItem="uRE-Ya-xUK" firstAttribute="top" secondItem="b7t-tY-oBw" secondAttribute="bottom" id="ejt-lk-vHm"/>
                             <constraint firstItem="uRE-Ya-xUK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hSb-UW-SpY"/>
+                            <constraint firstItem="CGQ-o3-D1U" firstAttribute="trailing" secondItem="qNY-ih-ILy" secondAttribute="trailing" id="v9T-5v-PNI"/>
                             <constraint firstAttribute="trailing" secondItem="qNY-ih-ILy" secondAttribute="trailing" id="z3Z-C7-umu"/>
                         </constraints>
                     </view>
@@ -273,10 +335,10 @@
             </objects>
             <point key="canvasLocation" x="1434" y="388"/>
         </scene>
-        <!--Show Controller-->
+        <!--View Controller-->
         <scene sceneID="0FS-3J-y0g">
             <objects>
-                <viewController id="Td9-tQ-pZZ" userLabel="Show Controller" sceneMemberID="viewController">
+                <viewController id="Td9-tQ-pZZ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zdy-HO-Tgi"/>
                         <viewControllerLayoutGuide type="bottom" id="7lv-jH-pO9"/>
@@ -500,10 +562,10 @@
             </objects>
             <point key="canvasLocation" x="400" y="1656"/>
         </scene>
-        <!--DJ Page Controller-->
+        <!--View Controller-->
         <scene sceneID="Rb9-Tl-L0J">
             <objects>
-                <viewController id="Fru-hO-Pio" userLabel="DJ Page Controller" sceneMemberID="viewController">
+                <viewController id="Fru-hO-Pio" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dsb-a9-avg"/>
                         <viewControllerLayoutGuide type="bottom" id="xnG-eq-gra"/>
@@ -689,6 +751,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Discuss-white" width="78" height="68"/>
+        <image name="EQ-White" width="58" height="60"/>
         <image name="Home" width="57" height="51"/>
         <image name="Play" width="130" height="130"/>
         <image name="default.png" width="2048" height="1365"/>
