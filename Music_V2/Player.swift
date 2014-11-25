@@ -30,7 +30,11 @@ class Player{
     var isPlaying:Bool = false
     /// AfterHours.fm URL stream
     let fileURL:NSURL! = NSURL(string:"http://relay.ah.fm/;")
-    
+
+    var show: String = "Radio Show"
+    var dj: String = "DJ Name"
+    var banner: String = "http://dev.ah.fm/assets/default.jpg"
+
     
     init() {
         self.setupStream()
