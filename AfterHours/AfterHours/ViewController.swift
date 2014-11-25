@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     /// View Container that contains whatever is beneath the radio, such as the EQ
     @IBOutlet weak var containerView: UIView!
     /// EQ button to show EQ. Only shown when player is playing.
-    @IBOutlet weak var EQButton: UIButton!
+    @IBOutlet weak var EQButton: UIButton?
     
     /// Instance of the Player class
     var player:Player! = Player()
@@ -141,9 +141,12 @@ class ViewController: UIViewController {
         }
         
         self.player.setTitleAndArtistAndImage(self.player.dj, title: self.player.show, imageUrl: self.player.banner)
-        var pause_img = UIImage(contentsOfFile: "Pause_button")
-        self.playerControlButton.setImage(pause_img,forState:UIControlState.Normal)
-        self.EQButton.hidden = false
+        var pause_img = UIImage(named: "Pause_button")
+        self.playerControlButton.setBackgroundImage(pause_img,forState:UIControlState.Normal)
+        if let eq_btn = self.EQButton{
+            
+            self.EQButton!.hidden = false
+        }
     }
     
     /* The set of changes made every time
@@ -155,9 +158,11 @@ class ViewController: UIViewController {
                 self.player.player.pause()
             }
         }
-        var play_img = UIImage(contentsOfFile: "Play")
-        self.playerControlButton.setImage(play_img,forState:UIControlState.Normal)
-        self.EQButton.hidden = true
+        var play_img = UIImage(named: "Play")
+        self.playerControlButton.setBackgroundImage(play_img,forState:UIControlState.Normal)
+        if let eq_btn = self.EQButton{
+            self.EQButton!.hidden = true
+        }
     }
     
     @IBAction func showEQ(sender: AnyObject) {

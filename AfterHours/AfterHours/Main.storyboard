@@ -97,20 +97,6 @@
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNY-ih-ILy">
                                 <rect key="frame" x="0.0" y="535" width="600" height="65"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjL-rF-3ae">
-                                        <rect key="frame" x="20" y="10" width="45" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="la8-2Y-DES"/>
-                                            <constraint firstAttribute="width" constant="45" id="lzh-Z8-H3v"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="Play">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4kG-Gx-AVc"/>
-                                            <segue destination="Td9-tQ-pZZ" kind="show" id="l4x-aV-VU2"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iku-OU-alM">
                                         <rect key="frame" x="80" y="10" width="510" height="21"/>
                                         <attributedString key="attributedText">
@@ -137,6 +123,20 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjL-rF-3ae">
+                                        <rect key="frame" x="20" y="10" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="la8-2Y-DES"/>
+                                            <constraint firstAttribute="width" constant="45" id="lzh-Z8-H3v"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="Play">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4kG-Gx-AVc"/>
+                                            <segue destination="Td9-tQ-pZZ" kind="show" id="l4x-aV-VU2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -183,6 +183,7 @@
                     </view>
                     <connections>
                         <outlet property="EQButton" destination="t9A-t4-4BT" id="1th-Ur-7eL"/>
+                        <outlet property="containerView" destination="Sdi-8b-ley" id="XR2-3p-dYe"/>
                         <outlet property="playerControlButton" destination="qjL-rF-3ae" id="QU0-mj-b97"/>
                         <outlet property="radioShowDJ" destination="7Td-5t-Bdc" id="6bL-KE-1ED"/>
                         <outlet property="radioShowTitle" destination="Iku-OU-alM" id="hqU-i7-W4t"/>
@@ -457,7 +458,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="playerControlPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wjr-4p-0sY"/>
+                                            <action selector="playControl:" destination="Td9-tQ-pZZ" eventType="touchUpInside" id="OcR-Pe-mbN"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGm-VW-2UE">
@@ -527,6 +528,11 @@
                             <constraint firstItem="Hcy-km-EnA" firstAttribute="leading" secondItem="iec-ez-lb8" secondAttribute="leading" id="uhu-8E-AQt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playerControlButton" destination="lEx-hd-OoS" id="azD-KX-BF3"/>
+                        <outlet property="radioShowDJ" destination="mRe-kb-s8r" id="MBF-HX-ujZ"/>
+                        <outlet property="radioShowTitle" destination="LGm-VW-2UE" id="qOz-JT-o0E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6z-Gf-imX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -647,7 +653,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="playerControlPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uT8-Au-Y5C"/>
+                                            <action selector="playControl:" destination="Fru-hO-Pio" eventType="touchUpInside" id="Krc-Ml-nhw"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YN-jb-CtC">
@@ -714,6 +720,9 @@
                             <constraint firstItem="yyx-jq-edM" firstAttribute="leading" secondItem="iJM-s4-Nep" secondAttribute="leading" id="qIG-R7-zzJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playerControlButton" destination="S39-Mp-IOt" id="tHX-Ky-oym"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEO-PY-bL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
