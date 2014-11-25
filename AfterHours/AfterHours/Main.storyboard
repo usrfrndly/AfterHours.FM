@@ -32,7 +32,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-o3-D1U">
                                 <rect key="frame" x="0.0" y="470" width="600" height="66"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYx-HH-gw5" userLabel="EQ Image Button">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYx-HH-gw5" userLabel="EQ Image Button">
                                         <rect key="frame" x="20" y="8" width="45" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gyM-Kc-2un"/>
@@ -41,14 +41,20 @@
                                         <state key="normal" image="EQ-White">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="showEQ:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vlO-Zy-ocF"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9A-t4-4BT">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9A-t4-4BT">
                                         <rect key="frame" x="73" y="8" width="30" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="EQ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="showEQ:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lKW-Am-4ei"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1H-bv-uQl">
                                         <rect key="frame" x="515" y="8" width="69" height="50"/>
@@ -101,7 +107,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="playerControlPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c3E-id-GvH"/>
+                                            <action selector="playControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4kG-Gx-AVc"/>
                                             <segue destination="Td9-tQ-pZZ" kind="show" id="l4x-aV-VU2"/>
                                         </connections>
                                     </button>
@@ -176,7 +182,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playerControlButton" destination="qjL-rF-3ae" id="uFH-1g-DgZ"/>
+                        <outlet property="EQButton" destination="t9A-t4-4BT" id="1th-Ur-7eL"/>
+                        <outlet property="playerControlButton" destination="qjL-rF-3ae" id="QU0-mj-b97"/>
                         <outlet property="radioShowDJ" destination="7Td-5t-Bdc" id="6bL-KE-1ED"/>
                         <outlet property="radioShowTitle" destination="Iku-OU-alM" id="hqU-i7-W4t"/>
                     </connections>
@@ -301,7 +308,7 @@
         <!--Show View Controller-->
         <scene sceneID="0FS-3J-y0g">
             <objects>
-                <viewController id="Td9-tQ-pZZ" userLabel="Show View Controller" sceneMemberID="viewController">
+                <viewController id="Td9-tQ-pZZ" userLabel="Show View Controller" customClass="ViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zdy-HO-Tgi"/>
                         <viewControllerLayoutGuide type="bottom" id="7lv-jH-pO9"/>
@@ -528,7 +535,7 @@
         <!--DJ Profile View Controller-->
         <scene sceneID="Rb9-Tl-L0J">
             <objects>
-                <viewController id="Fru-hO-Pio" userLabel="DJ Profile View Controller" sceneMemberID="viewController">
+                <viewController id="Fru-hO-Pio" userLabel="DJ Profile View Controller" customClass="ViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dsb-a9-avg"/>
                         <viewControllerLayoutGuide type="bottom" id="xnG-eq-gra"/>

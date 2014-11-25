@@ -39,10 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         println("Called AppDelegate.\(__FUNCTION__)")
+        return;
         self.timer?.invalidate()
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "fired:", userInfo: nil, repeats: true)
         
-        return; // comment out to perform timer experiment
+        //return; // comment out to perform timer experiment
     }
 
     func fired(timer:NSTimer) {
@@ -55,7 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         println("AppDelegate.\(__FUNCTION__)")
         println("bp state while entering background: \(application.applicationState.rawValue)")
-        
+        return; //
+
         delay(2) {
             println("AppDelegate.delay(), and attempting to fire local notification")
             let ln = UILocalNotification()
@@ -63,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.presentLocalNotificationNow(ln)
         }
         
-        return; // comme nt out to experiment with background app performing immediate local notification
+        //return; // comme nt out to experiment with background app performing immediate local notification
     }
 
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {

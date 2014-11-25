@@ -16,13 +16,31 @@ struct Message {
 }
 
 class ViewController: UIViewController {
+    @IBOutlet var playerControlButton: UIButton!
+    @IBOutlet var radioShowTitle: UILabel!
+    @IBOutlet var radioShowDJ: UILabel!
+    @IBOutlet var radioShowBackground: UIImageView!
+    @IBOutlet var radioShowBanner: UIButton!
+
+
+  
+    /// View Container that contains whatever is beneath the radio, such as the EQ
+    @IBOutlet weak var containerView: UIView!
+    /// EQ button to show EQ. Only shown when player is playing.
+    @IBOutlet weak var EQButton: UIButton!
     
-    @IBOutlet var radioShowLabel: UILabel!
-    @IBOutlet var djLabel: UILabel!
-    
+    /// Instance of the Player class
     var player:Player! = Player()
     
+    // Instance of container view controller
+    var containerViewController:ContainerViewController!
+    
+    
+    /**
+    Enables running the app in the background
+    */
     override func canBecomeFirstResponder() -> Bool {
+        println("ViewController.canBecomeFirstResponder()")
         return true
     }
     
@@ -34,13 +52,20 @@ class ViewController: UIViewController {
         self.resignFirstResponder()
     }
     
+
+    
+    /**
+    Responds to events to control player
+    
+    :param: receivedEvent The type of event used to control the player
+    */
     override func remoteControlReceivedWithEvent(receivedEvent: UIEvent) {
-        let rc = receivedEvent.subtype
-        println("bp received remote control \(rc.rawValue)")
+        let eventType = receivedEvent.subtype
+        println("View Controller received remote control  type \(eventType.rawValue)")
         // 101 = pause, 100 = play (remote control interface on control center)
         // 103 = playpause (remote control button on earbuds)
         if let p = self.player{
-            switch rc{
+            switch eventType{
             case .RemoteControlTogglePlayPause:
                 if p.isPlaying {
                     self.pauseActions()
@@ -59,7 +84,54 @@ class ViewController: UIViewController {
         }
     }
 
-    /* The set of changes made every time player is set to play */
+    
+    
+    /* Play or Pause stream */
+    @IBAction func playControl(sender: AnyObject?){
+        // If player is not playing, play. Else pause.
+        if !self.player!.isPlaying {
+            self.playActions()
+        }
+        else {
+            self.pauseActions()
+        }
+    }
+    
+    /**
+    Determines whether the View Controller should segue
+    
+    :param: identifier The segue identifier
+    :param: sender     What called the segue
+    
+    :returns: Whether the View controller should segue
+    */
+    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+
+        NSLog("\(__FILE__).\( __FUNCTION__)")
+        return true
+        
+        
+        
+    }
+    
+    /**
+    Prepares for segue to show EQ  view and passes the player instance to this
+    new view
+    
+    :param: segue  The segue to te EQ
+    :param: sender sender
+    */
+    override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
+        NSLog("\(__FILE__).\( __FUNCTION__)")
+        if (segue.identifier == "embedContainer"){
+            self.containerViewController = segue.destinationViewController as ContainerViewController
+            containerViewController.player = self.player
+            //var svc = segue!.destinationViewController as EQViewController;
+            //svc.player = self.player
+        }
+    }
+    
+    /* The set of changes made every time player is made to play */
     func playActions(){
         if let p = self.player {
             self.player.isPlaying = true
@@ -68,8 +140,10 @@ class ViewController: UIViewController {
             }
         }
         
-        self.player.setTitleAndArtistAndImage(self.player.dj, title: self.player.show, url: self.player.banner)
-        
+        self.player.setTitleAndArtistAndImage(self.player.dj, title: self.player.show, imageUrl: self.player.banner)
+        var pause_img = UIImage(contentsOfFile: "Pause_button")
+        self.playerControlButton.setImage(pause_img,forState:UIControlState.Normal)
+        self.EQButton.hidden = false
     }
     
     /* The set of changes made every time
@@ -81,6 +155,13 @@ class ViewController: UIViewController {
                 self.player.player.pause()
             }
         }
+        var play_img = UIImage(contentsOfFile: "Play")
+        self.playerControlButton.setImage(play_img,forState:UIControlState.Normal)
+        self.EQButton.hidden = true
+    }
+    
+    @IBAction func showEQ(sender: AnyObject) {
+        self.containerViewController.swapViewControllers()
     }
     
     override func viewDidLoad() {
@@ -98,8 +179,8 @@ class ViewController: UIViewController {
             self.player.dj = snapshot.value.objectForKey("dj") as String
             self.player.banner = snapshot.value.objectForKey("banner") as String
             
-            self.radioShowLabel.text = self.player.show
-            self.djLabel.text = self.player.dj
+            self.radioShowTitle.text = self.player.show
+            self.radioShowDJ.text = self.player.dj
         })
         
         /*
@@ -116,6 +197,15 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func radiansToDegrees(radians:Double) -> Double {
+        return radians * (180.0 / M_PI)
+    }
+    
+    func degreesToRadians(degrees:Double) -> Double {
+        return degrees / (180.0 * M_PI)
+        
     }
 
 }
