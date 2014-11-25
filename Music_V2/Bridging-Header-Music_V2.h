@@ -9,4 +9,7 @@
 #ifndef Music_Bridging_Header_MusicNew_h
 #define Music_Bridging_Header_MusicNew_h
 #import "STKAudioPlayer.h"
+#import <UIKit/UIKit.h>
+
+#import "EmptySegue.h"
 #endif

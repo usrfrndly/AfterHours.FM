@@ -18,6 +18,10 @@ class ViewController: UIViewController {
     /// Instance of the Player class
     var player:Player! = Player()
     
+    // Instance of container view controller
+    var containerViewController:ContainerViewController!
+    
+    
     /**
     Enables running the app in the background
     */
@@ -89,25 +93,30 @@ class ViewController: UIViewController {
     }
     
     /**
-    Determines whether the Main View should Segue to EQ
+    Determines whether the View Controller should segue
     
     :param: identifier The segue identifier
     :param: sender     What called the segue
     
-    :returns: Whether the main view should segue to EQControllerView
+    :returns: Whether the View controller should segue
     */
     override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
-        if identifier == "RadioToEQSegue" {
-        // by default, transition
-            return true
-        }
-        else if identifier == "ShowEQSegue"{
-            self.containerView.hidden = false
-            return true
-        }
-        else{
-            return false
-        }
+//        if identifier == "RadioToEQSegue" {
+//        // by default, transition
+//            return true
+//        }
+//        else if identifier == "ShowEQSegue"{
+//            self.containerView.hidden = false
+//            return true
+//        }
+//        else{
+//            return false
+//        }
+        NSLog("\(__FILE__).\( __FUNCTION__)")
+        return true
+        
+        
+        
     }
     
     /**
@@ -118,10 +127,12 @@ class ViewController: UIViewController {
     :param: sender sender
     */
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
-        if (segue.identifier == "RadioToEQSegue" || segue.identifier == "ShowEQSegue"){
-            
-            var svc = segue!.destinationViewController as EQController;
-            svc.player = self.player
+        NSLog("\(__FILE__).\( __FUNCTION__)")
+        if (segue.identifier == "embedContainer"){
+            self.containerViewController = segue.destinationViewController as ContainerViewController
+            containerViewController.player = self.player
+            //var svc = segue!.destinationViewController as EQViewController;
+            //svc.player = self.player
         }
     }
     
@@ -154,6 +165,9 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func showEQ(sender: AnyObject) {
+        self.containerViewController.swapViewControllers()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

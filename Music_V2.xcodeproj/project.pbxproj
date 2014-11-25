@@ -22,7 +22,10 @@
 		1F530BCF1A2003110057C99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BCE1A2003110057C99F /* AppDelegate.swift */; };
 		1F530BD11A20031D0057C99F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BD01A20031D0057C99F /* ViewController.swift */; };
 		1F530BD31A2003220057C99F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BD21A2003220057C99F /* Player.swift */; };
-		1F530BD51A20032A0057C99F /* EQController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BD41A20032A0057C99F /* EQController.swift */; };
+		1F530BD51A20032A0057C99F /* EQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F530BD41A20032A0057C99F /* EQViewController.swift */; };
+		1FBA9B461A2462BF00F70AA0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBA9B451A2462BF00F70AA0 /* ContainerViewController.swift */; };
+		1FBA9B481A24634D00F70AA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBA9B471A24634D00F70AA0 /* FirstViewController.swift */; };
+		1FC0B1D71A2487F8006D99FD /* EmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC0B1D61A2487F8006D99FD /* EmptySegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +57,12 @@
 		1F530BCE1A2003110057C99F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F530BD01A20031D0057C99F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F530BD21A2003220057C99F /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		1F530BD41A20032A0057C99F /* EQController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EQController.swift; sourceTree = "<group>"; };
+		1F530BD41A20032A0057C99F /* EQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EQViewController.swift; sourceTree = "<group>"; };
 		1F530BD61A2003370057C99F /* Bridging-Header-Music_V2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-Music_V2.h"; sourceTree = "<group>"; };
+		1FBA9B451A2462BF00F70AA0 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		1FBA9B471A24634D00F70AA0 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		1FC0B1D51A2487F8006D99FD /* EmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptySegue.h; sourceTree = "<group>"; };
+		1FC0B1D61A2487F8006D99FD /* EmptySegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptySegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +97,10 @@
 		1F530B8C1A2002BB0057C99F /* Music_V2 */ = {
 			isa = PBXGroup;
 			children = (
+				1FC0B1D51A2487F8006D99FD /* EmptySegue.h */,
+				1FC0B1D61A2487F8006D99FD /* EmptySegue.m */,
 				1F530BD61A2003370057C99F /* Bridging-Header-Music_V2.h */,
-				1F530BD41A20032A0057C99F /* EQController.swift */,
+				1F530BD41A20032A0057C99F /* EQViewController.swift */,
 				1F530BD21A2003220057C99F /* Player.swift */,
 				1F530BD01A20031D0057C99F /* ViewController.swift */,
 				1F530BCE1A2003110057C99F /* AppDelegate.swift */,
@@ -99,6 +108,8 @@
 				1F530B961A2002BB0057C99F /* Images.xcassets */,
 				1F530B981A2002BB0057C99F /* LaunchScreen.xib */,
 				1F530B8D1A2002BB0057C99F /* Supporting Files */,
+				1FBA9B451A2462BF00F70AA0 /* ContainerViewController.swift */,
+				1FBA9B471A24634D00F70AA0 /* FirstViewController.swift */,
 			);
 			path = Music_V2;
 			sourceTree = SOURCE_ROOT;
@@ -241,16 +252,19 @@
 			files = (
 				1F530BCF1A2003110057C99F /* AppDelegate.swift in Sources */,
 				1F530BC41A2002D90057C99F /* STKAudioPlayer.m in Sources */,
+				1FBA9B461A2462BF00F70AA0 /* ContainerViewController.swift in Sources */,
+				1FBA9B481A24634D00F70AA0 /* FirstViewController.swift in Sources */,
 				1F530BC71A2002D90057C99F /* STKDataSource.m in Sources */,
 				1F530BC51A2002D90057C99F /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				1F530BD31A2003220057C99F /* Player.swift in Sources */,
 				1F530BD11A20031D0057C99F /* ViewController.swift in Sources */,
 				1F530BC91A2002D90057C99F /* STKHTTPDataSource.m in Sources */,
-				1F530BD51A20032A0057C99F /* EQController.swift in Sources */,
+				1F530BD51A20032A0057C99F /* EQViewController.swift in Sources */,
 				1F530BC31A2002D90057C99F /* NSMutableArray+STKAudioPlayer.m in Sources */,
 				1F530BCB1A2002D90057C99F /* STKQueueEntry.m in Sources */,
 				1F530BC61A2002D90057C99F /* STKCoreFoundationDataSource.m in Sources */,
 				1F530BC81A2002D90057C99F /* STKDataSourceWrapper.m in Sources */,
+				1FC0B1D71A2487F8006D99FD /* EmptySegue.m in Sources */,
 				1F530BCA1A2002D90057C99F /* STKLocalFileDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
