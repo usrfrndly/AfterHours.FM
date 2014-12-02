@@ -230,10 +230,16 @@
 				TargetAttributes = {
 					1F0007171A25500C0024E4F1 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = SLJ5RC2A7J;
+						DevelopmentTeam = CEC7FXACUA;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					1F00072C1A25500C0024E4F1 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 6QN349HHUB;
 						TestTargetID = 1F0007171A25500C0024E4F1;
 					};
 				};
@@ -353,6 +359,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -396,6 +403,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
