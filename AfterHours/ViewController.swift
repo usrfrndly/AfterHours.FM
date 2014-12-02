@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     var player:Player! = Player.sharedInstance
@@ -23,6 +24,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        Alamofire.request(.GET, "http://httpbin.org/get")
+            .responseJSON { (_, _, JSON, _) in
+                println(JSON)
+        }
         //self.player.updatePlayerInfo("John Doe", title: "Testin 123", imageUrl: "http://dev.ah.fm/assets/default.png")
         
     }
