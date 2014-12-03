@@ -19,15 +19,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var djLabel: UILabel!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
         println("\(reflect(self).summary).\(__FUNCTION__):")
         if player.isPlaying(){
             var newBackgroundImg = UIImage(named: "Play.png")
             self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
         }
-
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
         
         Alamofire.request(.GET, "http://httpbin.org/get")
             .responseJSON { (_, _, JSON, _) in
@@ -65,7 +64,7 @@ class ViewController: UIViewController {
         }else{
             println("\(reflect(self).summary).\(__FUNCTION__)(): Play Strean")
             self.player.play()
-            var newBackgroundImg = UIImage(named: "Pause_button.png")
+            var newBackgroundImg = UIImage(named: "Pause.png")
             self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal)
         }
     }
