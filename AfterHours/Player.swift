@@ -52,6 +52,12 @@ class Player {
         self.player.meteringEnabled = true
         // Once player is initialized, set the background mode and make the player active
         self.makePlayerActive()
+        
+        var firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
+        firebase.observeEventType(.Value, withBlock: {
+            snapshot in
+            self.updatePlayerInfo(snapshot.value.objectForKey("dj") as String, title: snapshot.value.objectForKey("title") as String, imageUrl: snapshot.value.objectForKey("banner") as String)
+        })
     }
     
     /**

@@ -10,5 +10,6 @@
 #define AfterHours_Bridging_Header_h
 
 #import "STKAudioPlayer.h"
+#import <Firebase/Firebase.h>
 
 #endif

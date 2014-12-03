@@ -25,6 +25,12 @@
 		1F00075C1A25506A0024E4F1 /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0007531A25506A0024E4F1 /* STKQueueEntry.m */; };
 		1F6CA8381A2C13C50056E1D1 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CA8371A2C13C50056E1D1 /* default.png */; };
 		1F8C80BA1A2E85E800E4A1CD /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C80B41A2E853D00E4A1CD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1FDD123B1A2E877C005CD29A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD123A1A2E877C005CD29A /* libicucore.dylib */; };
+		1FDD123D1A2E8784005CD29A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD123C1A2E8784005CD29A /* libc++.dylib */; };
+		1FDD123F1A2E878D005CD29A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD123E1A2E878D005CD29A /* CFNetwork.framework */; };
+		1FDD12411A2E8793005CD29A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD12401A2E8793005CD29A /* Security.framework */; };
+		1FDD12431A2E8799005CD29A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD12421A2E8799005CD29A /* SystemConfiguration.framework */; };
+		1FDD12441A2E87B7005CD29A /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD12351A2E8730005CD29A /* Firebase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +111,13 @@
 		1F0007531A25506A0024E4F1 /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
 		1F6CA8371A2C13C50056E1D1 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		1F8C80AE1A2E853D00E4A1CD /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
+		1FDD12351A2E8730005CD29A /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		1FDD12381A2E876F005CD29A /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../Downloads/Firebase.framework; sourceTree = "<group>"; };
+		1FDD123A1A2E877C005CD29A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		1FDD123C1A2E8784005CD29A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		1FDD123E1A2E878D005CD29A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1FDD12401A2E8793005CD29A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1FDD12421A2E8799005CD29A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +125,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDD12441A2E87B7005CD29A /* Firebase.framework in Frameworks */,
+				1FDD12431A2E8799005CD29A /* SystemConfiguration.framework in Frameworks */,
+				1FDD12411A2E8793005CD29A /* Security.framework in Frameworks */,
+				1FDD123F1A2E878D005CD29A /* CFNetwork.framework in Frameworks */,
+				1FDD123D1A2E8784005CD29A /* libc++.dylib in Frameworks */,
+				1FDD123B1A2E877C005CD29A /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +147,13 @@
 		1F00070F1A25500C0024E4F1 = {
 			isa = PBXGroup;
 			children = (
+				1FDD12421A2E8799005CD29A /* SystemConfiguration.framework */,
+				1FDD12401A2E8793005CD29A /* Security.framework */,
+				1FDD123E1A2E878D005CD29A /* CFNetwork.framework */,
+				1FDD123C1A2E8784005CD29A /* libc++.dylib */,
+				1FDD123A1A2E877C005CD29A /* libicucore.dylib */,
+				1FDD12381A2E876F005CD29A /* Firebase.framework */,
+				1FDD12351A2E8730005CD29A /* Firebase.framework */,
 				1F00071A1A25500C0024E4F1 /* AfterHours */,
 				1F0007301A25500C0024E4F1 /* AfterHoursTests */,
 				1F0007191A25500C0024E4F1 /* Products */,
@@ -505,8 +531,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/aleksandr/Downloads,
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AfterHours/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AfterHours/Bridging-Header.h";
 			};
@@ -517,8 +549,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/aleksandr/Downloads,
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AfterHours/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AfterHours/Bridging-Header.h";
 			};
