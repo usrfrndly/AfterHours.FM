@@ -37,7 +37,11 @@ class ChatController: UIViewController {
             self.djLabel.text = snapshot.value.objectForKey("dj") as String
         })
 
-        
+        var messages = Firebase(url: "https://ahfm.firebaseio.com/messages")
+        messages.observeEventType(.Value, withBlock: {
+            snap in
+            println(snap)
+        })
     }
     
     @IBAction func playerControlPressed(sender: AnyObject) {
