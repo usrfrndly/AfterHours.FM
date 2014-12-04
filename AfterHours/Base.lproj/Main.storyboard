@@ -390,29 +390,6 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="40" minY="40" maxX="40" maxY="40"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" textLabel="JCe-v0-982" detailTextLabel="Ye6-kT-g0U" style="IBUITableViewCellStyleValue1" id="Ans-lc-cX8">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ans-lc-cX8" id="xlw-Lp-JtI">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JCe-v0-982">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ye6-kT-g0U">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="IJv-9h-6no" id="t8L-A9-T4u"/>
                                     <outlet property="delegate" destination="IJv-9h-6no" id="xBA-vr-0iH"/>
@@ -446,6 +423,8 @@
                             <constraint firstItem="d4l-4z-LAm" firstAttribute="top" secondItem="RJV-sz-2K8" secondAttribute="bottom" id="xHY-3z-ZlL"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="djLabel" destination="ZMC-LQ-fMw" id="deU-iB-PXR"/>
                         <outlet property="messagesTableView" destination="mBx-Cp-7GI" id="W37-V3-gMf"/>

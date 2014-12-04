@@ -17,10 +17,11 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var playerControlButton: UIButton!
     var player:Player!
     var messages:Firebase!
+    let cellIdentifier = "chatCell"
     var chatsArray:[(author:String,text:String)] = []
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
 //        if self.player.isPlaying() {
@@ -50,16 +51,16 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
 
         
         })
+
         
-            self.messagesTableView.registerClass(UITableViewCell.classForCoder(),
-            forCellReuseIdentifier: "chatCell")
-            self.messagesTableView.dataSource = self
-            self.messagesTableView.delegate = self
-            self.messagesTableView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
-            view.addSubview(self.messagesTableView)
+//            self.messagesTableView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+//            view.addSubview(self.messagesTableView)
+        super.viewDidLoad()
     }
 
-
+    override func viewDidAppear(animated: Bool) {
+        self.messagesTableView.reloadData()
+    }
     @IBAction func playerControlPressed(sender: AnyObject) {
         if self.player.isPlaying(){
             println("\(reflect(self).summary).\(__FUNCTION__)(): Pause stream")
@@ -73,19 +74,31 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
             self.playerControlButton.setBackgroundImage(newBackgroundImg, forState: .Normal)
         }
     }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.chatsArray.count
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("chatCell", forIndexPath: indexPath) as UITableViewCell
+        var newCell:UITableViewCell!
+        if let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as? UITableViewCell{
+            cell.textLabel!.text = "\(self.chatsArray[indexPath.row].text)"
+            return cell
 
-//        UIImage image = UIImage(named: "headphone-icon.png")
-        cell.textLabel!.text = "\(self.chatsArray[indexPath.row].text)"
-        cell.detailTextLabel?.text = "\(self.chatsArray[indexPath.row].author)"
+        }else{
+             newCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: self.cellIdentifier)
+        
 
-        return cell
+        var image = UIImage(named: "hat-guy.png")
+        newCell.imageView?.image = image
+        newCell.textLabel!.text = "\(self.chatsArray[indexPath.row].text)"
+        newCell.detailTextLabel?.text = "\(self.chatsArray[indexPath.row].author)"
+
+        return newCell
+    }
     }
 }
