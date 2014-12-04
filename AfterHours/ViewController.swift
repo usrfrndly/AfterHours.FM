@@ -36,8 +36,8 @@ class ViewController: UIViewController {
         var firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
         firebase.observeEventType(.Value, withBlock: {
             snapshot in
-            self.radioshowLabel.text = snapshot.value.objectForKey("title") as String
-            self.djLabel.text = snapshot.value.objectForKey("dj") as String
+            self.radioshowLabel.text = snapshot.value.objectForKey("title") as? String
+            self.djLabel.text = snapshot.value.objectForKey("dj") as? String
             
             let urlPath = NSURL(string:snapshot.value.objectForKey("banner") as String)
             var err: NSError?

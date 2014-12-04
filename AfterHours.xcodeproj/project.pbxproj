@@ -12,7 +12,6 @@
 		1F0007231A25500C0024E4F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0007211A25500C0024E4F1 /* Main.storyboard */; };
 		1F0007251A25500C0024E4F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F0007241A25500C0024E4F1 /* Images.xcassets */; };
 		1F0007281A25500C0024E4F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F0007261A25500C0024E4F1 /* LaunchScreen.xib */; };
-		1F0007341A25500C0024E4F1 /* AfterHoursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0007331A25500C0024E4F1 /* AfterHoursTests.swift */; };
 		1F00073F1A25504B0024E4F1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00073E1A25504B0024E4F1 /* Player.swift */; };
 		1F0007541A25506A0024E4F1 /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0007431A25506A0024E4F1 /* NSMutableArray+STKAudioPlayer.m */; };
 		1F0007551A25506A0024E4F1 /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0007451A25506A0024E4F1 /* STKAudioPlayer.m */; };
@@ -24,7 +23,7 @@
 		1F00075B1A25506A0024E4F1 /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0007511A25506A0024E4F1 /* STKLocalFileDataSource.m */; };
 		1F00075C1A25506A0024E4F1 /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0007531A25506A0024E4F1 /* STKQueueEntry.m */; };
 		1F6CA8381A2C13C50056E1D1 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CA8371A2C13C50056E1D1 /* default.png */; };
-		1F8C80BA1A2E85E800E4A1CD /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8C80B41A2E853D00E4A1CD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F93D0801A2F64A0004F0AF1 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1F93D07B1A2F644F004F0AF1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FDD123B1A2E877C005CD29A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD123A1A2E877C005CD29A /* libicucore.dylib */; };
 		1FDD123D1A2E8784005CD29A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD123C1A2E8784005CD29A /* libc++.dylib */; };
 		1FDD123F1A2E878D005CD29A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD123E1A2E878D005CD29A /* CFNetwork.framework */; };
@@ -35,13 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1F00072E1A25500C0024E4F1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F0007101A25500C0024E4F1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1F0007171A25500C0024E4F1;
-			remoteInfo = AfterHours;
-		};
 		1F8C80B31A2E853D00E4A1CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F8C80AE1A2E853D00E4A1CD /* Alamofire.xcodeproj */;
@@ -63,6 +55,27 @@
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = Alamofire;
 		};
+		1F93D07A1A2F644F004F0AF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F93D0751A2F644F004F0AF1 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		1F93D07C1A2F644F004F0AF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F93D0751A2F644F004F0AF1 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
+		1F93D07E1A2F647F004F0AF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F93D0751A2F644F004F0AF1 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,7 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1F8C80BA1A2E85E800E4A1CD /* Alamofire.framework in Copy Frameworks */,
+				1F93D0801A2F64A0004F0AF1 /* Alamofire.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +100,6 @@
 		1F0007221A25500C0024E4F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F0007241A25500C0024E4F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1F0007271A25500C0024E4F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1F00072D1A25500C0024E4F1 /* AfterHoursTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AfterHoursTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0007321A25500C0024E4F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F0007331A25500C0024E4F1 /* AfterHoursTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterHoursTests.swift; sourceTree = "<group>"; };
 		1F00073D1A25502F0024E4F1 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -112,6 +124,7 @@
 		1F0007531A25506A0024E4F1 /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
 		1F6CA8371A2C13C50056E1D1 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		1F8C80AE1A2E853D00E4A1CD /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
+		1F93D0751A2F644F004F0AF1 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../../Downloads/Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		1FDD12351A2E8730005CD29A /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		1FDD12381A2E876F005CD29A /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../Downloads/Firebase.framework; sourceTree = "<group>"; };
 		1FDD123A1A2E877C005CD29A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -136,19 +149,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F00072A1A25500C0024E4F1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		1F00070F1A25500C0024E4F1 = {
 			isa = PBXGroup;
 			children = (
+				1F93D0751A2F644F004F0AF1 /* Alamofire.xcodeproj */,
 				1FDD12421A2E8799005CD29A /* SystemConfiguration.framework */,
 				1FDD12401A2E8793005CD29A /* Security.framework */,
 				1FDD123E1A2E878D005CD29A /* CFNetwork.framework */,
@@ -166,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				1F0007181A25500C0024E4F1 /* AfterHours.app */,
-				1F00072D1A25500C0024E4F1 /* AfterHoursTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -257,6 +263,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F93D0761A2F644F004F0AF1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F93D07B1A2F644F004F0AF1 /* Alamofire.framework */,
+				1F93D07D1A2F644F004F0AF1 /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,30 +287,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				1F93D07F1A2F647F004F0AF1 /* PBXTargetDependency */,
 				1F8C80B81A2E85AF00E4A1CD /* PBXTargetDependency */,
 			);
 			name = AfterHours;
 			productName = AfterHours;
 			productReference = 1F0007181A25500C0024E4F1 /* AfterHours.app */;
 			productType = "com.apple.product-type.application";
-		};
-		1F00072C1A25500C0024E4F1 /* AfterHoursTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1F00073A1A25500C0024E4F1 /* Build configuration list for PBXNativeTarget "AfterHoursTests" */;
-			buildPhases = (
-				1F0007291A25500C0024E4F1 /* Sources */,
-				1F00072A1A25500C0024E4F1 /* Frameworks */,
-				1F00072B1A25500C0024E4F1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1F00072F1A25500C0024E4F1 /* PBXTargetDependency */,
-			);
-			name = AfterHoursTests;
-			productName = AfterHoursTests;
-			productReference = 1F00072D1A25500C0024E4F1 /* AfterHoursTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -315,11 +313,6 @@
 							};
 						};
 					};
-					1F00072C1A25500C0024E4F1 = {
-						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 6QN349HHUB;
-						TestTargetID = 1F0007171A25500C0024E4F1;
-					};
 				};
 			};
 			buildConfigurationList = 1F0007131A25500C0024E4F1 /* Build configuration list for PBXProject "AfterHours" */;
@@ -338,11 +331,14 @@
 					ProductGroup = 1F8C80AF1A2E853D00E4A1CD /* Products */;
 					ProjectRef = 1F8C80AE1A2E853D00E4A1CD /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = 1F93D0761A2F644F004F0AF1 /* Products */;
+					ProjectRef = 1F93D0751A2F644F004F0AF1 /* Alamofire.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
 				1F0007171A25500C0024E4F1 /* AfterHours */,
-				1F00072C1A25500C0024E4F1 /* AfterHoursTests */,
 			);
 		};
 /* End PBXProject section */
@@ -362,6 +358,20 @@
 			remoteRef = 1F8C80B51A2E853D00E4A1CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		1F93D07B1A2F644F004F0AF1 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 1F93D07A1A2F644F004F0AF1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F93D07D1A2F644F004F0AF1 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 1F93D07C1A2F644F004F0AF1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -373,13 +383,6 @@
 				1F0007281A25500C0024E4F1 /* LaunchScreen.xib in Resources */,
 				1F0007251A25500C0024E4F1 /* Images.xcassets in Resources */,
 				1F6CA8381A2C13C50056E1D1 /* default.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F00072B1A25500C0024E4F1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,26 +409,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F0007291A25500C0024E4F1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F0007341A25500C0024E4F1 /* AfterHoursTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F00072F1A25500C0024E4F1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1F0007171A25500C0024E4F1 /* AfterHours */;
-			targetProxy = 1F00072E1A25500C0024E4F1 /* PBXContainerItemProxy */;
-		};
 		1F8C80B81A2E85AF00E4A1CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			targetProxy = 1F8C80B71A2E85AF00E4A1CD /* PBXContainerItemProxy */;
+		};
+		1F93D07F1A2F647F004F0AF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 1F93D07E1A2F647F004F0AF1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -488,6 +483,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AfterHours/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -525,6 +521,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AfterHours/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -541,6 +538,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AfterHours/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -559,44 +557,11 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AfterHours/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AfterHours/Bridging-Header.h";
-			};
-			name = Release;
-		};
-		1F00073B1A25500C0024E4F1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AfterHoursTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AfterHours.app/AfterHours";
-			};
-			name = Debug;
-		};
-		1F00073C1A25500C0024E4F1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AfterHoursTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AfterHours.app/AfterHours";
 			};
 			name = Release;
 		};
@@ -617,15 +582,6 @@
 			buildConfigurations = (
 				1F0007381A25500C0024E4F1 /* Debug */,
 				1F0007391A25500C0024E4F1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F00073A1A25500C0024E4F1 /* Build configuration list for PBXNativeTarget "AfterHoursTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F00073B1A25500C0024E4F1 /* Debug */,
-				1F00073C1A25500C0024E4F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
