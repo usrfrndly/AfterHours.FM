@@ -51,7 +51,7 @@ class MyMenuTableViewController: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CELL")
             cell!.backgroundColor = UIColor.clearColor()
            // cell!.textLabel?.textColor = UIColor(red: (46.0/256.0), green: (179.0/255.0), blue: (246.0/255.0), alpha:1.0) //2EB3F6
-            cell!.textLabel?.textColor = UIColor.lightTextColor()
+          
             let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
             selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
             cell!.selectedBackgroundView = selectedBackgroundView
@@ -62,18 +62,20 @@ class MyMenuTableViewController: UITableViewController {
         return cell!
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50.0
-    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 50.0
+//    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         println("did select row: \(indexPath.row)")
         
-        if (indexPath.row == selectedMenuItem) {
+        if (indexPath.row == selectedMenuItem){
             return
+
         }
         selectedMenuItem = indexPath.row
+
         
         //Present new view controller
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
@@ -96,8 +98,27 @@ class MyMenuTableViewController: UITableViewController {
     }
     
     func configureMenu(cell:UITableViewCell,image:UIImage,text:String) {
-        cell.imageView?.image =  image
+        
+        cell.imageView?.image = image
         cell.textLabel?.text = text
+        cell.textLabel?.textColor = UIColor.lightTextColor()
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue-Bold" ,size: 18.0)
+        cell.textLabel?.attributedText
+        cell.textLabel?.textAlignment = NSTextAlignment.Right
+        
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var tableHeight = tableView.contentSize.height
+        var tableViewFrameHeight = tableView.frame.height
+        println(tableHeight)
+        println(tableViewFrameHeight)
+        println(tableView.sectionHeaderHeight)
+        println(tableView.sectionFooterHeight)
+        
+        return tableViewFrameHeight/4.0 - 44
+        
+        
     }
     /*
     // MARK: - Navigation
