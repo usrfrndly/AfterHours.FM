@@ -31,6 +31,10 @@
 		1FDD12431A2E8799005CD29A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD12421A2E8799005CD29A /* SystemConfiguration.framework */; };
 		1FDD12441A2E87B7005CD29A /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD12351A2E8730005CD29A /* Firebase.framework */; };
 		1FDD12461A2E8E37005CD29A /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD12451A2E8E37005CD29A /* ChatController.swift */; };
+		1FFA8C151A3EB29200A0DAB4 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA8C131A3EB29200A0DAB4 /* ENSideMenu.swift */; };
+		1FFA8C161A3EB29200A0DAB4 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA8C141A3EB29200A0DAB4 /* ENSideMenuNavigationController.swift */; };
+		1FFA8C191A3EB32800A0DAB4 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA8C171A3EB32800A0DAB4 /* MyNavigationController.swift */; };
+		1FFA8C1A1A3EB32800A0DAB4 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA8C181A3EB32800A0DAB4 /* MyMenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +137,10 @@
 		1FDD12401A2E8793005CD29A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1FDD12421A2E8799005CD29A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1FDD12451A2E8E37005CD29A /* ChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		1FFA8C131A3EB29200A0DAB4 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		1FFA8C141A3EB29200A0DAB4 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		1FFA8C171A3EB32800A0DAB4 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		1FFA8C181A3EB32800A0DAB4 /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,9 @@
 		1F00071A1A25500C0024E4F1 /* AfterHours */ = {
 			isa = PBXGroup;
 			children = (
+				1FFA8C171A3EB32800A0DAB4 /* MyNavigationController.swift */,
+				1FFA8C181A3EB32800A0DAB4 /* MyMenuTableViewController.swift */,
+				1FFA8C121A3EB29200A0DAB4 /* Library */,
 				1F00071D1A25500C0024E4F1 /* AppDelegate.swift */,
 				1F00071F1A25500C0024E4F1 /* ViewController.swift */,
 				1F0007211A25500C0024E4F1 /* Main.storyboard */,
@@ -270,6 +281,15 @@
 				1F93D07D1A2F644F004F0AF1 /* AlamofireTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1FFA8C121A3EB29200A0DAB4 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1FFA8C131A3EB29200A0DAB4 /* ENSideMenu.swift */,
+				1FFA8C141A3EB29200A0DAB4 /* ENSideMenuNavigationController.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,8 +413,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFA8C1A1A3EB32800A0DAB4 /* MyMenuTableViewController.swift in Sources */,
 				1F00075B1A25506A0024E4F1 /* STKLocalFileDataSource.m in Sources */,
+				1FFA8C191A3EB32800A0DAB4 /* MyNavigationController.swift in Sources */,
 				1F0007561A25506A0024E4F1 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
+				1FFA8C151A3EB29200A0DAB4 /* ENSideMenu.swift in Sources */,
+				1FFA8C161A3EB29200A0DAB4 /* ENSideMenuNavigationController.swift in Sources */,
 				1F0007541A25506A0024E4F1 /* NSMutableArray+STKAudioPlayer.m in Sources */,
 				1F0007571A25506A0024E4F1 /* STKCoreFoundationDataSource.m in Sources */,
 				1F0007591A25506A0024E4F1 /* STKDataSourceWrapper.m in Sources */,

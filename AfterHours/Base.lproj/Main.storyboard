@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C78c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="98r-oT-Ldf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default.png" translatesAutoresizingMaskIntoConstraints="NO" id="BkY-lT-c4e">
-                                <rect key="frame" x="0.0" y="64" width="600" height="421"/>
+                                <rect key="frame" x="0.0" y="-880" width="600" height="1365"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWE-fw-3Av">
                                 <rect key="frame" x="0.0" y="64" width="600" height="421"/>
@@ -102,41 +102,38 @@
                                         </visualEffectView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYf-OL-14l">
                                             <rect key="frame" x="75" y="75" width="450" height="271"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="271" id="S1f-jV-AIe"/>
+                                            </constraints>
                                             <state key="normal" backgroundImage="default.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="S1f-jV-AIe"/>
+                                                </mask>
+                                            </variation>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="CYf-OL-14l" firstAttribute="top" secondItem="8hU-rJ-GCw" secondAttribute="top" constant="75" id="05r-RX-IK5"/>
+                                        <constraint firstAttribute="trailing" secondItem="CYf-OL-14l" secondAttribute="trailing" constant="75" id="AIc-o0-L7u"/>
+                                        <constraint firstItem="CYf-OL-14l" firstAttribute="top" secondItem="8hU-rJ-GCw" secondAttribute="top" constant="75" id="QQv-hy-zfs"/>
+                                        <constraint firstAttribute="bottom" secondItem="CYf-OL-14l" secondAttribute="bottom" constant="75" id="SuJ-iq-LhC"/>
                                         <constraint firstItem="EOY-pH-K8d" firstAttribute="top" secondItem="8hU-rJ-GCw" secondAttribute="top" id="WCk-Zp-0iE"/>
-                                        <constraint firstAttribute="trailing" secondItem="CYf-OL-14l" secondAttribute="trailing" constant="75" id="Zjg-uc-IYK"/>
+                                        <constraint firstItem="CYf-OL-14l" firstAttribute="centerY" secondItem="8hU-rJ-GCw" secondAttribute="centerY" id="ZIo-R3-K2X"/>
+                                        <constraint firstItem="CYf-OL-14l" firstAttribute="leading" secondItem="8hU-rJ-GCw" secondAttribute="leading" constant="75" id="b8h-Ka-EI8"/>
                                         <constraint firstItem="EOY-pH-K8d" firstAttribute="leading" secondItem="8hU-rJ-GCw" secondAttribute="leading" id="hik-GW-6lH"/>
-                                        <constraint firstItem="CYf-OL-14l" firstAttribute="leading" secondItem="8hU-rJ-GCw" secondAttribute="leading" constant="75" id="lnv-R3-SdV"/>
-                                        <constraint firstAttribute="bottom" secondItem="CYf-OL-14l" secondAttribute="bottom" constant="75" id="z2r-n6-9dt"/>
+                                        <constraint firstItem="CYf-OL-14l" firstAttribute="centerX" secondItem="8hU-rJ-GCw" secondAttribute="centerX" id="jke-OV-oi4"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="ZIo-R3-K2X"/>
+                                            <exclude reference="jke-OV-oi4"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irV-LV-xOQ">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="oYo-FF-Yl7"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Now Playing" id="Qg5-uz-QLk">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="egs-Z1-qi5">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I8S-AB-z2W">
-                                                <rect key="frame" x="16" y="14" width="15" height="11"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="menu">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YrK-ZT-OHW">
                                 <rect key="frame" x="0.0" y="485" width="600" height="45"/>
                                 <subviews>
@@ -192,26 +189,24 @@
                             <constraint firstItem="YrK-ZT-OHW" firstAttribute="top" secondItem="HWE-fw-3Av" secondAttribute="bottom" id="774-Hd-XtZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bbA-sz-WAY" secondAttribute="bottom" id="8dH-RZ-ybX"/>
                             <constraint firstItem="bbA-sz-WAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="98r-JA-ARS"/>
-                            <constraint firstItem="irV-LV-xOQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DA2-A0-SfQ"/>
                             <constraint firstItem="YrK-ZT-OHW" firstAttribute="top" secondItem="BkY-lT-c4e" secondAttribute="bottom" id="DxS-AF-3Fh"/>
-                            <constraint firstAttribute="trailing" secondItem="irV-LV-xOQ" secondAttribute="trailing" id="IPH-F8-k0c"/>
-                            <constraint firstItem="HWE-fw-3Av" firstAttribute="top" secondItem="irV-LV-xOQ" secondAttribute="bottom" id="LmT-dg-gIR"/>
+                            <constraint firstItem="HWE-fw-3Av" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Smt-cm-vcz"/>
                             <constraint firstItem="bbA-sz-WAY" firstAttribute="top" secondItem="YrK-ZT-OHW" secondAttribute="bottom" id="bQZ-Bp-hqc"/>
                             <constraint firstItem="HWE-fw-3Av" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bbi-gp-rxI"/>
                             <constraint firstAttribute="trailing" secondItem="HWE-fw-3Av" secondAttribute="trailing" id="dqP-Ez-a7O"/>
                             <constraint firstAttribute="trailing" secondItem="bbA-sz-WAY" secondAttribute="trailing" id="eUJ-k7-ATP"/>
                             <constraint firstAttribute="trailing" secondItem="BkY-lT-c4e" secondAttribute="trailing" id="hgi-hB-nTm"/>
-                            <constraint firstItem="irV-LV-xOQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hxk-X1-ufp"/>
                             <constraint firstItem="YrK-ZT-OHW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="k4O-ds-Nec"/>
-                            <constraint firstItem="BkY-lT-c4e" firstAttribute="top" secondItem="irV-LV-xOQ" secondAttribute="bottom" id="ucS-YC-yEk"/>
                             <constraint firstItem="BkY-lT-c4e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yVN-SH-bQn"/>
                             <constraint firstAttribute="trailing" secondItem="YrK-ZT-OHW" secondAttribute="trailing" id="yVr-HK-1qY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Now Playing" id="NHH-Yz-Jbb"/>
                     <connections>
                         <outlet property="bannerBackground" destination="BkY-lT-c4e" id="407-Jz-ip1"/>
                         <outlet property="bannerImage" destination="CYf-OL-14l" id="fbE-xY-uHb"/>
                         <outlet property="djLabel" destination="qQf-Nw-u8a" id="wRv-WY-iOe"/>
+                        <outlet property="navBarItem" destination="NHH-Yz-Jbb" id="Mhx-du-e5L"/>
                         <outlet property="radioshowLabel" destination="4f8-xe-Ec7" id="STh-QQ-cJp"/>
                         <outlet property="togglePlayButton" destination="Bio-ic-CcH" id="6Hv-RA-SMf"/>
                     </connections>
@@ -232,25 +227,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-RN-hsx">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="6Wd-3H-wAR"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Chat" id="5hK-vU-h6Z">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="oYg-gX-mkT">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHm-pX-Wo7">
-                                                <rect key="frame" x="16" y="14" width="15" height="11"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="menu">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJV-sz-2K8">
                                 <rect key="frame" x="0.0" y="530" width="600" height="70"/>
                                 <subviews>
@@ -386,7 +362,7 @@
                                     <constraint firstItem="2Ae-mR-xJT" firstAttribute="leading" secondItem="mgP-Gk-Se3" secondAttribute="trailing" constant="8" id="gsk-vN-jCO"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-Cp-7GI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-Cp-7GI">
                                 <rect key="frame" x="0.0" y="64" width="600" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="40" minY="40" maxX="40" maxY="40"/>
@@ -395,6 +371,25 @@
                                     <outlet property="delegate" destination="IJv-9h-6no" id="xBA-vr-0iH"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-RN-hsx">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6Wd-3H-wAR"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Chat" id="5hK-vU-h6Z">
+                                        <barButtonItem key="leftBarButtonItem" id="oYg-gX-mkT">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHm-pX-Wo7">
+                                                <rect key="frame" x="16" y="14" width="15" height="11"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="menu">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -435,6 +430,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3K-gU-0kz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1559" y="932"/>
+        </scene>
+        <!--My Navigation Controller-->
+        <scene sceneID="sB9-3E-3I3">
+            <objects>
+                <navigationController id="98r-oT-Ldf" customClass="MyNavigationController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0au-6F-rbH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PGj-Z1-Hhd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Umk-B8-dx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

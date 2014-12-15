@@ -9,14 +9,15 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     var player:Player! = Player.sharedInstance
-    
+
     @IBOutlet var togglePlayButton: UIButton!
     @IBOutlet weak var bannerImage: UIButton!
     @IBOutlet weak var bannerBackground: UIImageView!
     @IBOutlet weak var radioshowLabel: UILabel!
     @IBOutlet weak var djLabel: UILabel!
+    @IBOutlet var navBarItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +51,15 @@ class ViewController: UIViewController {
         })
         
         //self.player.updatePlayerInfo("John Doe", title: "Testin 123", imageUrl: "http://dev.ah.fm/assets/default.png")
+        var img:UIImage? = UIImage(named: "menu.png")
+        navBarItem.leftBarButtonItem = UIBarButtonItem(image: img!, style: UIBarButtonItemStyle.Bordered , target:self, action: "toggleSideMenuView")
         
     }
+    
+    @IBAction func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
+
     
     @IBAction func togglePlayButtonPressed(sender: UIButton?){
         //let playerStateValue = self.player.getPlayerState()
@@ -73,6 +81,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
 
 }
