@@ -16,6 +16,7 @@ class RadioShowController: UIViewController {
     @IBAction func playButtonPressed(sender: AnyObject) {
     }
 
+    @IBOutlet var navBarItem: UINavigationItem!
     @IBOutlet weak var radioshowLabel: UILabel!
     @IBOutlet weak var djLabel: UILabel!
     
@@ -26,6 +27,16 @@ class RadioShowController: UIViewController {
             self.radioshowLabel.text = snapshot.value.objectForKey("title") as? String
             self.djLabel.text = snapshot.value.objectForKey("dj") as? String
         })
+        
+        var img:UIImage? = UIImage(named: "menu.png")
+        navBarItem.leftBarButtonItem = UIBarButtonItem(image: img!, style: UIBarButtonItemStyle.Bordered , target:self, action: "toggleSideMenuView")
+        
+    }
+    
+    @IBAction func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
+
 
     }
-}
+

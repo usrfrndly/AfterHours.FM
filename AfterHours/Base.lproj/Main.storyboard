@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="98r-oT-Ldf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="98r-oT-Ldf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -216,7 +216,7 @@
             </objects>
             <point key="canvasLocation" x="677" y="1133"/>
         </scene>
-        <!--Radio Show Controller-->
+        <!--Radio Shows-->
         <scene sceneID="Qnr-Tg-cg6">
             <objects>
                 <viewController storyboardIdentifier="RadioShows" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AFS-Ka-3BE" customClass="RadioShowController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
@@ -349,16 +349,6 @@
                                     <constraint firstItem="WJh-u8-cgt" firstAttribute="top" secondItem="SBY-ut-HVx" secondAttribute="bottom" constant="3" id="sUl-8k-Jl5"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSZ-py-lqL">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="DCd-H4-rHJ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="qNE-cC-vdR"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Radio Shows" id="xGz-dP-bem"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4GA-MI-uyy">
                                 <rect key="frame" x="0.0" y="64" width="600" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -367,25 +357,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rog-5Z-kIc" firstAttribute="leading" secondItem="O3p-dN-FyE" secondAttribute="leading" id="14N-0k-TTQ"/>
-                            <constraint firstItem="4GA-MI-uyy" firstAttribute="top" secondItem="gSZ-py-lqL" secondAttribute="bottom" id="2Df-Z1-Rib"/>
-                            <constraint firstItem="gSZ-py-lqL" firstAttribute="leading" secondItem="O3p-dN-FyE" secondAttribute="leading" id="D1E-vt-EST"/>
                             <constraint firstItem="uTo-hA-ZDp" firstAttribute="leading" secondItem="O3p-dN-FyE" secondAttribute="leading" id="LlJ-jb-x97"/>
-                            <constraint firstItem="gSZ-py-lqL" firstAttribute="top" secondItem="mir-CX-SDL" secondAttribute="bottom" id="SpO-u8-vw3"/>
                             <constraint firstItem="RYJ-8W-bSd" firstAttribute="top" secondItem="rog-5Z-kIc" secondAttribute="bottom" id="V4l-DX-con"/>
                             <constraint firstItem="rog-5Z-kIc" firstAttribute="top" secondItem="uTo-hA-ZDp" secondAttribute="bottom" id="Vz8-j4-SqT"/>
                             <constraint firstAttribute="trailing" secondItem="uTo-hA-ZDp" secondAttribute="trailing" id="XMC-ZZ-a6j"/>
                             <constraint firstAttribute="trailing" secondItem="4GA-MI-uyy" secondAttribute="trailing" id="etf-hP-QtP"/>
-                            <constraint firstItem="gSZ-py-lqL" firstAttribute="top" secondItem="mir-CX-SDL" secondAttribute="bottom" id="fkr-MM-CnZ"/>
                             <constraint firstAttribute="trailing" secondItem="rog-5Z-kIc" secondAttribute="trailing" id="g6m-D9-DS6"/>
-                            <constraint firstAttribute="trailing" secondItem="gSZ-py-lqL" secondAttribute="trailing" id="gyZ-p5-C7X"/>
-                            <constraint firstAttribute="trailing" secondItem="gSZ-py-lqL" secondAttribute="trailing" id="kVb-NJ-Db4"/>
+                            <constraint firstItem="4GA-MI-uyy" firstAttribute="top" secondItem="mir-CX-SDL" secondAttribute="bottom" constant="44" id="nsu-Cd-9tx"/>
                             <constraint firstItem="4GA-MI-uyy" firstAttribute="leading" secondItem="O3p-dN-FyE" secondAttribute="leading" id="q7H-dc-SsG"/>
                             <constraint firstItem="uTo-hA-ZDp" firstAttribute="top" secondItem="4GA-MI-uyy" secondAttribute="bottom" id="wRr-lA-Lkm"/>
-                            <constraint firstItem="gSZ-py-lqL" firstAttribute="leading" secondItem="O3p-dN-FyE" secondAttribute="leading" id="wxv-X1-o5T"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Radio Shows" id="xGz-dP-bem"/>
                     <connections>
                         <outlet property="djLabel" destination="WJh-u8-cgt" id="cL8-GS-nMV"/>
+                        <outlet property="navBarItem" destination="xGz-dP-bem" id="U8l-e7-mYb"/>
                         <outlet property="playButton" destination="MEQ-Nj-rRa" id="MyW-xP-IIm"/>
                         <outlet property="radioshowLabel" destination="SBY-ut-HVx" id="K8B-LC-TMz"/>
                     </connections>
@@ -394,10 +380,10 @@
             </objects>
             <point key="canvasLocation" x="679" y="1808"/>
         </scene>
-        <!--View Controller-->
+        <!--Radio Station-->
         <scene sceneID="RfZ-Md-BOC">
             <objects>
-                <viewController id="zLb-jE-4ud" sceneMemberID="viewController">
+                <viewController id="zLb-jE-4ud" userLabel="Radio Station" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YUr-0q-bJN"/>
                         <viewControllerLayoutGuide type="bottom" id="hCs-4q-8jZ"/>
@@ -519,35 +505,24 @@
                                     <constraint firstAttribute="height" constant="45" id="zf3-JF-g5w"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1D-OQ-hum">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="v3K-V9-G3s"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Radio Show" id="89w-Wp-HPU"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qkQ-Hs-yL6" firstAttribute="top" secondItem="T09-bf-76n" secondAttribute="bottom" id="4xO-1n-75X"/>
-                            <constraint firstAttribute="trailing" secondItem="l1D-OQ-hum" secondAttribute="trailing" id="6sP-53-cGm"/>
-                            <constraint firstItem="l1D-OQ-hum" firstAttribute="top" secondItem="YUr-0q-bJN" secondAttribute="bottom" id="7Fy-xr-XG1"/>
                             <constraint firstItem="T09-bf-76n" firstAttribute="leading" secondItem="XBf-GG-ofQ" secondAttribute="leading" id="BLa-TI-ecy"/>
-                            <constraint firstItem="l1D-OQ-hum" firstAttribute="leading" secondItem="XBf-GG-ofQ" secondAttribute="leading" id="C1R-WB-7AB"/>
                             <constraint firstItem="hCs-4q-8jZ" firstAttribute="top" secondItem="qkQ-Hs-yL6" secondAttribute="bottom" id="QOp-r8-isF"/>
                             <constraint firstAttribute="trailing" secondItem="T09-bf-76n" secondAttribute="trailing" id="bkA-Sn-nye"/>
                             <constraint firstAttribute="trailing" secondItem="qkQ-Hs-yL6" secondAttribute="trailing" id="uyY-iZ-Cj0"/>
                             <constraint firstItem="qkQ-Hs-yL6" firstAttribute="leading" secondItem="XBf-GG-ofQ" secondAttribute="leading" id="vEa-Gg-bQb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Radio Show" id="89w-Wp-HPU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtQ-h3-ceP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="676" y="2489"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--DJ Profiles-->
         <scene sceneID="Ods-Fz-Ynr">
             <objects>
                 <viewController restorationIdentifier="Profiles" storyboardIdentifier="Profiles" id="glV-sP-7sS" customClass="ProfileViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
@@ -674,16 +649,6 @@
                                     <constraint firstAttribute="bottom" secondItem="mYr-h9-iXt" secondAttribute="bottom" constant="11" id="fSp-Vl-xhO"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oP-fI-ydk">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="3fJ-Vk-dBp"/>
-                                    <constraint firstAttribute="height" constant="44" id="b3O-XH-8Sc"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="DJ Profiles" id="cel-HO-CqN"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jOq-NP-6wK">
                                 <rect key="frame" x="0.0" y="64" width="600" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -691,27 +656,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6oP-fI-ydk" firstAttribute="leading" secondItem="18E-vA-I6L" secondAttribute="leading" id="6hU-Dc-BFL"/>
-                            <constraint firstItem="jOq-NP-6wK" firstAttribute="top" secondItem="6oP-fI-ydk" secondAttribute="bottom" id="9gX-nN-7vE"/>
                             <constraint firstItem="FoI-IS-fnc" firstAttribute="leading" secondItem="18E-vA-I6L" secondAttribute="leading" id="Dit-Hn-xF9"/>
                             <constraint firstItem="FoI-IS-fnc" firstAttribute="top" secondItem="IPc-dt-Wfb" secondAttribute="bottom" id="FNu-hQ-hOE"/>
-                            <constraint firstAttribute="trailing" secondItem="6oP-fI-ydk" secondAttribute="trailing" id="OiC-ex-LZa"/>
                             <constraint firstItem="IPc-dt-Wfb" firstAttribute="top" secondItem="jOq-NP-6wK" secondAttribute="bottom" id="cMC-bM-dKf"/>
                             <constraint firstItem="2QQ-kk-TJu" firstAttribute="top" secondItem="FoI-IS-fnc" secondAttribute="bottom" id="e5w-iU-Lkd"/>
-                            <constraint firstItem="6oP-fI-ydk" firstAttribute="top" secondItem="cnZ-y5-QW8" secondAttribute="bottom" id="hQ4-0e-EqC"/>
                             <constraint firstItem="jOq-NP-6wK" firstAttribute="leading" secondItem="18E-vA-I6L" secondAttribute="leading" id="hdS-j0-cGB"/>
                             <constraint firstAttribute="trailing" secondItem="IPc-dt-Wfb" secondAttribute="trailing" id="nym-3X-hBu"/>
                             <constraint firstAttribute="trailing" secondItem="FoI-IS-fnc" secondAttribute="trailing" id="psG-h8-srU"/>
+                            <constraint firstItem="jOq-NP-6wK" firstAttribute="top" secondItem="cnZ-y5-QW8" secondAttribute="bottom" constant="44" id="qIv-bu-y1d"/>
                             <constraint firstAttribute="trailing" secondItem="jOq-NP-6wK" secondAttribute="trailing" id="xH7-0B-aCi"/>
                             <constraint firstItem="IPc-dt-Wfb" firstAttribute="leading" secondItem="18E-vA-I6L" secondAttribute="leading" id="z0L-9O-XSX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="DJ Profiles" id="cel-HO-CqN"/>
+                    <connections>
+                        <outlet property="navBarItem" destination="cel-HO-CqN" id="5Mf-1c-IJc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaK-SJ-syw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1385" y="1808"/>
         </scene>
-        <!--View Controller-->
+        <!--DJ Profile-->
         <scene sceneID="W4Z-Mp-cOb">
             <objects>
                 <viewController id="STt-ys-APL" sceneMemberID="viewController">
@@ -723,15 +689,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqK-od-wiU">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="145-MV-tXW"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="DJ Profile" id="bri-g9-csm"/>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NwF-Lk-rHN">
                                 <rect key="frame" x="0.0" y="485" width="600" height="45"/>
                                 <subviews>
@@ -851,23 +808,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uqK-od-wiU" secondAttribute="trailing" id="6Qk-Hb-DdW"/>
                             <constraint firstItem="NwF-Lk-rHN" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leading" id="HEH-n4-Dmx"/>
-                            <constraint firstItem="uqK-od-wiU" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leading" id="IHk-zx-vGd"/>
                             <constraint firstAttribute="trailing" secondItem="y1n-f8-rZZ" secondAttribute="trailing" id="OAm-0h-oNV"/>
                             <constraint firstItem="y1n-f8-rZZ" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leading" id="UQd-2Z-hW7"/>
                             <constraint firstItem="y1n-f8-rZZ" firstAttribute="top" secondItem="NwF-Lk-rHN" secondAttribute="bottom" id="bnV-JC-Y38"/>
                             <constraint firstAttribute="trailing" secondItem="NwF-Lk-rHN" secondAttribute="trailing" id="iIQ-Tp-NPE"/>
                             <constraint firstItem="dVB-83-fzE" firstAttribute="top" secondItem="y1n-f8-rZZ" secondAttribute="bottom" id="kkT-XI-uxI"/>
-                            <constraint firstItem="uqK-od-wiU" firstAttribute="top" secondItem="OSk-c8-081" secondAttribute="bottom" id="oAj-ge-0I0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="DJ Profile" id="bri-g9-csm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOG-xL-tTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1388" y="2484"/>
         </scene>
-        <!--Eq View Controller-->
+        <!--EQ-->
         <scene sceneID="g8X-3x-VEn">
             <objects>
                 <viewController storyboardIdentifier="Eq" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bWy-Rs-6HW" customClass="EqViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
@@ -879,15 +834,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWa-ZJ-eAq">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="rOg-F8-PHV"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="EQ" id="yaf-ZU-roE"/>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBb-hY-FAT">
                                 <rect key="frame" x="0.0" y="485" width="600" height="45"/>
                                 <subviews>
@@ -1006,10 +952,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CWa-ZJ-eAq" firstAttribute="leading" secondItem="Tzp-ab-Z65" secondAttribute="leading" id="1D1-ES-oZx"/>
-                            <constraint firstItem="CWa-ZJ-eAq" firstAttribute="top" secondItem="kAb-uu-n3W" secondAttribute="bottom" id="2eA-ew-iZl"/>
                             <constraint firstItem="p1N-xE-SRG" firstAttribute="top" secondItem="X85-9X-Qs6" secondAttribute="bottom" id="7Je-QE-2P2"/>
-                            <constraint firstAttribute="trailing" secondItem="CWa-ZJ-eAq" secondAttribute="trailing" id="FB7-vX-VH0"/>
                             <constraint firstItem="mBb-hY-FAT" firstAttribute="leading" secondItem="Tzp-ab-Z65" secondAttribute="leading" id="NKp-O5-tLN"/>
                             <constraint firstItem="X85-9X-Qs6" firstAttribute="top" secondItem="mBb-hY-FAT" secondAttribute="bottom" id="Y4S-xS-a1i"/>
                             <constraint firstAttribute="trailing" secondItem="mBb-hY-FAT" secondAttribute="trailing" id="fNc-AK-mbq"/>
@@ -1017,12 +960,16 @@
                             <constraint firstAttribute="trailing" secondItem="X85-9X-Qs6" secondAttribute="trailing" id="zWV-NK-bFB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="EQ" id="yaf-ZU-roE"/>
+                    <connections>
+                        <outlet property="navBarItem" destination="yaf-ZU-roE" id="5Yq-QL-X8L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcY-34-s1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2189" y="1808"/>
         </scene>
-        <!--Chat Controller-->
+        <!--Chat-->
         <scene sceneID="NaV-fK-uU2">
             <objects>
                 <viewController id="IJv-9h-6no" customClass="ChatController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
@@ -1135,26 +1082,7 @@
                                     <constraint firstAttribute="height" constant="45" id="brX-UY-cMX"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-RN-hsx">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="6Wd-3H-wAR"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Chat" id="5hK-vU-h6Z">
-                                        <barButtonItem key="leftBarButtonItem" id="oYg-gX-mkT">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHm-pX-Wo7">
-                                                <rect key="frame" x="16" y="14" width="15" height="11"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="menu">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7p-yY-G7C">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7p-yY-G7C">
                                 <rect key="frame" x="0.0" y="64" width="600" height="421"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-Cp-7GI">
@@ -1237,19 +1165,27 @@
                         <constraints>
                             <constraint firstItem="RJV-sz-2K8" firstAttribute="leading" secondItem="YYR-Ys-fdD" secondAttribute="leading" id="2bg-Vi-kQw"/>
                             <constraint firstItem="Lft-Kk-ybd" firstAttribute="leading" secondItem="YYR-Ys-fdD" secondAttribute="leading" id="4vq-lE-Lsa"/>
-                            <constraint firstItem="s7p-yY-G7C" firstAttribute="trailing" secondItem="YVs-RN-hsx" secondAttribute="trailing" id="7ui-X7-w8b"/>
-                            <constraint firstItem="s7p-yY-G7C" firstAttribute="leading" secondItem="YVs-RN-hsx" secondAttribute="leading" id="DgB-vK-GKt"/>
                             <constraint firstItem="RJV-sz-2K8" firstAttribute="top" secondItem="Lft-Kk-ybd" secondAttribute="bottom" id="Gw7-ZA-qXV"/>
                             <constraint firstAttribute="trailing" secondItem="Lft-Kk-ybd" secondAttribute="trailing" id="HdL-HT-rAD"/>
-                            <constraint firstItem="s7p-yY-G7C" firstAttribute="top" secondItem="Ee9-v2-86Q" secondAttribute="bottom" id="IGF-ML-cpp"/>
-                            <constraint firstAttribute="trailing" secondItem="YVs-RN-hsx" secondAttribute="trailing" id="MVa-nM-fvN"/>
+                            <constraint firstItem="s7p-yY-G7C" firstAttribute="top" secondItem="Ee9-v2-86Q" secondAttribute="bottom" constant="44" id="IGF-ML-cpp"/>
                             <constraint firstAttribute="trailing" secondItem="RJV-sz-2K8" secondAttribute="trailing" id="QwL-T1-oow"/>
                             <constraint firstItem="d4l-4z-LAm" firstAttribute="top" secondItem="RJV-sz-2K8" secondAttribute="bottom" id="evh-pr-TBo"/>
-                            <constraint firstItem="YVs-RN-hsx" firstAttribute="leading" secondItem="YYR-Ys-fdD" secondAttribute="leading" id="gOt-Gr-sVi"/>
+                            <constraint firstItem="s7p-yY-G7C" firstAttribute="trailing" secondItem="Lft-Kk-ybd" secondAttribute="trailing" id="rGf-5c-eW0"/>
                             <constraint firstItem="Lft-Kk-ybd" firstAttribute="top" secondItem="s7p-yY-G7C" secondAttribute="bottom" id="rcl-eR-zT6"/>
-                            <constraint firstItem="YVs-RN-hsx" firstAttribute="top" secondItem="Ee9-v2-86Q" secondAttribute="bottom" constant="-44" id="yNf-fg-oXG"/>
+                            <constraint firstItem="s7p-yY-G7C" firstAttribute="leading" secondItem="Lft-Kk-ybd" secondAttribute="leading" id="xuI-nO-zHR"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Chat" id="5hK-vU-h6Z">
+                        <barButtonItem key="leftBarButtonItem" id="oYg-gX-mkT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHm-pX-Wo7">
+                                <rect key="frame" x="16" y="14" width="15" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="menu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
@@ -1257,8 +1193,7 @@
                         <outlet property="inputMessageField" destination="mgP-Gk-Se3" id="sFE-kE-xL3"/>
                         <outlet property="messageSendButton" destination="2Ae-mR-xJT" id="WxP-z0-b8H"/>
                         <outlet property="messagesTableView" destination="mBx-Cp-7GI" id="bm4-BY-pBg"/>
-                        <outlet property="navBar" destination="YVs-RN-hsx" id="mom-Eo-Onk"/>
-                        <outlet property="navBarItem" destination="hHm-pX-Wo7" id="qKX-zF-ZCI"/>
+                        <outlet property="navBarItem" destination="5hK-vU-h6Z" id="DBi-c1-YZ8"/>
                         <outlet property="playerControlButton" destination="Kaf-pP-cCz" id="8hU-LV-Aq6"/>
                         <outlet property="radioshowLabel" destination="rse-dC-aeQ" id="PNt-q7-67N"/>
                         <outlet property="scrollView" destination="s7p-yY-G7C" id="DXR-ad-TNP"/>
@@ -1292,7 +1227,7 @@
         <image name="menu" width="29" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Afz-rm-80W"/>
+        <segue reference="zTC-Dv-jQB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>

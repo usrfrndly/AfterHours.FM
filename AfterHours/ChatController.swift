@@ -23,9 +23,12 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
     var chatsArray:[(author:String,text:String)] = []
     @IBOutlet var inputMessageField:UITextField!
     @IBOutlet var messageSendButton: UIButton!
+    @IBOutlet var navBarItem: UINavigationItem!
+
     var activeField:UITextField?
     
     override func viewDidLoad() {
+        
         var firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
         firebase.observeEventType(.Value, withBlock: {
             snapshot in
@@ -43,6 +46,17 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
         })
         //Whether a user is currently typing in the field
         activeField = inputMessageField
+        
+        var img:UIImage? = UIImage(named: "menu.png")
+        navBarItem.leftBarButtonItem = UIBarButtonItem(image: img!, style: UIBarButtonItemStyle.Bordered , target:self, action: "toggleSideMenuView")
+        
+        
+        
+        func toggleSideMenu(sender: AnyObject) {
+            toggleSideMenuView()
+        }
+
+        
         
         //Looks for double taps to dismiss the keyboard
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")

@@ -10,8 +10,16 @@ import Foundation
 import UIKit
 
 class EqViewController: UIViewController {
-    
+    @IBOutlet var navBarItem:UINavigationItem!
+
     override func viewDidLoad() {
+        var img:UIImage? = UIImage(named: "menu.png")
+        navBarItem.leftBarButtonItem = UIBarButtonItem(image: img!, style: UIBarButtonItemStyle.Bordered , target:self, action: "toggleSideMenuView")
+        
+    }
+    
+    func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
         //
     }
-}
