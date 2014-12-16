@@ -34,6 +34,8 @@
 		1FDD12431A2E8799005CD29A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD12421A2E8799005CD29A /* SystemConfiguration.framework */; };
 		1FDD12441A2E87B7005CD29A /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD12351A2E8730005CD29A /* Firebase.framework */; };
 		1FDD12461A2E8E37005CD29A /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD12451A2E8E37005CD29A /* ChatController.swift */; };
+		1FE1DF231A3FDA4D0015B8F3 /* EqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1DF221A3FDA4D0015B8F3 /* EqViewController.swift */; };
+		1FE1DF261A3FDA660015B8F3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1DF251A3FDA660015B8F3 /* ProfileViewController.swift */; };
 		1FFA8C151A3EB29200A0DAB4 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA8C131A3EB29200A0DAB4 /* ENSideMenu.swift */; };
 		1FFA8C161A3EB29200A0DAB4 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA8C141A3EB29200A0DAB4 /* ENSideMenuNavigationController.swift */; };
 		1FFA8C191A3EB32800A0DAB4 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA8C171A3EB32800A0DAB4 /* MyNavigationController.swift */; };
@@ -121,6 +123,8 @@
 		1FDD12401A2E8793005CD29A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1FDD12421A2E8799005CD29A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1FDD12451A2E8E37005CD29A /* ChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		1FE1DF221A3FDA4D0015B8F3 /* EqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqViewController.swift; sourceTree = "<group>"; };
+		1FE1DF251A3FDA660015B8F3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1FFA8C131A3EB29200A0DAB4 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		1FFA8C141A3EB29200A0DAB4 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		1FFA8C171A3EB32800A0DAB4 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				1F00073E1A25504B0024E4F1 /* Player.swift */,
 				1FDD12451A2E8E37005CD29A /* ChatController.swift */,
 				1FBEE62C1A3FD958006A3EB1 /* RadioShowController.swift */,
+				1FE1DF221A3FDA4D0015B8F3 /* EqViewController.swift */,
+				1FE1DF251A3FDA660015B8F3 /* ProfileViewController.swift */,
 			);
 			path = AfterHours;
 			sourceTree = "<group>";
@@ -374,6 +380,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FFA8C1A1A3EB32800A0DAB4 /* MyMenuTableViewController.swift in Sources */,
+				1FE1DF231A3FDA4D0015B8F3 /* EqViewController.swift in Sources */,
+				1FE1DF261A3FDA660015B8F3 /* ProfileViewController.swift in Sources */,
 				1F00075B1A25506A0024E4F1 /* STKLocalFileDataSource.m in Sources */,
 				1FFA8C191A3EB32800A0DAB4 /* MyNavigationController.swift in Sources */,
 				1F0007561A25506A0024E4F1 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
