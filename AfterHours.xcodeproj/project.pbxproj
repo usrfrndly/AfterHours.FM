@@ -22,6 +22,8 @@
 		1F00075A1A25506A0024E4F1 /* STKHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F00074F1A25506A0024E4F1 /* STKHTTPDataSource.m */; };
 		1F00075B1A25506A0024E4F1 /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0007511A25506A0024E4F1 /* STKLocalFileDataSource.m */; };
 		1F00075C1A25506A0024E4F1 /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0007531A25506A0024E4F1 /* STKQueueEntry.m */; };
+		1F592A8F1A3FD26D005FBF04 /* 1309055257cop_cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F592A8E1A3FD26D005FBF04 /* 1309055257cop_cat.jpg */; };
+		1F592A911A3FD2CF005FBF04 /* 8672502531_f8ef44fe39_k (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F592A901A3FD2CF005FBF04 /* 8672502531_f8ef44fe39_k (1).jpg */; };
 		1F6CA8381A2C13C50056E1D1 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CA8371A2C13C50056E1D1 /* default.png */; };
 		1F93D0801A2F64A0004F0AF1 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1F93D07B1A2F644F004F0AF1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FDD123B1A2E877C005CD29A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDD123A1A2E877C005CD29A /* libicucore.dylib */; };
@@ -105,6 +107,8 @@
 		1F0007511A25506A0024E4F1 /* STKLocalFileDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKLocalFileDataSource.m; sourceTree = "<group>"; };
 		1F0007521A25506A0024E4F1 /* STKQueueEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKQueueEntry.h; sourceTree = "<group>"; };
 		1F0007531A25506A0024E4F1 /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
+		1F592A8E1A3FD26D005FBF04 /* 1309055257cop_cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1309055257cop_cat.jpg; sourceTree = "<group>"; };
+		1F592A901A3FD2CF005FBF04 /* 8672502531_f8ef44fe39_k (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "8672502531_f8ef44fe39_k (1).jpg"; sourceTree = "<group>"; };
 		1F6CA8371A2C13C50056E1D1 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		1F93D0751A2F644F004F0AF1 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../../Downloads/Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		1FDD12351A2E8730005CD29A /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 		1F00071B1A25500C0024E4F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F592A901A3FD2CF005FBF04 /* 8672502531_f8ef44fe39_k (1).jpg */,
+				1F592A8E1A3FD26D005FBF04 /* 1309055257cop_cat.jpg */,
 				1F6CA8371A2C13C50056E1D1 /* default.png */,
 				1F0007401A25506A0024E4F1 /* StreamingKit */,
 				1F00071C1A25500C0024E4F1 /* Info.plist */,
@@ -350,6 +356,8 @@
 			files = (
 				1F0007231A25500C0024E4F1 /* Main.storyboard in Resources */,
 				1F0007281A25500C0024E4F1 /* LaunchScreen.xib in Resources */,
+				1F592A911A3FD2CF005FBF04 /* 8672502531_f8ef44fe39_k (1).jpg in Resources */,
+				1F592A8F1A3FD26D005FBF04 /* 1309055257cop_cat.jpg in Resources */,
 				1F0007251A25500C0024E4F1 /* Images.xcassets in Resources */,
 				1F6CA8381A2C13C50056E1D1 /* default.png in Resources */,
 			);

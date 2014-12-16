@@ -10,7 +10,7 @@ import UIKit
 
 class MyMenuTableViewController: UITableViewController {
     var selectedMenuItem : Int = 0
-    var menuItems = [("DJs",UIImage(named:"djs.png")),("Shows",UIImage(named:"shows.png")),("Events",UIImage(named:"events.png")),("EQ",UIImage(named:"EQ.png"))]
+    var menuItems = [("DJs",UIImage(named:"djs.png")),("Shows",UIImage(named:"shows.png")),("EQ",UIImage(named:"EQ.png"))]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +40,7 @@ class MyMenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 4 //DJs, Shows, Events, EQ
+        return self.menuItems.count //DJs, Shows, Events, EQ
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
