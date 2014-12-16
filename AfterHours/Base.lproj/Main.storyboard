@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="98r-oT-Ldf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Now Playing-->
@@ -380,10 +381,17 @@
             </objects>
             <point key="canvasLocation" x="679" y="1808"/>
         </scene>
+<<<<<<< HEAD
         <!--Radio Station-->
         <scene sceneID="RfZ-Md-BOC">
             <objects>
                 <viewController id="zLb-jE-4ud" userLabel="Radio Station" sceneMemberID="viewController">
+=======
+        <!--Show View Controller-->
+        <scene sceneID="RfZ-Md-BOC">
+            <objects>
+                <viewController id="zLb-jE-4ud" customClass="ShowViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YUr-0q-bJN"/>
                         <viewControllerLayoutGuide type="bottom" id="hCs-4q-8jZ"/>
@@ -405,6 +413,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="playButtonPressed:" destination="zLb-jE-4ud" eventType="touchUpInside" id="lp2-98-JHu"/>
                                             <action selector="togglePlayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zc2-NF-Jcm"/>
                                         </connections>
                                     </button>
@@ -483,6 +492,9 @@
                                                 <state key="normal" backgroundImage="Playlist">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="playlistPressed:" destination="zLb-jE-4ud" eventType="touchUpInside" id="1YT-0k-V5P"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -505,22 +517,77 @@
                                     <constraint firstAttribute="height" constant="45" id="zf3-JF-g5w"/>
                                 </constraints>
                             </view>
+<<<<<<< HEAD
+=======
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1D-OQ-hum">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="v3K-V9-G3s"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Radio Show" id="89w-Wp-HPU"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-II-pRH">
+                                <rect key="frame" x="16" y="86" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4Jw-CW-YWF"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Radio Show Title">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhA-03-did">
+                                <rect key="frame" x="16" y="115" width="568" height="362"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qkQ-Hs-yL6" firstAttribute="top" secondItem="T09-bf-76n" secondAttribute="bottom" id="4xO-1n-75X"/>
                             <constraint firstItem="T09-bf-76n" firstAttribute="leading" secondItem="XBf-GG-ofQ" secondAttribute="leading" id="BLa-TI-ecy"/>
+<<<<<<< HEAD
+=======
+                            <constraint firstItem="l1D-OQ-hum" firstAttribute="leading" secondItem="XBf-GG-ofQ" secondAttribute="leading" id="C1R-WB-7AB"/>
+                            <constraint firstItem="T09-bf-76n" firstAttribute="top" secondItem="XhA-03-did" secondAttribute="bottom" constant="8" id="CQL-hg-Wje"/>
+                            <constraint firstItem="XhA-03-did" firstAttribute="leading" secondItem="XBf-GG-ofQ" secondAttribute="leadingMargin" id="N5W-Et-4cQ"/>
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
                             <constraint firstItem="hCs-4q-8jZ" firstAttribute="top" secondItem="qkQ-Hs-yL6" secondAttribute="bottom" id="QOp-r8-isF"/>
+                            <constraint firstItem="zwd-II-pRH" firstAttribute="trailing" secondItem="XBf-GG-ofQ" secondAttribute="trailingMargin" id="Vvf-VY-UVW"/>
                             <constraint firstAttribute="trailing" secondItem="T09-bf-76n" secondAttribute="trailing" id="bkA-Sn-nye"/>
+                            <constraint firstItem="XhA-03-did" firstAttribute="top" secondItem="zwd-II-pRH" secondAttribute="bottom" constant="8" id="cfm-SF-pl0"/>
+                            <constraint firstItem="XhA-03-did" firstAttribute="trailing" secondItem="XBf-GG-ofQ" secondAttribute="trailingMargin" id="g1G-tg-8cM"/>
+                            <constraint firstItem="zwd-II-pRH" firstAttribute="leading" secondItem="XBf-GG-ofQ" secondAttribute="leadingMargin" id="gbB-AY-gjF"/>
                             <constraint firstAttribute="trailing" secondItem="qkQ-Hs-yL6" secondAttribute="trailing" id="uyY-iZ-Cj0"/>
                             <constraint firstItem="qkQ-Hs-yL6" firstAttribute="leading" secondItem="XBf-GG-ofQ" secondAttribute="leading" id="vEa-Gg-bQb"/>
+                            <constraint firstItem="zwd-II-pRH" firstAttribute="top" secondItem="l1D-OQ-hum" secondAttribute="bottom" constant="22" id="zjl-4u-p6t"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" title="Radio Show" id="89w-Wp-HPU"/>
+=======
+                    <connections>
+                        <outlet property="djLabel" destination="Rkw-Uv-jdX" id="y83-ZY-cVr"/>
+                        <outlet property="playButton" destination="lsr-9x-Fqu" id="kVh-IK-XoI"/>
+                        <outlet property="playButtonPressed" destination="lsr-9x-Fqu" id="w9D-20-Jba"/>
+                        <outlet property="radioshowLabel" destination="ruI-he-0OU" id="Zez-cw-V5a"/>
+                    </connections>
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtQ-h3-ceP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676" y="2489"/>
+            <point key="canvasLocation" x="679" y="2489"/>
         </scene>
         <!--DJ Profiles-->
         <scene sceneID="Ods-Fz-Ynr">
@@ -547,6 +614,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="playButtonPressed:" destination="glV-sP-7sS" eventType="touchUpInside" id="QBI-29-8Wu"/>
                                             <action selector="togglePlayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Apz-Yo-3bv"/>
                                         </connections>
                                     </button>
@@ -628,6 +696,9 @@
                                                 <state key="normal" backgroundImage="Playlist">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="playlistPressed:" destination="glV-sP-7sS" eventType="touchUpInside" id="zbF-4n-TJb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -668,19 +739,30 @@
                             <constraint firstItem="IPc-dt-Wfb" firstAttribute="leading" secondItem="18E-vA-I6L" secondAttribute="leading" id="z0L-9O-XSX"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" title="DJ Profiles" id="cel-HO-CqN"/>
                     <connections>
                         <outlet property="navBarItem" destination="cel-HO-CqN" id="5Mf-1c-IJc"/>
+=======
+                    <connections>
+                        <outlet property="djLabel" destination="Iv2-Jm-mlB" id="OQk-UR-EFO"/>
+                        <outlet property="playButton" destination="YUF-28-3xF" id="chT-bc-cuL"/>
+                        <outlet property="radioshowLabel" destination="6WI-Lc-fcT" id="0yk-8V-aNB"/>
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaK-SJ-syw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1385" y="1808"/>
         </scene>
+<<<<<<< HEAD
         <!--DJ Profile-->
+=======
+        <!--Dj View Controller-->
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
         <scene sceneID="W4Z-Mp-cOb">
             <objects>
-                <viewController id="STt-ys-APL" sceneMemberID="viewController">
+                <viewController id="STt-ys-APL" customClass="DjViewController" customModule="AfterHours" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OSk-c8-081"/>
                         <viewControllerLayoutGuide type="bottom" id="dVB-83-fzE"/>
@@ -718,6 +800,9 @@
                                                 <state key="normal" backgroundImage="Playlist">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="playlistPressed:" destination="STt-ys-APL" eventType="touchUpInside" id="RoQ-ye-J97"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -753,6 +838,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="playButtonPressed:" destination="STt-ys-APL" eventType="touchUpInside" id="1EB-VY-yiO"/>
                                             <action selector="togglePlayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GiY-H0-6Jo"/>
                                         </connections>
                                     </button>
@@ -805,22 +891,69 @@
                                     <constraint firstItem="Lhw-0W-c76" firstAttribute="leading" secondItem="y1n-f8-rZZ" secondAttribute="leading" constant="20" id="zUY-4q-Cd1"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxS-Rw-8lv">
+                                <rect key="frame" x="16" y="86" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Kmu-Xo-K4J"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="DJ Name">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSB-3F-SMi">
+                                <rect key="frame" x="16" y="115" width="568" height="362"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+<<<<<<< HEAD
                             <constraint firstItem="NwF-Lk-rHN" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leading" id="HEH-n4-Dmx"/>
+=======
+                            <constraint firstItem="rSB-3F-SMi" firstAttribute="top" secondItem="UxS-Rw-8lv" secondAttribute="bottom" constant="8" id="0UZ-l3-Vtf"/>
+                            <constraint firstItem="rSB-3F-SMi" firstAttribute="trailing" secondItem="DmI-8g-iql" secondAttribute="trailingMargin" id="47L-G4-Voa"/>
+                            <constraint firstAttribute="trailing" secondItem="uqK-od-wiU" secondAttribute="trailing" id="6Qk-Hb-DdW"/>
+                            <constraint firstItem="UxS-Rw-8lv" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leadingMargin" id="H6s-0s-2fa"/>
+                            <constraint firstItem="NwF-Lk-rHN" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leading" id="HEH-n4-Dmx"/>
+                            <constraint firstItem="uqK-od-wiU" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leading" id="IHk-zx-vGd"/>
+                            <constraint firstItem="NwF-Lk-rHN" firstAttribute="top" secondItem="rSB-3F-SMi" secondAttribute="bottom" constant="8" id="O1A-v5-2IO"/>
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
                             <constraint firstAttribute="trailing" secondItem="y1n-f8-rZZ" secondAttribute="trailing" id="OAm-0h-oNV"/>
+                            <constraint firstItem="UxS-Rw-8lv" firstAttribute="top" secondItem="uqK-od-wiU" secondAttribute="bottom" constant="22" id="SuS-h2-pE4"/>
                             <constraint firstItem="y1n-f8-rZZ" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leading" id="UQd-2Z-hW7"/>
+                            <constraint firstItem="UxS-Rw-8lv" firstAttribute="trailing" secondItem="DmI-8g-iql" secondAttribute="trailingMargin" id="bao-Iz-Ukz"/>
                             <constraint firstItem="y1n-f8-rZZ" firstAttribute="top" secondItem="NwF-Lk-rHN" secondAttribute="bottom" id="bnV-JC-Y38"/>
                             <constraint firstAttribute="trailing" secondItem="NwF-Lk-rHN" secondAttribute="trailing" id="iIQ-Tp-NPE"/>
                             <constraint firstItem="dVB-83-fzE" firstAttribute="top" secondItem="y1n-f8-rZZ" secondAttribute="bottom" id="kkT-XI-uxI"/>
+<<<<<<< HEAD
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="DJ Profile" id="bri-g9-csm"/>
+=======
+                            <constraint firstItem="uqK-od-wiU" firstAttribute="top" secondItem="OSk-c8-081" secondAttribute="bottom" id="oAj-ge-0I0"/>
+                            <constraint firstItem="rSB-3F-SMi" firstAttribute="leading" secondItem="DmI-8g-iql" secondAttribute="leadingMargin" id="sze-lb-tWY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="djLabel" destination="et4-cP-hkG" id="BqY-nW-Zcj"/>
+                        <outlet property="playButton" destination="Lhw-0W-c76" id="Hm8-NH-Vf4"/>
+                        <outlet property="radioshowLabel" destination="2tB-ll-lbZ" id="tRR-hJ-bOv"/>
+                    </connections>
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOG-xL-tTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1388" y="2484"/>
+            <point key="canvasLocation" x="1385" y="2489"/>
         </scene>
         <!--EQ-->
         <scene sceneID="g8X-3x-VEn">
@@ -863,6 +996,9 @@
                                                 <state key="normal" backgroundImage="Playlist">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="playlistPressed:" destination="bWy-Rs-6HW" eventType="touchUpInside" id="0pZ-yc-sEE"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -897,6 +1033,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="playButtonPressed:" destination="bWy-Rs-6HW" eventType="touchUpInside" id="3dM-zD-530"/>
                                             <action selector="togglePlayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OgE-hM-Qxt"/>
                                         </connections>
                                     </button>
@@ -960,9 +1097,16 @@
                             <constraint firstAttribute="trailing" secondItem="X85-9X-Qs6" secondAttribute="trailing" id="zWV-NK-bFB"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" title="EQ" id="yaf-ZU-roE"/>
                     <connections>
                         <outlet property="navBarItem" destination="yaf-ZU-roE" id="5Yq-QL-X8L"/>
+=======
+                    <connections>
+                        <outlet property="djLabel" destination="6l8-UZ-9mz" id="SnM-px-F6O"/>
+                        <outlet property="playButton" destination="FhI-CU-Mkw" id="0OZ-eD-IGQ"/>
+                        <outlet property="radioshowLabel" destination="syj-dn-yOU" id="2FI-on-WEH"/>
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcY-34-s1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1227,7 +1371,11 @@
         <image name="menu" width="29" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
         <segue reference="zTC-Dv-jQB"/>
+=======
+        <segue reference="3z9-PJ-wdY"/>
+>>>>>>> 7f44ea2c70b998c1e6592ca61493f477fc9dcf18
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>
