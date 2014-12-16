@@ -41,6 +41,16 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
             self.chatsArray.append(author:author!, text:text!)
             println(snapshot.value)
         })
+        
+        if player.isPlaying(){
+            var newBackgroundImg = UIImage(named: "Pause.png")
+            self.playerControlButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
+        }
+        else
+        {
+            var newBackgroundImg = UIImage(named: "Play.png")
+            self.playerControlButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
+        }
         //Whether a user is currently typing in the field
         activeField = inputMessageField
         

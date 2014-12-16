@@ -10,8 +10,41 @@ import Foundation
 import UIKit
 
 class EqViewController: UIViewController {
-    
+    var player:Player! = Player.sharedInstance
+    @IBAction func playlistPressed(sender: AnyObject) {
+    }
+    @IBOutlet weak var playButton: UIButton!
+    @IBAction func playButtonPressed(sender: AnyObject) {
+        if self.player.isPlaying(){
+            println("\(reflect(self).summary).\(__FUNCTION__)(): Pause stream")
+            self.player.pause()
+            var newBackgroundImg = UIImage(named: "Pause.png")
+            self.playButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
+        }else{
+            println("\(reflect(self).summary).\(__FUNCTION__)(): Play Strean")
+            self.player.play()
+            var newBackgroundImg = UIImage(named: "Play.png")
+            self.playButton.setBackgroundImage(newBackgroundImg, forState: .Normal)
+        }
+    }
+    @IBOutlet weak var radioshowLabel: UILabel!
+    @IBOutlet weak var djLabel: UILabel!
     override func viewDidLoad() {
-        //
+        var firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
+        firebase.observeEventType(.Value, withBlock: {
+            snapshot in
+            self.radioshowLabel.text = snapshot.value.objectForKey("title") as? String
+            self.djLabel.text = snapshot.value.objectForKey("dj") as? String
+        })
+        if self.player.isPlaying(){
+            println("\(reflect(self).summary).\(__FUNCTION__)(): Pause stream")
+            var newBackgroundImg = UIImage(named: "Pause.png")
+            self.playButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
+        }else{
+            println("\(reflect(self).summary).\(__FUNCTION__)(): Play Strean")
+            var newBackgroundImg = UIImage(named: "Play.png")
+            self.playButton.setBackgroundImage(newBackgroundImg, forState: .Normal)
+        }
+
     }
 }

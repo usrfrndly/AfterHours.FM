@@ -37,6 +37,10 @@ class ViewController: UIViewController{
         
         println("\(reflect(self).summary).\(__FUNCTION__):")
         if player.isPlaying(){
+            var newBackgroundImg = UIImage(named: "Pause.png")
+            self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
+        }
+        else {
             var newBackgroundImg = UIImage(named: "Play.png")
             self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
         }
