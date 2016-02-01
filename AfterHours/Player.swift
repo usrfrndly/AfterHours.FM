@@ -25,6 +25,8 @@ class Player {
     var player:STKAudioPlayer!
     weak var delegate : PlayerDelegate?
     var observer : NSObjectProtocol!
+    //var isPlaying:Bool = false
+
     let streamURL:NSURL! = NSURL(string:"http://relay.ah.fm/;")
     
     /*
@@ -37,36 +39,45 @@ class Player {
     STKAudioPlayerStateStopped.value: 16
     STKAudioPlayerStateError.value: 32
     */
-    let playerStates:[UInt32:String!] = [ STKAudioPlayerStateReady.value:"STKAudioPlayerStateReady", STKAudioPlayerStateRunning.value:"STKAudioPlayerStateRunning", STKAudioPlayerStatePlaying.value:"STKAudioPlayerStatePlaying", STKAudioPlayerStateBuffering.value:"STKAudioPlayerStateBuffering",STKAudioPlayerStatePaused.value:"STKAudioPlayerStatePaused", STKAudioPlayerStateStopped.value:"STKAudioPlayerStateStopped", STKAudioPlayerStateError.value:"STKAudioPlayerStateError" ]
+    let playerStates:[UInt32:String!] = [ STKAudioPlayerStateReady.rawValue:"STKAudioPlayerStateReady", STKAudioPlayerStateRunning.rawValue:"STKAudioPlayerStateRunning", STKAudioPlayerStatePlaying.rawValue:"STKAudioPlayerStatePlaying", STKAudioPlayerStateBuffering.rawValue:"STKAudioPlayerStateBuffering",STKAudioPlayerStatePaused.rawValue:"STKAudioPlayerStatePaused", STKAudioPlayerStateStopped.rawValue:"STKAudioPlayerStateStopped", STKAudioPlayerStateError.rawValue:"STKAudioPlayerStateError" ]
     
     init() {
+        self.setupStream()
+        self.addInterruptionNotification()
         
-        // Once player is initialized, set the background mode and make the player active
+        let firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
+        firebase.observeEventType(.Value, withBlock: {
+            snapshot in
+            self.updatePlayerInfo(snapshot.value.objectForKey("dj") as! String, title: snapshot.value.objectForKey("title") as! String, imageUrl: snapshot.value.objectForKey("banner") as! String)
+        })
+    }
+    
+    func setupStream() {
         /// This sets the frequencies of the equalizer bands of the graphic equalizer built into STKAudioPlayer
         let equalizerBands:(Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32) = (50, 100, 200, 400, 800, 1600, 2600, 16000, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 0 , 0, 0 )
         /// The options that the STKAudioPlayer should be initialized with. The 0 options enable the default options.
-        var optns:STKAudioPlayerOptions = STKAudioPlayerOptions(flushQueueOnSeek: true, enableVolumeMixer: true, equalizerBandFrequencies:equalizerBands,readBufferSize: 0, bufferSizeInSeconds: 0, secondsRequiredToStartPlaying: 0, gracePeriodAfterSeekInSeconds: 0, secondsRequiredToStartPlayingAfterBufferUnderun: 0)
+        let optns:STKAudioPlayerOptions = STKAudioPlayerOptions(flushQueueOnSeek: true, enableVolumeMixer: true, equalizerBandFrequencies:equalizerBands,readBufferSize: 0, bufferSizeInSeconds: 0, secondsRequiredToStartPlaying: 0, gracePeriodAfterSeekInSeconds: 0, secondsRequiredToStartPlayingAfterBufferUnderun: 0)
         
-        println("\(reflect(self).summary).\(__FUNCTION__)():")
+        print("Player.setupStream()")
         self.player = STKAudioPlayer(options: optns)
         self.player.meteringEnabled = true
         // Once player is initialized, set the background mode and make the player active
         self.makePlayerActive()
-        
-        var firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
-        firebase.observeEventType(.Value, withBlock: {
-            snapshot in
-            self.updatePlayerInfo(snapshot.value.objectForKey("dj") as String, title: snapshot.value.objectForKey("title") as String, imageUrl: snapshot.value.objectForKey("banner") as String)
-        })
     }
     
     /**
     Sets player to active in the background mode
     */
     func makePlayerActive() {
-        println("\(reflect(self).summary).\(__FUNCTION__):")
-        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: nil, error: nil)
-        AVAudioSession.sharedInstance().setActive(true, withOptions: nil, error: nil)
+        print("\(Mirror(reflecting:self).description).\(__FUNCTION__):")
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: [])
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true, withOptions: [])
+        } catch _ {
+        }
 
     
     }
@@ -74,18 +85,18 @@ class Player {
     /**
     Initializes Now Playing information
     
-    :param: artist Artist string
-    :param: title  Title string
-    :param: imageUrl Image Url string
+    - parameter artist: Artist string
+    - parameter title:  Title string
+    - parameter imageUrl: Image Url string
     */
     func updatePlayerInfo(artist: String, title: String, imageUrl: String ){
-        println("\(reflect(self).summary).\(__FUNCTION__)(): \(artist), title:\(title)), image url:\(imageUrl)")
+        print("\(Mirror(reflecting:self).description).\(__FUNCTION__)(): \(artist), title:\(title)), image url:\(imageUrl)")
         let mpNowPlayingCenter = MPNowPlayingInfoCenter.defaultCenter()
         let urlPath = NSURL(string:imageUrl)
         var err: NSError?
-        var imageData :NSData = NSData(contentsOfURL:urlPath!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
-        var img:UIImage = UIImage(data:imageData)!
-        var artwork = MPMediaItemArtwork(image:img)
+        let imageData :NSData = try! NSData(contentsOfURL:urlPath!,options: NSDataReadingOptions.DataReadingMappedIfSafe)
+        let img:UIImage = UIImage(data:imageData)!
+        let artwork = MPMediaItemArtwork(image:img)
         mpNowPlayingCenter.nowPlayingInfo = [MPMediaItemPropertyArtist :artist, MPMediaItemPropertyTitle : title,MPMediaItemPropertyArtwork: artwork]
     }
     
@@ -93,7 +104,7 @@ class Player {
     Make player respond to system interruptions and continue playing in the background
     */
     func addInterruptionNotification(){
-        println("\(reflect(self).summary).\(__FUNCTION__)():")
+        print("\(Mirror(reflecting:self).description).\(__FUNCTION__)():")
         self.observer = NSNotificationCenter.defaultCenter().addObserverForName(
             AVAudioSessionInterruptionNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {
                 [weak self](notification:NSNotification!) in
@@ -101,20 +112,19 @@ class Player {
                 if let whyInterrupted = whyInterrupted as? UInt {
                     if let whyInterrupted = AVAudioSessionInterruptionType(rawValue: whyInterrupted) {
                         if whyInterrupted == .Began {
-                            println("\(reflect(self).summary).\(__FUNCTION__)():interruption began:\n\(notification.userInfo!)")
+                            print("\(Mirror(reflecting:self).description).\(__FUNCTION__)():interruption began:\n\(notification.userInfo!)")
                         } else {
-                            println("\(reflect(self).summary).\(__FUNCTION__)():interruption ended:\n\(notification.userInfo!)")
+                            print("\(Mirror(reflecting:self).description).\(__FUNCTION__)():interruption ended:\n\(notification.userInfo!)")
                             let option : AnyObject? = notification.userInfo![AVAudioSessionInterruptionOptionKey]
                             if let option = option as? UInt {
-                                let options = AVAudioSessionInterruptionOptions(option)
-                                if options == .OptionShouldResume {
-                                    println("should resume")
+                                let options = AVAudioSessionInterruptionOptions(rawValue: option)
+                                if options == .ShouldResume {
+                                    print("should resume")
                                     let resumed: Void? = self?.player.playURL(self?.streamURL)
-                                    //self?.isPlaying = true
-                                    
-                                    println("bp tried to resume play: did I? \(resumed)")
+                                              
+                                    print("bp tried to resume play: did I? \(resumed)")
                                 } else {
-                                    println("not should resume")
+                                    print("not should resume")
                                 }
                             }
                         }
@@ -125,24 +135,24 @@ class Player {
     
     
     func getPlayerState() -> UInt32{
-        let playerStateValue = self.player.state.value
-        println("\(reflect(self).summary).\(__FUNCTION__): Player state value: \(playerStateValue). Player state: \(playerStates[playerStateValue]!)")
+        let playerStateValue = self.player.state.rawValue
+        print("\(Mirror(reflecting:self).description).\(__FUNCTION__): Player state value: \(playerStateValue). Player state: \(playerStates[playerStateValue]!)")
         return playerStateValue
     }
-    
-    func isPlaying() -> Bool{
-        println("\(reflect(self).summary).\(__FUNCTION__): ")
-        switch self.getPlayerState(){
-        case STKAudioPlayerStatePlaying.value, STKAudioPlayerStateBuffering.value:
-            return true
-        default:
-            return false
-        }
-    }
+//    
+//    func isPlaying() -> Bool{
+//        print("\(Mirror(reflecting:self).description).\(__FUNCTION__): ")
+//        switch self.getPlayerState(){
+//        case STKAudioPlayerStatePlaying.rawValue, STKAudioPlayerStateBuffering.rawValue:
+//            return true
+//        default:
+//            return false
+//        }
+//    }
     
     func play() {
-        println("\(reflect(self).summary).\(__FUNCTION__):")
-        if self.getPlayerState() == STKAudioPlayerStateReady.value{
+        print("\(Mirror(reflecting:self).description).\(__FUNCTION__):")
+        if self.getPlayerState() == STKAudioPlayerStateReady.rawValue{
             self.player?.playURL(self.streamURL)
         }else{
             self.player.resume()
@@ -150,24 +160,49 @@ class Player {
         
 
     }
+    func isPlaying() -> Bool{
+        print("\(Mirror(reflecting:self).description).\(__FUNCTION__): ")
+        switch self.getPlayerState(){
+        case STKAudioPlayerStatePlaying.rawValue, STKAudioPlayerStateBuffering.rawValue:
+            return true
+        default:
+            return false
+        }
+    }
     
     func pause() {
-        println("\(reflect(self).summary).\(__FUNCTION__):")
+        print("\(Mirror(reflecting:self).description).\(__FUNCTION__):")
         self.player?.pause()
         self.getPlayerState()
     }
     
-    func audioPlayerDidFinishPlaying(AVPlayer!, successfully: Bool) {
-        println("\(reflect(self).summary).\(__FUNCTION__)():")
+    func audioPlayerDidFinishPlaying(_: AVPlayer!, successfully: Bool) {
+        print("\(Mirror(reflecting:self).description).\(__FUNCTION__)():")
         let session = AVAudioSession.sharedInstance()
-        session.setActive(false, withOptions: .OptionNotifyOthersOnDeactivation, error: nil)
-        session.setCategory(AVAudioSessionCategoryAmbient, withOptions: nil, error: nil)
-        session.setActive(true, withOptions: nil, error: nil)
+        do {
+            try session.setActive(false, withOptions: .NotifyOthersOnDeactivation)
+        } catch _ {
+        }
+        do {
+            try session.setCategory(AVAudioSessionCategoryAmbient, withOptions: [])
+        } catch _ {
+        }
+        do {
+            try session.setActive(true, withOptions: [])
+        } catch _ {
+        }
         delegate?.soundFinished(self)
+    }
+    /**
+     Pause player from playing
+     */
+    func stop () {
+        print("Player.stop() called")
+        self.player?.pause()
     }
     
     deinit {
-        println("Player.deinit")
+        print("Player.deinit")
         if self.observer != nil {
             NSNotificationCenter.defaultCenter().removeObserver(self.observer)
         }

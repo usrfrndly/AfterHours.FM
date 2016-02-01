@@ -42,7 +42,7 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
             let author = snapshot.value["author"] as? String
             let text = snapshot.value["text"] as? String
             self.chatsArray.append(author:author!, text:text!)
-            println(snapshot.value)
+            print(snapshot.value)
         })
         //Whether a user is currently typing in the field
         activeField = inputMessageField
@@ -59,7 +59,7 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
         
         
         //Looks for double taps to dismiss the keyboard
-        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         self.view.addGestureRecognizer(tap)
         super.viewDidLoad()
     }
@@ -79,7 +79,7 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
     
     func keyboardWasShown(notification: NSNotification) {
         var info: Dictionary = notification.userInfo!
-        var keyboardSize: CGSize = (info[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue().size)!
+        var keyboardSize: CGSize = (info[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.size)!
         var contentInsets = UIEdgeInsetsMake(0.0,0.0,keyboardSize.height,0.0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
@@ -95,7 +95,7 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
     
     func keyboardWillBeHidden(notification: NSNotification) {
         //self.scrollView.setContentOffset(CGPointZero, animated: true)
-        var contentInsets:UIEdgeInsets = UIEdgeInsetsZero
+        let contentInsets:UIEdgeInsets = UIEdgeInsetsZero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
@@ -112,14 +112,14 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
     
     @IBAction func playerControlPressed(sender: AnyObject) {
         if self.player.isPlaying(){
-            println("\(reflect(self).summary).\(__FUNCTION__)(): Pause stream")
+            print("\(Mirror(reflecting: self).description).\(__FUNCTION__)(): Pause stream")
             self.player.pause()
-            var newBackgroundImg = UIImage(named: "Play.png")
+            let newBackgroundImg = UIImage(named: "Play.png")
             self.playerControlButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
         }else{
-            println("\(reflect(self).summary).\(__FUNCTION__)(): Play Strean")
+            print("\(Mirror(reflecting:self).description).\(__FUNCTION__)(): Play Strean")
             self.player.play()
-            var newBackgroundImg = UIImage(named: "Pause.png")
+            let newBackgroundImg = UIImage(named: "Pause.png")
             self.playerControlButton.setBackgroundImage(newBackgroundImg, forState: .Normal)
         }
     }
@@ -134,8 +134,8 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var newCell:UITableViewCell!
-        if let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as? UITableViewCell{
+        var newCell:UITableViewCell?
+        if let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell!{
             cell.textLabel!.text = "\(self.chatsArray[indexPath.row].text)"
             return cell
             
@@ -143,12 +143,12 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
             newCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: self.cellIdentifier)
             
             
-            var image = UIImage(named: "hat-guy.png")
-            newCell.imageView?.image = image
-            newCell.textLabel!.text = "\(self.chatsArray[indexPath.row].text)"
-            newCell.detailTextLabel?.text = "\(self.chatsArray[indexPath.row].author)"
+            let image = UIImage(named: "hat-guy.png")
+            newCell!.imageView?.image = image
+            newCell!.textLabel!.text = "\(self.chatsArray[indexPath.row].text)"
+            newCell!.detailTextLabel?.text = "\(self.chatsArray[indexPath.row].author)"
             
-            return newCell
+            return newCell!
         }
     }
     //MARK: Keyboard Avoidance
@@ -159,7 +159,7 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
     }
     
     func deregisterFromKeyboardNotifications() -> Void {
-        println("Deregistering!")
+        print("Deregistering!")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidHideNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardWillHideNotification, object: nil)
         

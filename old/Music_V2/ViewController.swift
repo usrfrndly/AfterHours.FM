@@ -26,13 +26,13 @@ class ViewController: UIViewController {
     Enables running the app in the background
     */
     override func canBecomeFirstResponder() -> Bool {
-        println("ViewController.canBecomeFirstResponder()")
+        print("ViewController.canBecomeFirstResponder()")
         return true
     }
     
     
     override func viewWillDisappear(animated: Bool) {
-        println("ViewController.viewWillDisappear()")
+        print("ViewController.viewWillDisappear()")
         super.viewWillDisappear(animated)
         //Turn off remote control event delivery
         UIApplication.sharedApplication().endReceivingRemoteControlEvents()
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     
     /* Enables the app to be controlled from the notification center */
     override func viewDidLoad() {
-        println("ViewController.viewDidLoad()")
+        print("ViewController.viewDidLoad()")
         super.viewDidLoad()
         self.becomeFirstResponder()
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
@@ -51,12 +51,12 @@ class ViewController: UIViewController {
     /**
     Responds to events to control player
     
-    :param: receivedEvent The type of event used to control the player
+    - parameter receivedEvent: The type of event used to control the player
     */
-    override func remoteControlReceivedWithEvent(receivedEvent: UIEvent) {
-    println("ViewController.remoteControlReceivedWithEvent(event)")
-        let eventType = receivedEvent.subtype
-        println("View Controller received remote control  type \(eventType.rawValue)")
+    override func remoteControlReceivedWithEvent(receivedEvent: UIEvent?) {
+    print("ViewController.remoteControlReceivedWithEvent(event)")
+        let eventType = receivedEvent!.subtype
+        print("View Controller received remote control  type \(eventType.rawValue)")
             // 101 = pause, 100 = play (remote control interface on control center)
             // 103 = playpause (remote control button on earbuds)
         if let p = self.player{
@@ -95,12 +95,12 @@ class ViewController: UIViewController {
     /**
     Determines whether the View Controller should segue
     
-    :param: identifier The segue identifier
-    :param: sender     What called the segue
+    - parameter identifier: The segue identifier
+    - parameter sender:     What called the segue
     
-    :returns: Whether the View controller should segue
+    - returns: Whether the View controller should segue
     */
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
 //        if identifier == "RadioToEQSegue" {
 //        // by default, transition
 //            return true
@@ -123,13 +123,13 @@ class ViewController: UIViewController {
     Prepares for segue to show EQ  view and passes the player instance to this
     new view
     
-    :param: segue  The segue to te EQ
-    :param: sender sender
+    - parameter segue:  The segue to te EQ
+    - parameter sender: sender
     */
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
         NSLog("\(__FILE__).\( __FUNCTION__)")
         if (segue.identifier == "embedContainer"){
-            self.containerViewController = segue.destinationViewController as ContainerViewController
+            self.containerViewController = segue.destinationViewController as! ContainerViewController
             containerViewController.player = self.player
             //var svc = segue!.destinationViewController as EQViewController;
             //svc.player = self.player

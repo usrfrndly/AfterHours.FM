@@ -32,39 +32,54 @@ class ViewController: UIViewController{
     @IBOutlet var navBarItem: UINavigationItem!
     
     override func viewDidLoad() {
+        
+        let img:UIImage? = UIImage(named: "menu.png")
+        self.navBarItem.leftBarButtonItem = UIBarButtonItem(image: img!, style: UIBarButtonItemStyle.Plain , target:self, action: "toggleSideMenuView")
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        println("\(reflect(self).summary).\(__FUNCTION__):")
-        if player.isPlaying(){
-            var newBackgroundImg = UIImage(named: "Play.png")
+        if(player.isPlaying()){
+            let newBackgroundImg = UIImage(named: "Pause.png")
+            self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal)
+        }else{
+            let newBackgroundImg = UIImage(named: "Play.png")
             self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
         }
+
+//        print("\(Mirror(reflecting:self).description).\(__FUNCTION__):")
+//        if player.isPlaying(){
+//            let newBackgroundImg = UIImage(named: "Play.png")
+//            self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
+//        }
         
         Alamofire.request(.GET, "http://httpbin.org/get")
-            .responseJSON { (_, _, JSON, _) in
-                println(JSON)
+            .responseJSON { ( JSON) in
+                print(JSON)
         }
         
-        var firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
+        let firebase = Firebase(url: "https://ahfm.firebaseio.com/playlist")
         firebase.observeEventType(.Value, withBlock: {
             snapshot in
             self.radioshowLabel.text = snapshot.value.objectForKey("title") as? String
             self.djLabel.text = snapshot.value.objectForKey("dj") as? String
             
-            let urlPath = NSURL(string:snapshot.value.objectForKey("banner") as String)
-            var err: NSError?
-            var imageData :NSData = NSData(contentsOfURL:urlPath!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
-            var img:UIImage = UIImage(data:imageData)!
-            
-            self.bannerBackground.image = img
-            self.bannerImage.setImage(img, forState: UIControlState.Normal)
-            //self.player.updatePlayerInfo(snapshot.value.objectForKey("dj") as String, title: snapshot.value.objectForKey("title") as String, imageUrl: snapshot.value.objectForKey("banner") as String)
+            let urlPath = NSURL(string:snapshot.value.objectForKey("banner") as! String)
+            do{
+          let  imageData:NSData = try NSData(contentsOfURL:urlPath!,options: NSDataReadingOptions.DataReadingMappedIfSafe)
+                let img:UIImage = UIImage(data:imageData)!
+                self.bannerBackground.image = img
+                self.bannerImage.setImage(img, forState: UIControlState.Normal)
+                //self.player.updatePlayerInfo(snapshot.value.objectForKey("dj") as String, title: snapshot.value.objectForKey("title") as String, imageUrl: snapshot.value.objectForKey("banner") as String)
+                //self.player.updatePlayerInfo("John Doe", title: "Testin 123", imageUrl: "http://dev.ah.fm/assets/default.png")
+              
+
+
+            }
+            catch _{}
+                
+        
+          
         })
         
-        //self.player.updatePlayerInfo("John Doe", title: "Testin 123", imageUrl: "http://dev.ah.fm/assets/default.png")
-        var img:UIImage? = UIImage(named: "menu.png")
-        navBarItem.leftBarButtonItem = UIBarButtonItem(image: img!, style: UIBarButtonItemStyle.Bordered , target:self, action: "toggleSideMenuView")
         
     }
     
@@ -77,14 +92,14 @@ class ViewController: UIViewController{
         //let playerStateValue = self.player.getPlayerState()
         //println("Player state value: \(self.player.player.state.value)")
         if self.player.isPlaying(){
-            println("\(reflect(self).summary).\(__FUNCTION__)(): Pause stream")
+            print("\(Mirror(reflecting:self).description).\(__FUNCTION__)(): Pause stream")
             self.player.pause()
-            var newBackgroundImg = UIImage(named: "Play.png")
+            let newBackgroundImg = UIImage(named: "Play.png")
             self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal )
         }else{
-            println("\(reflect(self).summary).\(__FUNCTION__)(): Play Strean")
+            print("\(Mirror(reflecting:self).description).\(__FUNCTION__)(): Play Strean")
             self.player.play()
-            var newBackgroundImg = UIImage(named: "Pause.png")
+            let newBackgroundImg = UIImage(named: "Pause.png")
             self.togglePlayButton.setBackgroundImage(newBackgroundImg, forState: .Normal)
         }
     }

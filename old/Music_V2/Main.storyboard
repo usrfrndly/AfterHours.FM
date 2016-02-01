@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,29 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Lg-uf-bHe">
-                                <rect key="frame" x="16" y="20" width="98" height="69"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QjL-dO-KSv"/>
-                                </connections>
-                            </button>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="0im-oV-RJu">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0im-oV-RJu">
                                 <rect key="frame" x="16" y="173" width="568" height="427"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="K0c-h8-6Kj" kind="embed" identifier="embedContainer" id="nkm-6T-VMD"/>
                                 </connections>
                             </containerView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-xK-swS">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-xK-swS">
                                 <rect key="frame" x="554" y="20" width="30" height="30"/>
                                 <state key="normal" title="EQ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="showEQ:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ia-fY-DjH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Lg-uf-bHe">
+                                <rect key="frame" x="16" y="20" width="98" height="69"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4jG-fH-63K"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -132,7 +133,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-hO-Xff" userLabel="50 HZ Slider">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-hO-Xff" userLabel="50 HZ Slider">
                                 <rect key="frame" x="363" y="12" width="191" height="32"/>
                                 <color key="tintColor" red="1" green="0.31313637459999999" blue="0.91883445460000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -151,7 +152,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="qyy-Kc-Wu3" userLabel="100hz Slider">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="qyy-Kc-Wu3" userLabel="100hz Slider">
                                 <rect key="frame" x="363" y="62" width="191" height="31"/>
                                 <color key="tintColor" red="1" green="0.31313637459999999" blue="0.91883445460000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -171,7 +172,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="lzp-Tp-ga9" userLabel="200 HZ Slider">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="lzp-Tp-ga9" userLabel="200 HZ Slider">
                                 <rect key="frame" x="363" y="112" width="191" height="31"/>
                                 <color key="tintColor" red="1" green="0.31313637459999999" blue="0.91883445460000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -209,7 +210,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="mR8-QZ-Sga" userLabel="800hz slider">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="mR8-QZ-Sga" userLabel="800hz slider">
                                 <rect key="frame" x="363" y="212" width="191" height="31"/>
                                 <color key="tintColor" red="1" green="0.31313637459999999" blue="0.91883445460000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -228,14 +229,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="pfR-gB-CWv" userLabel="1600hz slider">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="pfR-gB-CWv" userLabel="1600hz slider">
                                 <rect key="frame" x="363" y="262" width="191" height="31"/>
                                 <color key="tintColor" red="1" green="0.31313637459999999" blue="0.91883445460000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="EQ1600HertzChanged:" destination="xln-SF-ffd" eventType="touchUpInside" id="4Z1-Vl-Ji2"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1600 HZ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvF-vK-fqS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1600 HZ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvF-vK-fqS">
                                 <rect key="frame" x="296" y="266" width="66" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0dl-mj-eVN"/>
@@ -244,7 +245,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="LCP-zi-4kx" userLabel="2600hz slider">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="LCP-zi-4kx" userLabel="2600hz slider">
                                 <rect key="frame" x="363" y="312" width="191" height="31"/>
                                 <color key="tintColor" red="1" green="0.31313637459999999" blue="0.91883445460000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -260,7 +261,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="loc-Wg-vk0" userLabel="16000 hz slider">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-96" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="loc-Wg-vk0" userLabel="16000 hz slider">
                                 <rect key="frame" x="363" y="362" width="191" height="31"/>
                                 <color key="tintColor" red="1" green="0.31313637459999999" blue="0.91883445460000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>

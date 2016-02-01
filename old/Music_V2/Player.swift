@@ -49,9 +49,9 @@ class Player{
         /// This sets the frequencies of the equalizer bands of the graphic equalizer built into STKAudioPlayer
         let equalizerBands:(Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32, Float32) = (50, 100, 200, 400, 800, 1600, 2600, 16000, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 0 , 0, 0 )
         /// The options that the STKAudioPlayer should be initialized with. The 0 options enable the default options.
-        var optns:STKAudioPlayerOptions = STKAudioPlayerOptions(flushQueueOnSeek: true, enableVolumeMixer: true, equalizerBandFrequencies:equalizerBands,readBufferSize: 0, bufferSizeInSeconds: 0, secondsRequiredToStartPlaying: 0, gracePeriodAfterSeekInSeconds: 0, secondsRequiredToStartPlayingAfterBufferUnderun: 0)
+        let optns:STKAudioPlayerOptions = STKAudioPlayerOptions(flushQueueOnSeek: true, enableVolumeMixer: true, equalizerBandFrequencies:equalizerBands,readBufferSize: 0, bufferSizeInSeconds: 0, secondsRequiredToStartPlaying: 0, gracePeriodAfterSeekInSeconds: 0, secondsRequiredToStartPlayingAfterBufferUnderun: 0)
     
-        println("Player.setupStream()")
+        print("Player.setupStream()")
         self.player = STKAudioPlayer(options: optns)
         self.player.meteringEnabled = true
         // Once player is initialized, set the background mode and make the player active
@@ -61,9 +61,16 @@ class Player{
     Sets player to active in the background mode
     */
     func makePlayerActive(){
-        println("Called Player.makePlayerActive()")
-        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: nil, error: nil)
-        AVAudioSession.sharedInstance().setActive(true, withOptions: nil, error: nil)
+        print("Called Player.makePlayerActive()")
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: [])
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true, withOptions: [])
+        } catch _ {
+        }
+        self.player.play(fileURL.absoluteString)
     }
     /**
     Make player respond to system interruptions and continue playing in the background
@@ -76,20 +83,20 @@ class Player{
                 if let whyInterrupted = whyInterrupted as? UInt {
                     if let whyInterrupted = AVAudioSessionInterruptionType(rawValue: whyInterrupted) {
                         if whyInterrupted == .Began {
-                            println("interruption began:\n\(notification.userInfo!)")
+                            print("interruption began:\n\(notification.userInfo!)")
                         } else {
-                            println("interruption ended:\n\(notification.userInfo!)")
+                            print("interruption ended:\n\(notification.userInfo!)")
                             let option : AnyObject? = notification.userInfo![AVAudioSessionInterruptionOptionKey]
                             if let option = option as? UInt {
-                                let options = AVAudioSessionInterruptionOptions(option)
-                                if options == .OptionShouldResume {
-                                    println("should resume")
+                                let options = AVAudioSessionInterruptionOptions(rawValue: option)
+                                if options == .ShouldResume {
+                                    print("should resume")
                                     let resumed: Void? = self?.player.playURL(self?.fileURL)
                                     self?.isPlaying = true
                                     
-                                    println("bp tried to resume play: did I? \(resumed)")
+                                    print("bp tried to resume play: did I? \(resumed)")
                                 } else {
-                                    println("not should resume")
+                                    print("not should resume")
                                 }
                             }
                         }
@@ -102,7 +109,7 @@ class Player{
     Pause player from playing
     */
     func stop () {
-        println("Player.stop() called")
+        print("Player.stop() called")
         self.player?.pause()
         self.isPlaying = false
     }
@@ -110,34 +117,41 @@ class Player{
     /**
     Initializes Now Playing information
     
-    :param: artist Artist string
-    :param: title  Title string
-    :param: imageUrl Image Url string
+    - parameter artist: Artist string
+    - parameter title:  Title string
+    - parameter imageUrl: Image Url string
     */
     func setTitleAndArtistAndImage(artist: String,title:String, imageUrl:String ){
-        println("Player.setTitleAndArtist(artist: \(artist), title:\(title)), url:\(imageUrl)")
+        print("Player.setTitleAndArtist(artist: \(artist), title:\(title)), url:\(imageUrl)")
         let mpNowPlayingCenter = MPNowPlayingInfoCenter.defaultCenter()
         let urlPath = NSURL(string:imageUrl)
         var err: NSError?
-        var imageData :NSData = NSData(contentsOfURL:urlPath!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
-        var img:UIImage = UIImage(data:imageData)!
-        var artwork = MPMediaItemArtwork(image:img)
-        mpNowPlayingCenter.nowPlayingInfo = [MPMediaItemPropertyArtist :artist, MPMediaItemPropertyTitle : title,MPMediaItemPropertyArtwork: artwork]
+        //var imageData = NSData(contentsOfURL:urlPath!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
+        mpNowPlayingCenter.nowPlayingInfo = [MPMediaItemPropertyArtist :artist, MPMediaItemPropertyTitle : title       ]
     }
     
     //TODO: Not sure what this does...
-    func audioPlayerDidFinishPlaying(AVPlayer!, successfully: Bool) {
-        println("Player.audioPlayerDidFinishPlaying()")
+    func audioPlayerDidFinishPlaying(_: AVPlayer!, successfully: Bool) {
+        print("Player.audioPlayerDidFinishPlaying()")
         let sess = AVAudioSession.sharedInstance()
-        sess.setActive(false, withOptions: .OptionNotifyOthersOnDeactivation, error: nil)
-        sess.setCategory(AVAudioSessionCategoryAmbient, withOptions: nil, error: nil)
-        sess.setActive(true, withOptions: nil, error: nil)
+        do {
+            try sess.setActive(false, withOptions: .NotifyOthersOnDeactivation)
+        } catch _ {
+        }
+        do {
+            try sess.setCategory(AVAudioSessionCategoryAmbient, withOptions: [])
+        } catch _ {
+        }
+        do {
+            try sess.setActive(true, withOptions: [])
+        } catch _ {
+        }
         delegate?.soundFinished(self)
     }
     
     //TODO: Not sure what this does...
     deinit {
-        println("Player.deinit")
+        print("Player.deinit")
         if self.observer != nil {
             NSNotificationCenter.defaultCenter().removeObserver(self.observer)
         }

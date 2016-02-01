@@ -10,7 +10,7 @@ import UIKit
 
 class MyMenuTableViewController: UITableViewController {
     var selectedMenuItem : Int = 0
-    var menuItems = [("DJs",UIImage(named:"djs.png")),("Shows",UIImage(named:"shows.png")),("EQ",UIImage(named:"EQ.png"))]
+    var menuItems = [("Home",UIImage(named:"events")),("DJs",UIImage(named:"djs.png")),("Shows",UIImage(named:"shows.png")),("EQ",UIImage(named:"EQ.png"))]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +45,7 @@ class MyMenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("CELL") as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("CELL") as UITableViewCell?
         
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CELL")
@@ -71,14 +71,18 @@ class MyMenuTableViewController: UITableViewController {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Profiles") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Main") as UIViewController
             break
         case 1:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("RadioShows") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Profiles") as UIViewController
             break
         case 2:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Eq") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("RadioShows") as UIViewController
             break
+        case 3:
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("EQ") as UIViewController
+            break
+        
         default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Main") as UIViewController
             break
@@ -130,12 +134,12 @@ class MyMenuTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var tableHeight = tableView.contentSize.height
-        var tableViewFrameHeight = tableView.frame.height
-        println(tableHeight)
-        println(tableViewFrameHeight)
-        println(tableView.sectionHeaderHeight)
-        println(tableView.sectionFooterHeight)
+        let tableHeight = tableView.contentSize.height
+        let tableViewFrameHeight = tableView.frame.height
+        print(tableHeight)
+        print(tableViewFrameHeight)
+        print(tableView.sectionHeaderHeight)
+        print(tableView.sectionFooterHeight)
         
         return tableViewFrameHeight/4.0 - 44
         

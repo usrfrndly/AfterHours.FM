@@ -48,7 +48,7 @@ public extension UIViewController {
         if (iteration == nil) {
             return topMostController()
         }
-        do {
+        repeat {
             if (iteration is ENSideMenuProtocol) {
                 return iteration as? ENSideMenuProtocol
             } else if (iteration?.parentViewController != nil && iteration?.parentViewController != iteration) {
@@ -79,12 +79,12 @@ public class ENSideMenu : NSObject {
             updateFrame()
         }
     }
-    private let menuPosition:ENSideMenuPosition = .Left
+    private var menuPosition:ENSideMenuPosition = .Left
     public var bouncingEnabled :Bool = true
     private let sideMenuContainerView =  UIView()
     private var menuTableViewController : UITableViewController!
     private var animator : UIDynamicAnimator!
-    private let sourceView : UIView!
+    private var sourceView : UIView!
     private var needUpdateApperance : Bool = false
     public weak var delegate : ENSideMenuDelegate?
     private var isMenuOpen : Bool = false
@@ -121,7 +121,7 @@ public class ENSideMenu : NSObject {
         self.init(sourceView: sourceView, menuPosition: menuPosition)
         self.menuTableViewController = menuTableViewController
         self.menuTableViewController.tableView.frame = sideMenuContainerView.bounds
-        self.menuTableViewController.tableView.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+        self.menuTableViewController.tableView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         sideMenuContainerView.addSubview(self.menuTableViewController.tableView)
     }
     
@@ -155,9 +155,9 @@ public class ENSideMenu : NSObject {
         
         if (NSClassFromString("UIVisualEffectView") != nil) {
             // Add blur view
-            var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
             visualEffectView.frame = sideMenuContainerView.bounds
-            visualEffectView.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+            visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
             sideMenuContainerView.addSubview(visualEffectView)
         }
         else {

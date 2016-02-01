@@ -31,12 +31,12 @@ class ContainerViewController:UIViewController{
         // instances if we have it. Remove the second condition of the following
         // two if statements to get new VC instances instead.
         if (segue.identifier! == self.SegueIdentifierFirst) {
-            self.firstViewController = segue.destinationViewController as FirstViewController
+            self.firstViewController = segue.destinationViewController as! FirstViewController
             self.firstViewController.player = self.player
         }
         
         if (segue.identifier == self.SegueIdentifierSecond) {
-            self.secondViewController = segue.destinationViewController as EQViewController
+            self.secondViewController = segue.destinationViewController as! EQViewController
             self.secondViewController.player = self.player
 
         }
@@ -51,8 +51,8 @@ class ContainerViewController:UIViewController{
                 // If this is the very first time we're loading this we need to do
                 // an initial load and not a swap.
                 self.addChildViewController(segue.destinationViewController as UIViewController)
-                var destView:UIView! = segue.destinationViewController.view!
-                destView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+                let destView:UIView! = segue.destinationViewController.view!
+                destView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
                 destView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
                 self.view.addSubview(destView);
                 segue.destinationViewController.didMoveToParentViewController(self);
