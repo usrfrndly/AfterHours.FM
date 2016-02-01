@@ -20,6 +20,9 @@ class EQViewController:UIViewController{
     @IBOutlet weak var togglePlayButton: UIButton!
 
     
+    @IBOutlet var eqSliders: [UISlider]!
+
+    
     /* EQ FILTER NODES */
     var reverbNode:AVAudioUnitReverb!
     var distortionNode:AVAudioUnitDistortion!
@@ -30,7 +33,7 @@ class EQViewController:UIViewController{
     override init(nibName: String?, bundle: NSBundle?) {
             super.init(nibName: nibName,bundle: bundle)
             //Custom Initialization when we need it
-            
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -122,5 +125,79 @@ class EQViewController:UIViewController{
         
     }
     
+    
+    @IBAction func resetClicked(sender: AnyObject) {
+        for slider in eqSliders{
+            slider.value = 0
+        }
+    }
+    
+    //Deep Bass +4 +8 -8 -4
 
+    @IBAction func toggleDeepBass(sender: UISwitch, forEvent event: UIEvent) {
+        print("eq \(eqSliders)")
+        if(sender.on){
+                eqSliders[0].value = 8;
+                eqSliders[1].value = 16;
+                eqSliders[2].value = -6;
+                eqSliders[3].value = -8;
+        }else{
+            eqSliders[0].value = 0;
+            eqSliders[1].value = 0;
+            eqSliders[2].value = 0;
+            eqSliders[3].value = 0;
+        }
+        
+    }
+    
+    @IBAction func toggleRock(sender: UISwitch) {
+        if(sender.on){
+            eqSliders[0].value = 16
+            eqSliders[1].value = 8
+            eqSliders[2].value = 4
+            eqSliders[3].value = 2
+            eqSliders[4].value = -10
+             eqSliders[5].value = 2
+            eqSliders[5].value = 4
+            eqSliders[6].value = 8
+             eqSliders[7].value = 16
+        }else{
+            eqSliders[0].value = 0;
+            eqSliders[1].value = 0;
+            eqSliders[2].value = 0;
+            eqSliders[3].value = 0;
+            eqSliders[4].value = 0;
+            eqSliders[5].value = 0;
+            eqSliders[6].value = 0;
+            eqSliders[7].value = 0;
+        }
+        
+    }
+    
+    //   db +3, +6, +9, +7, +6, +5, +7, +9, +11, +8 db
+
+    @IBAction func toggleAmbientPop(sender: UISwitch) {
+        if(sender.on){
+            eqSliders[0].value = 3
+            eqSliders[1].value = 6
+            eqSliders[2].value = 9
+            eqSliders[3].value = 7
+            eqSliders[4].value = 6
+            eqSliders[5].value = 5
+            eqSliders[5].value = 7
+            eqSliders[6].value = 9
+            eqSliders[7].value = 16
+        }else{
+            eqSliders[0].value = 0;
+            eqSliders[1].value = 0;
+            eqSliders[2].value = 0;
+            eqSliders[3].value = 0;
+            eqSliders[4].value = 0;
+            eqSliders[5].value = 0;
+            eqSliders[6].value = 0;
+            eqSliders[7].value = 0;
+        }
+    }
 }
+
+
