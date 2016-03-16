@@ -536,10 +536,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jOq-NP-6wK">
-                                <rect key="frame" x="0.0" y="64" width="600" height="421"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gty-jH-vBC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="485"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jOq-NP-6wK">
+                                        <rect key="frame" x="0.0" y="-2" width="600" height="487"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="glV-sP-7sS" id="H7n-Yf-9kT"/>
+                                            <outlet property="delegate" destination="glV-sP-7sS" id="1Vb-aY-hzy"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jOq-NP-6wK" secondAttribute="trailing" id="70a-Ht-Cgz"/>
+                                    <constraint firstAttribute="bottom" secondItem="jOq-NP-6wK" secondAttribute="bottom" id="7et-0g-dfQ"/>
+                                    <constraint firstItem="jOq-NP-6wK" firstAttribute="leading" secondItem="gty-jH-vBC" secondAttribute="leading" id="LOs-sk-Q8R"/>
+                                    <constraint firstItem="jOq-NP-6wK" firstAttribute="top" secondItem="gty-jH-vBC" secondAttribute="top" constant="-2" id="MvJ-ZO-67v"/>
+                                    <constraint firstItem="jOq-NP-6wK" firstAttribute="centerY" secondItem="gty-jH-vBC" secondAttribute="centerY" constant="-1" id="gca-6q-cob"/>
+                                    <constraint firstItem="jOq-NP-6wK" firstAttribute="centerX" secondItem="gty-jH-vBC" secondAttribute="centerX" id="nEH-0O-047"/>
+                                </constraints>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPc-dt-Wfb">
                                 <rect key="frame" x="0.0" y="485" width="600" height="45"/>
                                 <subviews>
@@ -659,21 +676,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gty-jH-vBC" firstAttribute="leading" secondItem="IPc-dt-Wfb" secondAttribute="leading" id="Bjz-vA-5oE"/>
                             <constraint firstItem="FoI-IS-fnc" firstAttribute="leading" secondItem="18E-vA-I6L" secondAttribute="leading" id="Dit-Hn-xF9"/>
                             <constraint firstItem="FoI-IS-fnc" firstAttribute="top" secondItem="IPc-dt-Wfb" secondAttribute="bottom" id="FNu-hQ-hOE"/>
-                            <constraint firstItem="IPc-dt-Wfb" firstAttribute="top" secondItem="jOq-NP-6wK" secondAttribute="bottom" id="cMC-bM-dKf"/>
+                            <constraint firstItem="IPc-dt-Wfb" firstAttribute="top" secondItem="gty-jH-vBC" secondAttribute="bottom" id="Shp-Ja-FdQ"/>
                             <constraint firstItem="2QQ-kk-TJu" firstAttribute="top" secondItem="FoI-IS-fnc" secondAttribute="bottom" id="e5w-iU-Lkd"/>
-                            <constraint firstItem="jOq-NP-6wK" firstAttribute="leading" secondItem="18E-vA-I6L" secondAttribute="leading" id="hdS-j0-cGB"/>
+                            <constraint firstItem="gty-jH-vBC" firstAttribute="top" secondItem="18E-vA-I6L" secondAttribute="top" id="eOX-jb-dt0"/>
+                            <constraint firstItem="gty-jH-vBC" firstAttribute="trailing" secondItem="IPc-dt-Wfb" secondAttribute="trailing" id="k7h-Wt-vCo"/>
                             <constraint firstAttribute="trailing" secondItem="IPc-dt-Wfb" secondAttribute="trailing" id="nym-3X-hBu"/>
                             <constraint firstAttribute="trailing" secondItem="FoI-IS-fnc" secondAttribute="trailing" id="psG-h8-srU"/>
-                            <constraint firstItem="jOq-NP-6wK" firstAttribute="top" secondItem="cnZ-y5-QW8" secondAttribute="bottom" constant="44" id="qIv-bu-y1d"/>
-                            <constraint firstAttribute="trailing" secondItem="jOq-NP-6wK" secondAttribute="trailing" id="xH7-0B-aCi"/>
                             <constraint firstItem="IPc-dt-Wfb" firstAttribute="leading" secondItem="18E-vA-I6L" secondAttribute="leading" id="z0L-9O-XSX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="DJ Profiles" id="cel-HO-CqN"/>
                     <connections>
                         <outlet property="djLabel" destination="Iv2-Jm-mlB" id="uIn-2P-Ar1"/>
+                        <outlet property="djTableView" destination="jOq-NP-6wK" id="TfA-I7-B8H"/>
                         <outlet property="navBarItem" destination="cel-HO-CqN" id="5Mf-1c-IJc"/>
                         <outlet property="radioshowLabel" destination="6WI-Lc-fcT" id="5V2-6o-gh6"/>
                         <outlet property="togglePlayButton" destination="YUF-28-3xF" id="e6k-Gr-Zuq"/>

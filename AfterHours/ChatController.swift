@@ -25,6 +25,8 @@ class ChatController: UIViewController , UITableViewDelegate, UITableViewDataSou
     @IBOutlet var messageSendButton: UIButton!
     @IBOutlet var navBarItem: UINavigationItem!
 
+    
+    
     var activeField:UITextField?
     
     override func viewDidLoad() {
